@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Save to Collection Popover — Rymae</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'canvas': '#FBF9F6',
+            'surface': '#FFFFFF',
+            'surface-subtle': '#F7F4EE',
+            'surface-border': '#EAE5DC',
+            'ink-primary': '#1A1817',
+            'ink-secondary': '#635F5B',
+            'ink-tertiary': '#9A948D',
+            'burgundy': '#4A1521',
+            'burgundy-hover': '#380F18',
+            'burgundy-subtle': '#F5EBEF',
+            'gold-accent': '#C5A880'
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+            brand: ['Audrey', 'Cinzel', 'Playfair Display', 'serif']
+          },
+          boxShadow: {
+            'popover': '0 16px 40px -8px rgba(35, 20, 24, 0.16), 0 4px 14px -2px rgba(35, 20, 24, 0.08)',
+            'bottomsheet': '0 -10px 40px -4px rgba(35, 20, 24, 0.18)'
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .custom-scroll::-webkit-scrollbar { width: 4px; }
+    .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+    .custom-scroll::-webkit-scrollbar-thumb { background: #E2DBD0; border-radius: 9999px; }
+    .custom-scroll::-webkit-scrollbar-thumb:hover { background: #C5BAA8; }
+  </style>
+</link></head>
+<body class="bg-[#2D2A29] text-ink-primary font-sans antialiased min-h-screen flex items-center justify-center p-4 relative overflow-hidden select-none">
+<!-- Background App Context (Curated Discovery Card / Runway Look behind the popover) -->
+<div class="fixed inset-0 opacity-40 blur-[2px] pointer-events-none scale-105 bg-center bg-cover" style="background-image: url('https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg');">
+</div>
+<div class="fixed inset-0 bg-[#161413]/60 backdrop-blur-[6px]" onclick="closePopover()"></div>
+<!-- Anchor Context Marker Demo (Simulates clicking on product/look save button) -->
+<div class="absolute top-8 left-1/2 -translate-x-1/2 z-10 hidden md:flex items-center gap-3 px-4 py-2 bg-surface/90 backdrop-blur-md rounded-full border border-surface-border text-xs text-ink-secondary shadow-md">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+<span>Triggered from: <strong class="text-ink-primary font-medium">Totême Wool Wrap Trench Coat</strong></span>
+<span class="text-ink-tertiary">|</span>
+<span class="text-burgundy font-medium tracking-wider uppercase text-[10px]">RYMAE Atelier Item #4102</span>
+</div>
+<!-- THE COMPACT POPOVER CONTAINER -->
+<!-- Anchored Popover (Desktop ~360px wide, max 510px high; Mobile compact modal / bottom overlay) -->
+<div class="relative z-30 w-full max-w-[364px] bg-canvas rounded-2xl border border-surface-border shadow-popover overflow-hidden flex flex-col transition-all duration-300 ease-out transform" id="popover-card" style="max-height: 520px; height: 504px;">
+<!-- 1. HEADER (Compact, Editorial, with title & close button) -->
+<header class="px-5 pt-4 pb-3 flex items-center justify-between border-b border-surface-border/60 bg-canvas/95 backdrop-blur-sm shrink-0">
+<div class="w-7"></div> <!-- Spacer to keep title centered -->
+<div class="text-center">
+<h2 class="font-serif text-lg text-ink-primary tracking-wide font-normal">Save to Collection</h2>
+<p class="text-[11px] text-ink-tertiary tracking-tight -mt-0.5">Curate your personal Rymae archive</p>
+</div>
+<button class="w-7 h-7 flex items-center justify-center rounded-full text-ink-tertiary hover:text-ink-primary hover:bg-surface-subtle transition-colors focus:outline-none" onclick="closePopover()" title="Close">
+<span class="material-symbols-outlined text-[19px]">close</span>
+</button>
+</header>
+<!-- 2. SEARCH INPUT (Rounded, compact with instant filter) -->
+<div class="px-4 pt-3 pb-2 shrink-0 bg-canvas">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-[18px] text-ink-tertiary pointer-events-none">search</span>
+<input class="w-full pl-9 pr-8 py-2 text-xs text-ink-primary bg-surface border border-surface-border rounded-xl placeholder:text-ink-tertiary/75 focus:outline-none focus:border-burgundy focus:ring-1 focus:ring-burgundy/20 transition-all font-sans" id="collection-search" oninput="filterCollections(this.value)" placeholder="Search your collections..." type="text"/>
+<button class="hidden absolute right-2.5 text-ink-tertiary hover:text-ink-primary" id="clear-search-btn" onclick="clearSearch()">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+</button>
+</div>
+</div>
+<!-- MAIN SCROLLABLE CONTENT BODY -->
+<div class="flex-1 overflow-y-auto px-3.5 py-1.5 custom-scroll divide-y divide-surface-border/40" id="scroll-content">
+<!-- 3. TOP CHOICES (Suggested Collections) -->
+<section class="pb-3 pt-1" id="section-suggested">
+<div class="flex items-center justify-between px-2 mb-1.5">
+<span class="text-[11px] font-medium uppercase tracking-wider text-ink-tertiary font-sans">Suggested Collections</span>
+<span class="text-[10px] text-gold-accent font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[11px]">auto_awesome</span> Smart match
+          </span>
+</div>
+<div class="space-y-1" id="suggested-list">
+<!-- Suggested 1: Everyday Essentials (Saved state) -->
+<div class="collection-row group flex items-center justify-between p-2 rounded-xl hover:bg-surface border border-transparent hover:border-surface-border/60 transition-all cursor-pointer select-none" onclick="toggleCollection(this, 'Everyday Essentials')">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-surface-border/80 bg-surface-subtle relative">
+<img alt="Everyday Essentials cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<p class="text-xs font-medium text-ink-primary truncate collection-name">Everyday Essentials</p>
+</div>
+<p class="text-[10px] text-ink-tertiary">24 pieces · Autumn Edit</p>
+</div>
+</div>
+<button class="save-status-btn flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium transition-all shrink-0 bg-burgundy text-white shadow-xs">
+<span class="material-symbols-outlined text-[13px]">check</span>
+<span>Saved</span>
+</button>
+</div>
+<!-- Suggested 2: Date Night -->
+<div class="collection-row group flex items-center justify-between p-2 rounded-xl hover:bg-surface border border-transparent hover:border-surface-border/60 transition-all cursor-pointer select-none" onclick="toggleCollection(this, 'Date Night')">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-surface-border/80 bg-surface-subtle relative">
+<img alt="Date Night cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+</div>
+<div class="min-w-0">
+<p class="text-xs font-medium text-ink-primary truncate collection-name">Date Night</p>
+<p class="text-[10px] text-ink-tertiary">9 pieces · Silk &amp; Tailoring</p>
+</div>
+</div>
+<button class="save-status-btn flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium transition-all shrink-0 bg-surface border border-surface-border text-ink-secondary group-hover:border-burgundy group-hover:text-burgundy">
+<span>Save</span>
+</button>
+</div>
+<!-- Suggested 3: Wedding Guest Looks -->
+<div class="collection-row group flex items-center justify-between p-2 rounded-xl hover:bg-surface border border-transparent hover:border-surface-border/60 transition-all cursor-pointer select-none" onclick="toggleCollection(this, 'Wedding Guest Looks')">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-surface-border/80 bg-surface-subtle relative">
+<img alt="Wedding Guest Looks cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+</div>
+<div class="min-w-0">
+<p class="text-xs font-medium text-ink-primary truncate collection-name">Wedding Guest Looks</p>
+<p class="text-[10px] text-ink-tertiary">14 pieces · Venice Occasion</p>
+</div>
+</div>
+<button class="save-status-btn flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium transition-all shrink-0 bg-surface border border-surface-border text-ink-secondary group-hover:border-burgundy group-hover:text-burgundy">
+<span>Save</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 4. ALL COLLECTIONS (User Custom Collections) -->
+<section class="pt-3 pb-2" id="section-all">
+<div class="flex items-center justify-between px-2 mb-1.5">
+<span class="text-[11px] font-medium uppercase tracking-wider text-ink-tertiary font-sans">All Collections</span>
+<span class="text-[10px] text-ink-tertiary" id="total-count-badge">6 total</span>
+</div>
+<div class="space-y-1" id="all-list">
+<!-- All 1: Capsule Wardrobe -->
+<div class="collection-row group flex items-center justify-between p-2 rounded-xl hover:bg-surface border border-transparent hover:border-surface-border/60 transition-all cursor-pointer select-none" onclick="toggleCollection(this, 'Capsule Wardrobe')">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-surface-border/80 bg-surface-subtle relative">
+<img alt="Capsule Wardrobe cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+</div>
+<div class="min-w-0">
+<p class="text-xs font-medium text-ink-primary truncate collection-name">Capsule Wardrobe</p>
+<p class="text-[10px] text-ink-tertiary">18 pieces · Neutral Atelier</p>
+</div>
+</div>
+<button class="save-status-btn flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium transition-all shrink-0 bg-surface border border-surface-border text-ink-secondary group-hover:border-burgundy group-hover:text-burgundy">
+<span>Save</span>
+</button>
+</div>
+<!-- All 2: Runway Inspiration (Saved state) -->
+<div class="collection-row group flex items-center justify-between p-2 rounded-xl hover:bg-surface border border-transparent hover:border-surface-border/60 transition-all cursor-pointer select-none" onclick="toggleCollection(this, 'Runway Inspiration')">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-surface-border/80 bg-surface-subtle relative">
+<img alt="Runway Inspiration cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+</div>
+<div class="min-w-0">
+<p class="text-xs font-medium text-ink-primary truncate collection-name">Runway Inspiration</p>
+<p class="text-[10px] text-ink-tertiary">31 pieces · Paris &amp; Milan AW26</p>
+</div>
+</div>
+<button class="save-status-btn flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium transition-all shrink-0 bg-burgundy text-white shadow-xs">
+<span class="material-symbols-outlined text-[13px]">check</span>
+<span>Saved</span>
+</button>
+</div>
+<!-- All 3: Street Style -->
+<div class="collection-row group flex items-center justify-between p-2 rounded-xl hover:bg-surface border border-transparent hover:border-surface-border/60 transition-all cursor-pointer select-none" onclick="toggleCollection(this, 'Street Style')">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-surface-border/80 bg-surface-subtle relative">
+<img alt="Street Style cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+</div>
+<div class="min-w-0">
+<p class="text-xs font-medium text-ink-primary truncate collection-name">Street Style</p>
+<p class="text-[10px] text-ink-tertiary">12 pieces · Oversized &amp; Loafers</p>
+</div>
+</div>
+<button class="save-status-btn flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium transition-all shrink-0 bg-surface border border-surface-border text-ink-secondary group-hover:border-burgundy group-hover:text-burgundy">
+<span>Save</span>
+</button>
+</div>
+<!-- All 4: Wishlist -->
+<div class="collection-row group flex items-center justify-between p-2 rounded-xl hover:bg-surface border border-transparent hover:border-surface-border/60 transition-all cursor-pointer select-none" onclick="toggleCollection(this, 'Wishlist')">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-surface-border/80 bg-surface-subtle relative">
+<img alt="Wishlist cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+</div>
+<div class="min-w-0">
+<p class="text-xs font-medium text-ink-primary truncate collection-name">Wishlist</p>
+<p class="text-[10px] text-ink-tertiary">7 pieces · Under $300 cap</p>
+</div>
+</div>
+<button class="save-status-btn flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium transition-all shrink-0 bg-surface border border-surface-border text-ink-secondary group-hover:border-burgundy group-hover:text-burgundy">
+<span>Save</span>
+</button>
+</div>
+<!-- All 5: Office Outfits -->
+<div class="collection-row group flex items-center justify-between p-2 rounded-xl hover:bg-surface border border-transparent hover:border-surface-border/60 transition-all cursor-pointer select-none" onclick="toggleCollection(this, 'Office Outfits')">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-surface-border/80 bg-surface-subtle relative">
+<img alt="Office Outfits cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+</div>
+<div class="min-w-0">
+<p class="text-xs font-medium text-ink-primary truncate collection-name">Office Outfits</p>
+<p class="text-[10px] text-ink-tertiary">15 pieces · Power Tailoring</p>
+</div>
+</div>
+<button class="save-status-btn flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium transition-all shrink-0 bg-surface border border-surface-border text-ink-secondary group-hover:border-burgundy group-hover:text-burgundy">
+<span>Save</span>
+</button>
+</div>
+</div>
+</section>
+<!-- EMPTY SEARCH STATE (Hidden by default) -->
+<div class="hidden py-8 px-4 text-center" id="search-empty-state">
+<div class="w-10 h-10 rounded-full bg-burgundy-subtle text-burgundy flex items-center justify-center mx-auto mb-2">
+<span class="material-symbols-outlined text-[20px]">filter_vintage</span>
+</div>
+<p class="text-xs font-medium text-ink-primary">No collections found</p>
+<p class="text-[11px] text-ink-tertiary mt-0.5 mb-3">Create one with this name below to save instantly.</p>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface border border-surface-border text-xs text-burgundy font-medium hover:bg-burgundy-subtle transition-colors" onclick="useSearchAsNewName()">
+<span class="material-symbols-outlined text-[14px]">add</span>
+<span>Create "<span id="empty-query-label"></span>"</span>
+</button>
+</div>
+</div>
+<!-- 5. STICKY CREATE COLLECTION FOOTER & EXPANDABLE MINI FORM -->
+<footer class="border-t border-surface-border/80 bg-surface/95 backdrop-blur-sm shrink-0 transition-all duration-200">
+<!-- Normal Default Button -->
+<div class="p-3" id="create-cta-bar">
+<button class="w-full flex items-center justify-between px-3 py-2 rounded-xl text-ink-primary hover:bg-surface-subtle active:scale-[0.99] border border-dashed border-surface-border hover:border-burgundy/40 transition-all group" onclick="openCreateForm()">
+<div class="flex items-center gap-2.5">
+<div class="w-6 h-6 rounded-lg bg-burgundy-subtle text-burgundy flex items-center justify-center group-hover:bg-burgundy group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</div>
+<span class="text-xs font-medium tracking-wide">Create new collection</span>
+</div>
+<span class="text-[10px] uppercase font-semibold tracking-wider text-burgundy opacity-80 group-hover:opacity-100 font-sans">New</span>
+</button>
+</div>
+<!-- Expandable Compact Creation Form (Hidden initially) -->
+<div class="hidden p-3.5 bg-canvas border-t border-surface-border space-y-2.5 animate-fadeIn" id="create-form-panel">
+<div class="flex items-center justify-between">
+<h4 class="text-xs font-serif text-ink-primary font-medium tracking-wide">New Capsule Collection</h4>
+<button class="text-ink-tertiary hover:text-ink-primary p-0.5" onclick="closeCreateForm()">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div>
+<label class="block text-[10px] uppercase tracking-wider text-ink-tertiary font-medium mb-1">Collection Name</label>
+<input class="w-full px-3 py-1.5 text-xs bg-surface border border-surface-border rounded-lg text-ink-primary focus:outline-none focus:border-burgundy focus:ring-1 focus:ring-burgundy/20" id="new-collection-name" placeholder="e.g. Milan Fall Lookbook" type="text"/>
+</div>
+<div>
+<label class="block text-[10px] uppercase tracking-wider text-ink-tertiary font-medium mb-1">Theme / Note <span class="lowercase text-ink-tertiary/70 font-normal">(optional)</span></label>
+<input class="w-full px-3 py-1.5 text-xs bg-surface border border-surface-border rounded-lg text-ink-primary focus:outline-none focus:border-burgundy focus:ring-1 focus:ring-burgundy/20" id="new-collection-desc" placeholder="e.g. Tailored wool &amp; leather pairings" type="text"/>
+</div>
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-1.5 text-[11px] text-ink-secondary cursor-pointer">
+<input checked="" class="rounded border-surface-border text-burgundy focus:ring-burgundy w-3.5 h-3.5 accent-burgundy" id="save-current-check" type="checkbox"/>
+<span>Save item to this collection</span>
+</label>
+<button class="px-3 py-1.5 rounded-lg bg-burgundy hover:bg-burgundy-hover text-white text-xs font-medium tracking-wide transition-colors shadow-xs" onclick="submitCreateCollection()">
+            Create &amp; Save
+          </button>
+</div>
+</div>
+</footer>
+<!-- INTERACTION TOAST FEEDBACK (Brief "Saved to Capsule Wardrobe" feedback) -->
+<div class="absolute top-14 left-1/2 -translate-x-1/2 z-40 px-3.5 py-1.5 rounded-full bg-ink-primary/95 text-white text-[11px] flex items-center gap-1.5 shadow-lg opacity-0 pointer-events-none transition-all duration-300" id="toast-feedback">
+<span class="material-symbols-outlined text-[14px] text-emerald-400">check_circle</span>
+<span id="toast-text">Saved to collection</span>
+</div>
+</div>
+<script>
+    // Toggle Collection Save State
+    function toggleCollection(rowElement, collectionName) {
+      const button = rowElement.querySelector('.save-status-btn');
+      const isSaved = button.classList.contains('bg-burgundy');
+
+      if (isSaved) {
+        // Toggle OFF (Unsave)
+        button.className = "save-status-btn flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium transition-all shrink-0 bg-surface border border-surface-border text-ink-secondary group-hover:border-burgundy group-hover:text-burgundy";
+        button.innerHTML = `<span>Save</span>`;
+        showToast(`Removed from ${collectionName}`);
+      } else {
+        // Toggle ON (Save)
+        button.className = "save-status-btn flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium transition-all shrink-0 bg-burgundy text-white shadow-xs";
+        button.innerHTML = `<span class="material-symbols-outlined text-[13px]">check</span><span>Saved</span>`;
+        showToast(`Saved to ${collectionName}`);
+        
+        // Haptic-like small bounce animation
+        rowElement.classList.add('scale-[0.98]');
+        setTimeout(() => rowElement.classList.remove('scale-[0.98]'), 150);
+      }
+    }
+
+    // Toast notification helper
+    let toastTimer;
+    function showToast(message) {
+      const toast = document.getElementById('toast-feedback');
+      const text = document.getElementById('toast-text');
+      text.textContent = message;
+      
+      clearTimeout(toastTimer);
+      toast.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-2');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+      }, 2200);
+    }
+
+    // Filter Collections by Search
+    function filterCollections(query) {
+      const term = query.toLowerCase().trim();
+      const clearBtn = document.getElementById('clear-search-btn');
+      clearBtn.classList.toggle('hidden', term.length === 0);
+
+      const rows = document.querySelectorAll('.collection-row');
+      let visibleCount = 0;
+
+      rows.forEach(row => {
+        const name = row.querySelector('.collection-name').textContent.toLowerCase();
+        const matches = name.includes(term);
+        row.style.display = matches ? 'flex' : 'none';
+        if (matches) visibleCount++;
+      });
+
+      // Handle empty state
+      const emptyState = document.getElementById('search-empty-state');
+      const emptyLabel = document.getElementById('empty-query-label');
+      const suggestedSec = document.getElementById('section-suggested');
+      const allSec = document.getElementById('section-all');
+
+      if (term.length > 0 && visibleCount === 0) {
+        emptyState.classList.remove('hidden');
+        emptyLabel.textContent = query;
+        suggestedSec.classList.add('hidden');
+        allSec.classList.add('hidden');
+      } else {
+        emptyState.classList.add('hidden');
+        suggestedSec.classList.remove('hidden');
+        allSec.classList.remove('hidden');
+      }
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('collection-search');
+      input.value = '';
+      filterCollections('');
+      input.focus();
+    }
+
+    function useSearchAsNewName() {
+      const input = document.getElementById('collection-search');
+      const query = input.value;
+      openCreateForm();
+      const nameInput = document.getElementById('new-collection-name');
+      nameInput.value = query;
+      nameInput.focus();
+    }
+
+    // Create Form Toggle
+    function openCreateForm() {
+      document.getElementById('create-cta-bar').classList.add('hidden');
+      document.getElementById('create-form-panel').classList.remove('hidden');
+      document.getElementById('new-collection-name').focus();
+    }
+
+    function closeCreateForm() {
+      document.getElementById('create-form-panel').classList.add('hidden');
+      document.getElementById('create-cta-bar').classList.remove('hidden');
+      document.getElementById('new-collection-name').value = '';
+      document.getElementById('new-collection-desc').value = '';
+    }
+
+    // Submit New Collection
+    function submitCreateCollection() {
+      const nameInput = document.getElementById('new-collection-name');
+      const name = nameInput.value.trim() || 'Custom Capsule';
+      const descInput = document.getElementById('new-collection-desc');
+      const desc = descInput.value.trim() || 'New aesthetic edit';
+      const autoSave = document.getElementById('save-current-check').checked;
+
+      // Create new DOM element in "All Collections" list
+      const allList = document.getElementById('all-list');
+      const newRow = document.createElement('div');
+      newRow.className = "collection-row group flex items-center justify-between p-2 rounded-xl hover:bg-surface border border-transparent hover:border-surface-border/60 transition-all cursor-pointer select-none bg-burgundy-subtle/30";
+      newRow.onclick = function() { toggleCollection(newRow, name); };
+
+      const saveBtnMarkup = autoSave 
+        ? `<button class="save-status-btn flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium transition-all shrink-0 bg-burgundy text-white shadow-xs">
+            <span class="material-symbols-outlined text-[13px]">check</span>
+            <span>Saved</span>
+           </button>`
+        : `<button class="save-status-btn flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium transition-all shrink-0 bg-surface border border-surface-border text-ink-secondary group-hover:border-burgundy group-hover:text-burgundy">
+            <span>Save</span>
+           </button>`;
+
+      newRow.innerHTML = `
+        <div class="flex items-center gap-2.5 min-w-0">
+          <div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-surface-border/80 bg-surface-subtle relative flex items-center justify-center text-burgundy">
+            <span class="material-symbols-outlined text-[20px]">folder_special</span>
+          </div>
+          <div class="min-w-0">
+            <p class="text-xs font-medium text-ink-primary truncate collection-name">${name}</p>
+            <p class="text-[10px] text-ink-tertiary">1 piece · ${desc}</p>
+          </div>
+        </div>
+        ${saveBtnMarkup}
+      `;
+
+      allList.prepend(newRow);
+      closeCreateForm();
+
+      // Reset any active search
+      clearSearch();
+
+      showToast(autoSave ? `Created & saved to "${name}"` : `Created collection "${name}"`);
+    }
+
+    // Dismiss Popover Demo
+    function closePopover() {
+      const card = document.getElementById('popover-card');
+      card.style.opacity = '0';
+      card.style.transform = 'scale(0.96) translateY(8px)';
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'scale(1) translateY(0)';
+        showToast("Popover dismissed. Click save icon to reopen.");
+      }, 700);
+    }
+  </script>
+</body>
+</html>

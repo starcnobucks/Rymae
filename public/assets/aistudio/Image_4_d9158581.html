@@ -1,0 +1,558 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RYMAE — Haute-Couture Profile &amp; Style Identity</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#e5e2df",
+            "on-tertiary-container": "#ed8596",
+            "surface": "#FFFFFF",
+            "on-background": "#1b1c1a",
+            "tertiary-container": "#6a1e30",
+            "surface-container": "#f0edea",
+            "surface-container-high": "#eae8e5",
+            "primary-fixed": "#ffd9dd",
+            "border-hairline": "rgba(104, 32, 48, 0.12)",
+            "background": "#fcf9f6",
+            "on-tertiary-fixed-variant": "#7b2b3c",
+            "on-primary-fixed": "#3f0113",
+            "surface-container-low": "#f6f3f0",
+            "on-tertiary-fixed": "#400013",
+            "on-surface-variant": "#544244",
+            "outline-variant": "#d9c1c3",
+            "surface-variant": "#e5e2df",
+            "inverse-surface": "#31302f",
+            "primary-container": "#682030",
+            "on-secondary-container": "#5a685b",
+            "primary": "#4b091b",
+            "primary-fixed-dim": "#ffb2bc",
+            "secondary-fixed-dim": "#bbcbbb",
+            "tertiary": "#4d061b",
+            "on-primary-fixed-variant": "#792d3c",
+            "secondary-container": "#d7e7d6",
+            "surface-container-lowest": "#ffffff",
+            "surface-bright": "#fcf9f6",
+            "surface-muted": "#EADFD9",
+            "error-container": "#ffdad6",
+            "border-subtle": "#E2D7D1",
+            "error": "#ba1a1a",
+            "canvas": "#FBF8F5",
+            "inverse-primary": "#ffb2bc",
+            "tertiary-fixed-dim": "#ffb2bc",
+            "ink-tertiary": "#8A7D80",
+            "on-primary": "#ffffff",
+            "surface-dim": "#dcdad7",
+            "on-secondary-fixed-variant": "#3d4a3e",
+            "on-secondary-fixed": "#121e14",
+            "on-tertiary": "#ffffff",
+            "outline": "#867274",
+            "on-error": "#ffffff",
+            "sage-soft": "#E5EBE5",
+            "ink-primary": "#1D1819",
+            "oxblood-deep": "#501624",
+            "rose-soft": "#F5E9EC",
+            "inverse-on-surface": "#f3f0ed",
+            "on-error-container": "#93000a",
+            "surface-champagne": "#F4ECE8",
+            "on-secondary": "#ffffff",
+            "rosewood": "#C06C78",
+            "surface-tint": "#964453",
+            "tertiary-fixed": "#ffd9dd",
+            "secondary-fixed": "#d7e7d6",
+            "on-surface": "#1b1c1a",
+            "secondary": "#546255",
+            "ink-secondary": "#574C4E",
+            "on-primary-container": "#e98797"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1.25rem",
+            "space-xs": "0.25rem",
+            "gutter-desktop": "1.5rem",
+            "gutter": "1rem",
+            "space-lg": "1.5rem",
+            "space-2xl": "3.5rem",
+            "space-md": "1rem",
+            "margin-desktop": "2.5rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "headline-lg": ["Playfair Display"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Playfair Display"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Playfair Display"],
+            "display-hero": ["Playfair Display"],
+            "body-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "display-hero-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "display-hero": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      vertical-align: middle;
+    }
+    body {
+      background-color: #FBF8F5;
+      color: #1D1819;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-canvas text-ink-primary min-h-screen antialiased flex justify-center pb-28">
+<!-- Mobile Screen Container (390px baseline luxury viewport) -->
+<main class="w-full max-w-[412px] bg-canvas min-h-screen relative flex flex-col shadow-[0_0_60px_rgba(80,22,36,0.06)]">
+<!-- Top App Bar (Shared Component Execution from JSON) -->
+<header class="bg-canvas dark:bg-inverse-surface border-b border-border-hairline dark:border-outline-variant/20 docked full-width top-0 sticky z-40 backdrop-blur-md bg-canvas/90">
+<div class="flex justify-between items-center w-full px-5 py-3 max-w-screen-md mx-auto">
+<button aria-label="Menu" class="text-ink-secondary dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-95 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">menu</span>
+</button>
+<div class="flex flex-col items-center">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary dark:text-inverse-primary tracking-[0.22em] font-semibold text-center uppercase">
+            RYMAE
+          </h1>
+<span class="font-label-sm text-label-sm text-ink-tertiary tracking-[0.16em] uppercase -mt-0.5">
+            L'Atelier Profil
+          </span>
+</div>
+<button aria-label="Curate &amp; Calibrate" class="text-ink-secondary dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-95 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">auto_fix_high</span>
+</button>
+</div>
+</header>
+<!-- Content Canvas with Atelier Margins -->
+<div class="px-5 pt-5 pb-8 space-y-6">
+<!-- Section 1: Member Atelier Profile Card -->
+<section class="bg-surface rounded-xl p-5 border border-border-hairline shadow-[0_8px_24px_-4px_rgba(80,22,36,0.04)] relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-rose-soft/50 blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between relative z-10">
+<div class="flex items-center space-x-3.5">
+<!-- Avatar Silhouette Portrait -->
+<div class="relative">
+<div class="w-16 h-16 rounded-full overflow-hidden p-0.5 border border-primary/20 bg-surface-champagne flex-shrink-0">
+<img class="w-full h-full object-cover rounded-full" data-alt="An elegant haute couture portrait of a Parisian woman named Camille in dramatic side silhouette, captured against a minimalist warm parchment atelier wall with gentle golden hour diffused light. She possesses refined poise, wearing an impeccably tailored dark wool collar. The atmosphere is quiet, serene, and steeped in high fashion understated luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFhel1-8rKHorTrnlVSsfCXIfR0O5UZSO3_OZMJFFtUtgdySB8r07-LdGzvSBdiwHJwATZRXhBYyIk4sMUm9Ng_tgo5c7C-V78MzvLia3149nTfhjWBFSftfCG24Gmas04tjn4sFi0ML6hl4BVz5qEhacxf-h5ZVignYoWSeSEHIdrNQMk6uzLhR9oUrnVJhUDa1GNv8VpHGakyzrgdLIy6HNCazLwO5EiMOrcljrcRsBo5CXL6EgZMg">
+</div>
+<span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-primary border-2 border-surface flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</span>
+</div>
+<!-- Identity Details -->
+<div>
+<div class="flex items-center space-x-1.5">
+<h2 class="font-headline-md text-headline-md text-ink-primary font-medium tracking-tight">Camille d'Orsay</h2>
+</div>
+<p class="font-body-sm text-body-sm text-ink-secondary mt-0.5">172cm · Size S · London/Mayfair</p>
+<div class="inline-flex items-center space-x-1 mt-1.5 px-2 py-0.5 rounded-full bg-surface-champagne border border-border-hairline">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-primary tracking-wide">L'Atelier Noir • Private Client since 2024</span>
+</div>
+</div>
+</div>
+<button aria-label="Edit Profile" class="text-ink-tertiary hover:text-primary transition-colors p-1 -mr-1">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+<!-- Metrics Grid: Wardrobe & Capsule Summary -->
+<div class="grid grid-cols-3 gap-2 mt-5 pt-4 border-t border-border-hairline">
+<div class="text-center p-2 rounded-lg bg-canvas/60">
+<span class="block font-headline-sm text-headline-sm text-ink-primary">64</span>
+<span class="block font-label-sm text-label-sm text-ink-secondary mt-0.5 uppercase tracking-wider">Pieces Catalogued</span>
+</div>
+<div class="text-center p-2 rounded-lg bg-canvas/60">
+<span class="block font-headline-sm text-headline-sm text-primary">84%</span>
+<span class="block font-label-sm text-label-sm text-ink-secondary mt-0.5 uppercase tracking-wider">Rewear Index</span>
+</div>
+<div class="text-center p-2 rounded-lg bg-canvas/60">
+<span class="block font-headline-sm text-headline-sm text-ink-primary">98%</span>
+<span class="block font-label-sm text-label-sm text-ink-secondary mt-0.5 uppercase tracking-wider">Fit Fidelity</span>
+</div>
+</div>
+</section>
+<!-- Section 2: Style Identity & Aesthetic Pillars -->
+<section class="space-y-3">
+<div class="flex justify-between items-baseline px-0.5">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-ink-primary font-semibold">Style Identity Pillars</h3>
+<p class="font-body-sm text-body-sm text-ink-secondary">Adaptive archetype inference</p>
+</div>
+<button class="font-label-sm text-label-sm text-primary hover:text-oxblood-deep uppercase tracking-wider underline underline-offset-4">
+            Adjust
+          </button>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<div class="bg-surface rounded-xl p-3.5 border border-border-hairline flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-ink-tertiary">Primary Archetype</span>
+<span class="font-label-md text-label-md text-primary font-semibold bg-rose-soft px-1.5 py-0.5 rounded">94%</span>
+</div>
+<p class="font-body-md text-body-md text-ink-primary font-medium mt-2">Minimal Warm Neutrals</p>
+<div class="w-full bg-surface-champagne h-1 rounded-full mt-2.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 94%"></div>
+</div>
+</div>
+<div class="bg-surface rounded-xl p-3.5 border border-border-hairline flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-ink-tertiary">Silhouette Bias</span>
+<span class="font-label-md text-label-md text-primary font-semibold bg-rose-soft px-1.5 py-0.5 rounded">88%</span>
+</div>
+<p class="font-body-md text-body-md text-ink-primary font-medium mt-2">Architectural Silhouettes</p>
+<div class="w-full bg-surface-champagne h-1 rounded-full mt-2.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<div class="bg-surface rounded-xl p-3.5 border border-border-hairline flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-ink-tertiary">Tailoring Mood</span>
+<span class="font-label-md text-label-md text-primary font-semibold bg-rose-soft px-1.5 py-0.5 rounded">91%</span>
+</div>
+<p class="font-body-md text-body-md text-ink-primary font-medium mt-2">Quiet Luxury Tailoring</p>
+<div class="w-full bg-surface-champagne h-1 rounded-full mt-2.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 91%"></div>
+</div>
+</div>
+<div class="bg-surface rounded-xl p-3.5 border border-border-hairline flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-ink-tertiary">Textile Method</span>
+<span class="font-label-md text-label-md text-primary font-semibold bg-rose-soft px-1.5 py-0.5 rounded">85%</span>
+</div>
+<p class="font-body-md text-body-md text-ink-primary font-medium mt-2">Monochromatic Layering</p>
+<div class="w-full bg-surface-champagne h-1 rounded-full mt-2.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+<!-- "Why Rymae inferred this" Rationale Drawer (Design Spec Feature) -->
+<div class="bg-surface-champagne rounded-xl p-3.5 border border-border-hairline">
+<div class="flex items-center justify-between cursor-pointer" onclick="document.getElementById('rationale-detail').classList.toggle('hidden')">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-[18px]">psychology</span>
+<span class="font-label-md text-label-md text-ink-primary font-medium">Why Rymae inferred this archetype</span>
+</div>
+<span class="material-symbols-outlined text-ink-secondary text-[18px]">expand_more</span>
+</div>
+<div class="mt-2.5 pt-2.5 border-t border-border-hairline/60" id="rationale-detail">
+<p class="font-body-sm text-body-sm text-ink-secondary leading-relaxed">
+              Synthesized from 12 recent curated ensembles, high wear-frequencies for structured wool blazers (89%), double-faced cashmere outerwear, and 0% retention of floral synthetic prints.
+            </p>
+<div class="mt-3 flex items-center justify-end space-x-2">
+<button class="px-2.5 py-1 rounded-full text-ink-secondary bg-surface font-label-sm text-label-sm hover:text-primary">Reset Pillar</button>
+<button class="px-3 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm">Confirm Tuning</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Silhouette, Sizing & Calibrated Fit -->
+<section class="bg-surface rounded-xl p-5 border border-border-hairline space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-ink-primary font-semibold">Silhouette &amp; Calibrated Fit</h3>
+<p class="font-body-sm text-body-sm text-ink-secondary">Precise bespoke anatomical coordinates</p>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Synchronized
+          </span>
+</div>
+<!-- 3D Avatar Sync Indicator Card -->
+<div class="flex items-center p-3 rounded-lg bg-canvas border border-border-hairline gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-champagne flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">accessibility_new</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-ink-primary font-semibold">Digital Silhouette Synchronized</span>
+<span class="font-label-sm text-label-sm text-ink-tertiary">Oct 2026</span>
+</div>
+<p class="font-body-sm text-body-sm text-ink-secondary">Volumetric scan precision ±0.3cm for atelier draft</p>
+</div>
+</div>
+<!-- Proportions Row -->
+<div class="grid grid-cols-5 gap-1.5 text-center">
+<div class="p-2 rounded-lg bg-surface-champagne/60 border border-border-hairline">
+<span class="block font-label-sm text-label-sm text-ink-tertiary uppercase">Height</span>
+<span class="block font-label-lg text-label-lg text-ink-primary mt-0.5">172 <span class="text-[10px] text-ink-tertiary">cm</span></span>
+</div>
+<div class="p-2 rounded-lg bg-surface-champagne/60 border border-border-hairline">
+<span class="block font-label-sm text-label-sm text-ink-tertiary uppercase">Bust</span>
+<span class="block font-label-lg text-label-lg text-ink-primary mt-0.5">84 <span class="text-[10px] text-ink-tertiary">cm</span></span>
+</div>
+<div class="p-2 rounded-lg bg-surface-champagne/60 border border-border-hairline">
+<span class="block font-label-sm text-label-sm text-ink-tertiary uppercase">Waist</span>
+<span class="block font-label-lg text-label-lg text-ink-primary mt-0.5">66 <span class="text-[10px] text-ink-tertiary">cm</span></span>
+</div>
+<div class="p-2 rounded-lg bg-surface-champagne/60 border border-border-hairline">
+<span class="block font-label-sm text-label-sm text-ink-tertiary uppercase">Hips</span>
+<span class="block font-label-lg text-label-lg text-ink-primary mt-0.5">92 <span class="text-[10px] text-ink-tertiary">cm</span></span>
+</div>
+<div class="p-2 rounded-lg bg-surface-champagne/60 border border-border-hairline">
+<span class="block font-label-sm text-label-sm text-ink-tertiary uppercase">Shoe</span>
+<span class="block font-label-lg text-label-lg text-ink-primary mt-0.5">EU 38</span>
+</div>
+</div>
+<!-- Fit Preference Narrative -->
+<div class="pt-2 border-t border-border-hairline flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">straighten</span>
+<div>
+<span class="font-label-sm text-label-sm text-ink-tertiary uppercase tracking-wider">Fit Preference Signature</span>
+<p class="font-body-sm text-body-sm text-ink-primary mt-0.5">
+              Relaxed fluid drape, structured shoulders, mid-rise waistlines.
+            </p>
+</div>
+</div>
+</section>
+<!-- Section 4: Color Palette Affinity & Harmonies -->
+<section class="bg-surface rounded-xl p-5 border border-border-hairline space-y-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-ink-primary font-semibold">Color Affinity &amp; Harmonies</h3>
+<p class="font-body-sm text-body-sm text-ink-secondary">Curated seasonal tonal matrix</p>
+</div>
+<!-- Wardrobe Palette Gauge Component -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center text-label-sm font-label-sm text-ink-tertiary uppercase">
+<span class="">Harmonic Distribution</span>
+<span class="">Atelier Balance</span>
+</div>
+<div class="h-3 w-full rounded-full overflow-hidden flex border border-border-hairline">
+<div class="h-full bg-[#F5F2EC]" style="width: 38%" title="Alabaster Cream (38%)"></div>
+<div class="h-full bg-[#C59B6C]" style="width: 24%" title="Warm Camel (24%)"></div>
+<div class="h-full bg-[#E8DEC8]" style="width: 18%" title="Champagne Silk (18%)"></div>
+<div class="h-full bg-[#4A1521]" style="width: 12%" title="Oxblood Bordeaux (12%)"></div>
+<div class="h-full bg-[#2A201F]" style="width: 8%" title="Espresso Noir (8%)"></div>
+</div>
+</div>
+<!-- Color Swatches with Authentic Tones -->
+<div class="grid grid-cols-5 gap-2 pt-1">
+<div class="flex flex-col items-center">
+<div class="w-11 h-11 rounded-full bg-[#F5F2EC] border border-border-hairline ring-2 ring-primary ring-offset-2 flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+</div>
+<span class="font-label-sm text-[10px] text-ink-primary font-medium mt-1.5 text-center leading-tight">Alabaster</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-11 h-11 rounded-full bg-[#4A1521] border border-border-hairline ring-1 ring-border-hairline"></div>
+<span class="font-label-sm text-[10px] text-ink-primary font-medium mt-1.5 text-center leading-tight">Bordeaux</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-11 h-11 rounded-full bg-[#2A201F] border border-border-hairline ring-1 ring-border-hairline"></div>
+<span class="font-label-sm text-[10px] text-ink-primary font-medium mt-1.5 text-center leading-tight">Espresso</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-11 h-11 rounded-full bg-[#C59B6C] border border-border-hairline ring-1 ring-border-hairline"></div>
+<span class="font-label-sm text-[10px] text-ink-primary font-medium mt-1.5 text-center leading-tight">Camel</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-11 h-11 rounded-full bg-[#E8DEC8] border border-border-hairline ring-1 ring-border-hairline"></div>
+<span class="font-label-sm text-[10px] text-ink-primary font-medium mt-1.5 text-center leading-tight">Champagne</span>
+</div>
+</div>
+<!-- Avoided Colors Disclaimer -->
+<div class="p-2.5 rounded-lg bg-canvas flex items-center justify-between border border-border-hairline">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-ink-tertiary text-[18px]">block</span>
+<span class="font-body-sm text-body-sm text-ink-secondary">Excluded shades:</span>
+</div>
+<span class="font-label-sm text-label-sm text-ink-primary">Neon brights, synthetic cool pastels</span>
+</div>
+</section>
+<!-- Section 5: Shopping Intent & Budget Constraints -->
+<section class="bg-surface rounded-xl p-5 border border-border-hairline space-y-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-ink-primary font-semibold">Shopping Intent &amp; Discipline</h3>
+<p class="font-body-sm text-body-sm text-ink-secondary">Algorithmic friction against impulse buying</p>
+</div>
+<div class="space-y-3">
+<div class="p-3 rounded-lg bg-surface-champagne/70 border border-border-hairline">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider block">Acquisition Philosophy</span>
+<p class="font-body-md text-body-md text-ink-primary font-medium mt-0.5">
+              Wardrobe-first styling with intentional acquisition
+            </p>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-canvas border border-border-hairline">
+<div>
+<span class="font-label-sm text-label-sm text-ink-tertiary uppercase">Monthly Curation Cap</span>
+<p class="font-headline-sm text-headline-sm text-ink-primary mt-0.5">$300 <span class="text-xs font-normal text-ink-secondary">/ month</span></p>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-rose-soft text-primary font-semibold">
+              Strict constraint
+            </span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-ink-tertiary uppercase tracking-wider block mb-2">Preferred Houses &amp; Boutiques</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="font-label-md text-label-md px-3 py-1 rounded-full bg-surface border border-border-subtle text-ink-primary">Totême</span>
+<span class="font-label-md text-label-md px-3 py-1 rounded-full bg-surface border border-border-subtle text-ink-primary">The Row</span>
+<span class="font-label-md text-label-md px-3 py-1 rounded-full bg-surface border border-border-subtle text-ink-primary">Massimo Dutti Studio</span>
+<span class="font-label-md text-label-md px-3 py-1 rounded-full bg-surface border border-border-subtle text-ink-primary">Loro Piana</span>
+<span class="font-label-md text-label-md px-3 py-1 rounded-full bg-surface border border-border-subtle text-ink-primary">Saint Laurent</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: AI Memory & Transparency Controls (Section 6.8 Memory Control) -->
+<section class="bg-surface rounded-xl p-5 border border-border-hairline space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-ink-primary font-semibold">AI Memory &amp; Audit</h3>
+<p class="font-body-sm text-body-sm text-ink-secondary">Decoupled data &amp; transparent learning</p>
+</div>
+<span class="material-symbols-outlined text-primary text-[22px]">fingerprint</span>
+</div>
+<!-- Continuous Learning Toggle Indicator -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-canvas border border-border-hairline">
+<div class="flex items-center space-x-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+<div>
+<span class="font-label-md text-label-md text-ink-primary font-medium block">Continuous Preference Learning</span>
+<span class="font-label-sm text-label-sm text-secondary">Active &amp; calibrating</span>
+</div>
+</div>
+<!-- Accessible Custom Switch -->
+<div class="w-11 h-6 bg-primary rounded-full relative cursor-pointer flex items-center p-0.5">
+<div class="w-5 h-5 rounded-full bg-surface shadow-sm translate-x-5 transition-transform"></div>
+</div>
+</div>
+<!-- Inspect Learned Preferences Memory List Item -->
+<div class="p-3 rounded-lg bg-surface-champagne/50 border border-border-hairline flex items-center justify-between">
+<div>
+<span class="font-label-md text-label-md text-ink-primary font-semibold block">Inspect Learned Preferences</span>
+<span class="font-body-sm text-body-sm text-ink-secondary">18 discreet stylistic memories stored</span>
+</div>
+<button class="font-label-sm text-label-sm text-primary hover:text-oxblood-deep font-semibold underline underline-offset-2">
+            Audit / Forget
+          </button>
+</div>
+<!-- Privacy & Local Encryption Badge -->
+<div class="flex items-start gap-2.5 p-3 rounded-lg bg-canvas text-ink-secondary">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">lock</span>
+<p class="font-body-sm text-body-sm">
+            Local encrypted biometric measurements. Runway and styling mirror photo data deleted automatically post-render.
+          </p>
+</div>
+</section>
+<!-- Section 7: Account & Atelier Concierge Settings -->
+<section class="bg-surface rounded-xl overflow-hidden border border-border-hairline divide-y divide-border-hairline">
+<a class="flex items-center justify-between p-4 hover:bg-canvas transition-colors" href="#destinations">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-ink-tertiary text-[20px]">pin_drop</span>
+<div>
+<span class="font-label-md text-label-md text-ink-primary block">Delivery Destination</span>
+<span class="font-body-sm text-body-sm text-ink-secondary">Mayfair, London, W1K</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-ink-tertiary text-[18px]">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-4 hover:bg-canvas transition-colors" href="#history">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-ink-tertiary text-[20px]">receipt_long</span>
+<div>
+<span class="font-label-md text-label-md text-ink-primary block">Order &amp; Acquisition History</span>
+<span class="font-body-sm text-body-sm text-ink-secondary">14 items archived &amp; authenticated</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-ink-tertiary text-[18px]">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-4 hover:bg-canvas transition-colors" href="#stylist">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-primary text-[20px]">diamond</span>
+<div>
+<span class="font-label-md text-label-md text-ink-primary block">Atelier VIP Stylist Access</span>
+<span class="font-body-sm text-body-sm text-ink-secondary">Direct channel to Hélène (Senior Curator)</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold px-2 py-0.5 rounded bg-rose-soft">Priority</span>
+</a>
+</section>
+<!-- Subtle Sign Out Action -->
+<div class="pt-2 text-center">
+<button class="font-label-md text-label-md text-ink-tertiary hover:text-error transition-colors">
+          Sign out of Private Atelier
+        </button>
+</div>
+</div>
+<!-- Bottom Navigation Bar (Exact specification from Shared Components JSON with semantic mapping for "Profile" active state) -->
+<nav class="bg-canvas/95 dark:bg-inverse-surface/95 backdrop-blur-md shadow-[0_-4px_20px_rgba(80,22,36,0.04)] fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 border-t border-border-hairline dark:border-outline-variant/20 max-w-[412px] left-1/2 -translate-x-1/2">
+<!-- Item 1: Today (Inactive) -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary dark:text-surface-variant gap-1 py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 active:scale-95 transition-transform" href="#today">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Today</span>
+</a>
+<!-- Item 2: Discover (Inactive) -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary dark:text-surface-variant gap-1 py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 active:scale-95 transition-transform" href="#discover">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Discover</span>
+</a>
+<!-- Item 3: Wardrobe (Inactive) -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary dark:text-surface-variant gap-1 py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 active:scale-95 transition-transform" href="#wardrobe">
+<span class="material-symbols-outlined text-[22px]">checkroom</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Wardrobe</span>
+</a>
+<!-- Item 4: Saved (Inactive) -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary dark:text-surface-variant gap-1 py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 active:scale-95 transition-transform" href="#saved">
+<span class="material-symbols-outlined text-[22px]">bookmark_border</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Saved</span>
+</a>
+<!-- Item 5: Profile (ACTIVE STATE - EXACT MATCH TO PAGE INTENT) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-inverse-primary font-semibold gap-1 py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 active:scale-95 transition-transform relative" href="#profile">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary">Profile</span>
+<span class="w-1 h-1 rounded-full bg-primary absolute -bottom-0.5"></span>
+</a>
+</nav>
+</main>
+
+
+</body></html>

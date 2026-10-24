@@ -1,0 +1,435 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Digital Wardrobe | Adaptive Fashion</title>
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-container": "#682030",
+            "tertiary": "#4d061b",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#7b2b3c",
+            "outline-variant": "#d9c1c3",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#400013",
+            "on-background": "#1b1c1a",
+            "on-surface-variant": "#544244",
+            "surface-variant": "#e5e2df",
+            "rosewood": "#C06C78",
+            "on-secondary-fixed-variant": "#3d4a3e",
+            "on-primary-fixed": "#3f0113",
+            "inverse-on-surface": "#f3f0ed",
+            "secondary-fixed-dim": "#bbcbbb",
+            "primary": "#4b091b",
+            "outline": "#867274",
+            "on-primary-fixed-variant": "#792d3c",
+            "tertiary-fixed": "#ffd9dd",
+            "on-secondary": "#ffffff",
+            "oxblood-deep": "#501624",
+            "surface-bright": "#fcf9f6",
+            "ink-tertiary": "#8A7D80",
+            "primary-fixed-dim": "#ffb2bc",
+            "on-tertiary": "#ffffff",
+            "error-container": "#ffdad6",
+            "inverse-surface": "#31302f",
+            "secondary-container": "#d7e7d6",
+            "sage-soft": "#E5EBE5",
+            "ink-secondary": "#574C4E",
+            "surface-container": "#f0edea",
+            "inverse-primary": "#ffb2bc",
+            "on-tertiary-container": "#ed8596",
+            "surface-muted": "#EADFD9",
+            "on-primary-container": "#e98797",
+            "background": "#fcf9f6",
+            "surface-dim": "#dcdad7",
+            "surface": "#FFFFFF",
+            "on-surface": "#1b1c1a",
+            "primary-fixed": "#ffd9dd",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#ffb2bc",
+            "secondary-fixed": "#d7e7d6",
+            "border-hairline": "rgba(104, 32, 48, 0.12)",
+            "tertiary-container": "#6a1e30",
+            "ink-primary": "#1D1819",
+            "secondary": "#546255",
+            "surface-container-high": "#eae8e5",
+            "canvas": "#FBF8F5",
+            "surface-container-low": "#f6f3f0",
+            "on-secondary-container": "#5a685b",
+            "surface-container-highest": "#e5e2df",
+            "surface-tint": "#964453",
+            "rose-soft": "#F5E9EC",
+            "on-error": "#ffffff",
+            "surface-champagne": "#F4ECE8",
+            "border-subtle": "#E2D7D1",
+            "on-secondary-fixed": "#121e14",
+            "error": "#ba1a1a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-2xl": "3.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin-desktop": "2.5rem",
+            "margin": "1.25rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "gutter-desktop": "1.5rem",
+            "gutter": "1rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Playfair Display"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Playfair Display"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "display-hero": ["Playfair Display"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Playfair Display"]
+          },
+          "fontSize": {
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "display-hero-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "display-hero": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "400" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-ink-primary min-h-screen antialiased font-body-md selection:bg-rose-soft selection:text-primary">
+<!-- Mobile Container Context (Centered 390px Viewport Simulation) -->
+<div class="relative w-full max-w-[390px] mx-auto min-h-screen bg-canvas pb-32 flex flex-col shadow-2xl">
+<!-- Top Status / Branding Bar (Shared Component TopAppBar) -->
+<header class="sticky top-0 z-40 bg-canvas/95 backdrop-blur-md transition-colors duration-150 border-b border-border-hairline" style="background-color: rgba(251, 249, 246, 0.95); border-bottom: 1px solid rgb(232, 227, 220);">
+<div class="flex justify-between items-center w-full px-5 py-3">
+<button aria-label="Open Navigation Menu" class="text-ink-secondary hover:text-primary active:scale-95 transition-transform duration-150 p-1 -ml-1 focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+<span class="font-headline-lg-mobile text-headline-lg-mobile uppercase font-medium" style="color: rgb(59, 18, 27); font-family: Audrey, Cinzel, &quot;Playfair Display&quot;, serif; letter-spacing: 0.22em; font-size: 20px;">RYMAE</span>
+<button aria-label="Style Intelligence Advisory" class="text-ink-secondary hover:text-primary active:scale-95 transition-transform duration-150 p-1 -mr-1 focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[22px]">auto_fix_high</span>
+</button>
+</div>
+</header>
+<!-- Header & Wardrobe Counter Section -->
+<section class="px-5 pt-6 pb-4">
+<div class="flex items-end justify-between gap-3">
+<div>
+<span class="font-label-sm text-label-sm text-rosewood uppercase tracking-wider block mb-1" style="color: rgb(197, 168, 128); letter-spacing: 0.12em;">Couture Archive</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-ink-primary font-medium tracking-tight" style="color: rgb(20, 18, 18);">
+            My Wardrobe
+          </h1>
+<p class="font-body-sm text-body-sm text-ink-tertiary mt-0.5">
+            64 Items Catalogued
+          </p>
+</div>
+<button class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-primary-container text-surface hover:bg-oxblood-deep active:scale-95 transition-all duration-150 shadow-sm focus:outline-none" type="button" style="background: linear-gradient(135deg, rgb(74, 21, 33), rgb(59, 18, 27)); color: rgb(245, 242, 236); border: 1px solid rgba(197, 168, 128, 0.35); box-shadow: rgba(59, 18, 27, 0.25) 0px 4px 14px;">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span class="font-label-md text-label-md tracking-normal font-semibold">+ Add Item</span>
+</button>
+</div>
+</section>
+<!-- Scrollable Category Filter Chips -->
+<div class="w-full overflow-x-auto no-scrollbar py-2 px-5 flex items-center gap-2"><button class="shrink-0 h-9 px-4 rounded-full font-label-md text-label-md tracking-wider transition-all duration-150 shadow-sm" style="background: rgb(59, 18, 27); color: rgb(250, 248, 245); border: 1px solid rgba(197, 168, 128, 0.4); box-shadow: rgba(59, 18, 27, 0.2) 0px 2px 8px;" type="button">All (64)</button><button class="shrink-0 h-9 px-4 rounded-full font-label-md text-label-md tracking-wider transition-colors duration-150" style="background: rgb(245, 243, 240); color: rgb(87, 76, 78); border: 1px solid rgb(232, 227, 220);" type="button">Tops (18)</button><button class="shrink-0 h-9 px-4 rounded-full font-label-md text-label-md tracking-wider transition-colors duration-150" style="background: rgb(245, 243, 240); color: rgb(87, 76, 78); border: 1px solid rgb(232, 227, 220);" type="button">Bottoms (14)</button><button class="shrink-0 h-9 px-4 rounded-full font-label-md text-label-md tracking-wider transition-colors duration-150" style="background: rgb(245, 243, 240); color: rgb(87, 76, 78); border: 1px solid rgb(232, 227, 220);" type="button">Dresses (8)</button><button class="shrink-0 h-9 px-4 rounded-full font-label-md text-label-md tracking-wider transition-colors duration-150" style="background: rgb(245, 243, 240); color: rgb(87, 76, 78); border: 1px solid rgb(232, 227, 220);" type="button">Outerwear (9)</button><button class="shrink-0 h-9 px-4 rounded-full font-label-md text-label-md tracking-wider transition-colors duration-150" style="background: rgb(245, 243, 240); color: rgb(87, 76, 78); border: 1px solid rgb(232, 227, 220);" type="button">Shoes (10)</button><button class="shrink-0 h-9 px-4 rounded-full font-label-md text-label-md tracking-wider transition-colors duration-150" style="background: rgb(245, 243, 240); color: rgb(87, 76, 78); border: 1px solid rgb(232, 227, 220);" type="button">Bags (5)</button></div>
+<!-- Quick Action Banner: Outfit Builder -->
+<section class="px-5 pt-4 pb-2">
+<div class="relative overflow-hidden rounded-xl bg-surface p-4 border border-border-hairline shadow-[0_4px_16px_rgba(80,22,36,0.03)] flex items-center justify-between gap-3" style="background: rgb(255, 255, 255); border: 1px solid rgb(232, 227, 220); box-shadow: rgba(59, 18, 27, 0.04) 0px 4px 20px;">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-full bg-rose-soft flex items-center justify-center text-primary shrink-0 mt-0.5" style="background: rgb(245, 242, 236); color: rgb(59, 18, 27); border: 1px solid rgba(197, 168, 128, 0.3);">
+<span class="material-symbols-outlined text-[20px]">style</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-ink-primary font-semibold">Outfit Builder</h2>
+<span class="inline-block px-1.5 py-0.5 rounded text-[9px] font-label-sm bg-rose-soft text-oxblood-deep font-bold tracking-wider" style="background: rgba(197, 168, 128, 0.16); color: rgb(74, 21, 33); border: 1px solid rgba(197, 168, 128, 0.35);">AI ATELIER</span>
+</div>
+<p class="font-body-sm text-body-sm text-ink-secondary mt-1 leading-snug">
+              Mix &amp; match your closet or pair with missing essentials.
+            </p>
+</div>
+</div>
+<button aria-label="Open Outfit Builder" class="w-8 h-8 rounded-full bg-surface-champagne flex items-center justify-center text-primary shrink-0 active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Wardrobe Grid Section (2-Column Editorial Spread) -->
+<section class="px-5 pt-3 pb-6">
+<div class="grid grid-cols-2 gap-3.5">
+<!-- Card 1: Toteme Trench -->
+<article class="group relative bg-surface rounded-xl p-2.5 border border-border-hairline shadow-[0_2px_10px_rgba(80,22,36,0.03)] flex flex-col justify-between">
+<div>
+<!-- Image Frame -->
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-champagne/40 mb-2.5 flex items-center justify-center">
+<img class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-102" data-alt="Editorial still life studio photograph of an oversized camel wool trench coat on a minimalist off-white plaster pedestal. Soft ambient studio diffused lighting highlights delicate fabric grain and horn buttons. High-fashion couture catalog aesthetic with rich warm neutrals and muted tone-on-tone shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg7s_pIdDHBSZGtXg6L09-PHI4wnKBc2rMoHlsN8WaLXp26k4mMCgSviu47stBp0s3EF_PQ0YANz5mQZ_BgJnQ6I1fhvE0V7lJ5aa3vEJpoIW1xFw7L8iw9Qx5IASG-0RyVMLa93-8S7ZKwBXoARRIV0Gk1Q6gi-8PyTNMRn5p1JfO8So-gBtizh4RPYavTIQ1ys0WPkxLF_dp8e4mQadQGnXRyDJGRIBMvIPDlR5aPO7ff9Ihil3htg">
+<!-- Card Action Badges Overlay -->
+<div class="absolute top-2 left-2 right-2 flex justify-between items-center pointer-events-auto">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-label-sm bg-rose-soft/95 text-oxblood-deep tracking-wider font-semibold backdrop-blur-xs" style="background: rgba(74, 21, 33, 0.92); color: rgb(243, 237, 228); border: 1px solid rgba(197, 168, 128, 0.4);">
+                  Capsule Staple
+                </span>
+<button aria-label="Favorite item" class="w-6 h-6 rounded-full bg-surface/90 backdrop-blur-xs text-primary flex items-center justify-center hover:bg-surface active:scale-90 transition-transform shadow-xs" type="button">
+<span class="material-symbols-outlined text-[15px]" style="background: rgba(74, 21, 33, 0.92); color: rgb(243, 237, 228); border: 1px solid rgba(197, 168, 128, 0.4);">bookmark</span>
+</button>
+</div>
+</div>
+<!-- Metadata & Title -->
+<div class="space-y-1">
+<div class="flex items-center justify-between text-ink-tertiary">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-rosewood">Outerwear</span>
+<span class="font-label-sm text-label-sm text-ink-secondary">Worn 14x</span>
+</div>
+<h3 class="font-headline-md text-[14px] leading-snug text-ink-primary font-medium line-clamp-2">
+                Toteme Oversized Wool Trench
+              </h3>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between mt-1 border-t border-border-hairline/60">
+<span class="font-body-sm text-[11px] text-ink-tertiary italic">Wool Blend</span>
+<button aria-label="Item Options" class="text-ink-tertiary hover:text-ink-primary p-0.5" type="button">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Champagne Silk Skirt -->
+<article class="group relative bg-surface rounded-xl p-2.5 border border-border-hairline shadow-[0_2px_10px_rgba(80,22,36,0.03)] flex flex-col justify-between">
+<div>
+<!-- Image Frame -->
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-champagne/40 mb-2.5 flex items-center justify-center">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-102" data-alt="Studio catalog photograph of a champagne colored pure silk bias-cut midi skirt displayed on an invisible mannequin with gentle drapery. The lighting is soft and golden hour warm, catching the lustrous silk texture. Minimalist luxury atelier setting with clean alabaster negative space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqOy_28YsCSbOToi_5h-imASNv5PauhZjpfXzMnAFMEgs9vQyKkNXq90ybrgKG6lAvxdpbfm99ZQ4Ljz5dVekUY4Djel5TZUNetZ43W9k7t63Pi1bMEzA7DX75D2c0pwWIfc1RpgdMSzmQ8kJEHnRaZdkk_LuFCoy7kjSfnG_3bqDzN0yQlkZ8QBuUu_AYnlKYBGJzgKC-V-grLvgihPkag-YMIFui4Ihr0JFJhNKrmJlnfm3sDJjw8g">
+<!-- Card Action Badges Overlay -->
+<div class="absolute top-2 right-2 flex justify-end items-center pointer-events-auto">
+<button aria-label="Favorite item" class="w-6 h-6 rounded-full bg-surface/90 backdrop-blur-xs text-ink-secondary hover:text-primary flex items-center justify-center hover:bg-surface active:scale-90 transition-transform shadow-xs" type="button">
+<span class="material-symbols-outlined text-[15px]">bookmark_border</span>
+</button>
+</div>
+</div>
+<!-- Metadata & Title -->
+<div class="space-y-1">
+<div class="flex items-center justify-between text-ink-tertiary">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-rosewood">Bottoms</span>
+<span class="font-label-sm text-label-sm text-ink-secondary">Worn 8x</span>
+</div>
+<h3 class="font-headline-md text-[14px] leading-snug text-ink-primary font-medium line-clamp-2">
+                Champagne Silk Bias Midi Skirt
+              </h3>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between mt-1 border-t border-border-hairline/60">
+<span class="font-body-sm text-[11px] text-ink-tertiary italic">100% Silk</span>
+<button aria-label="Item Options" class="text-ink-tertiary hover:text-ink-primary p-0.5" type="button">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Espresso Cashmere Knit -->
+<article class="group relative bg-surface rounded-xl p-2.5 border border-border-hairline shadow-[0_2px_10px_rgba(80,22,36,0.03)] flex flex-col justify-between">
+<div>
+<!-- Image Frame -->
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-champagne/40 mb-2.5 flex items-center justify-center">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-102" data-alt="Editorial lookbook studio photograph of a dark espresso brown ribbed knit cashmere sweater neatly placed on clean neutral plaster styling blocks. The lighting is delicate and directional, highlighting tactile chunky knit textures. Editorial modern womenswear luxury archive aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOEuKHUnrbCfJht9AUUphBpw6aT__XYmphTZmLS8Uxq8lBnDIydjEWDqOSozKC5N317supPMAItCpJFthYLYFIthOGQZ2C2WGDYNRh478STOS8U86JQYqQdZ9R5vigifBRZ2Xh7OASzhJhweptmZ-rrNEh9w4FxcXptboPdwbghsTSVzMOX2l__asoIOMTrq8eUV0jyrs0zy1nZlkKY56r1HiqPXWbAmqXIUChIvjnLZpWZoKI23juWQ">
+<!-- Card Action Badges Overlay -->
+<div class="absolute top-2 right-2 flex justify-end items-center pointer-events-auto">
+<button aria-label="Favorite item" class="w-6 h-6 rounded-full bg-surface/90 backdrop-blur-xs text-primary flex items-center justify-center hover:bg-surface active:scale-90 transition-transform shadow-xs" type="button">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+</div>
+<!-- Metadata & Title -->
+<div class="space-y-1">
+<div class="flex items-center justify-between text-ink-tertiary">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-rosewood">Tops</span>
+<span class="font-label-sm text-label-sm text-ink-secondary">Worn 11x</span>
+</div>
+<h3 class="font-headline-md text-[14px] leading-snug text-ink-primary font-medium line-clamp-2">
+                Cashmere Ribbed Knit in Espresso
+              </h3>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between mt-1 border-t border-border-hairline/60">
+<span class="font-body-sm text-[11px] text-ink-tertiary italic">Pure Cashmere</span>
+<button aria-label="Item Options" class="text-ink-tertiary hover:text-ink-primary p-0.5" type="button">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</div>
+</article>
+<!-- Card 4: Bottega Veneta Bag -->
+<article class="group relative bg-surface rounded-xl p-2.5 border border-border-hairline shadow-[0_2px_10px_rgba(80,22,36,0.03)] flex flex-col justify-between">
+<div>
+<!-- Image Frame -->
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-champagne/40 mb-2.5 flex items-center justify-center">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-102" data-alt="High-fashion product monograph capture of a padded intreccio woven leather Cassette bag in warm ecru cream sitting poised on a travertine pedestal. Crisp architectural lighting casting soft organic shadows against an alabaster wall. Elegant luxury leather accessories presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAzLX1JMD3F_pwlHQr7SWty0N6Aaiu3VlOORKAVDrXMCbnWjSAx0L67UxMWRIIjiNogtEFvfYeXoxYebp0PLkNld2LRBIU7DnB6zBeQiINcw_qOxKXtGfPQjZj43UteWGagoNsZ0chNS3OSh4s0oPXWX21puGol5GJpe4F5JmRry5rLQJGvVdLHI-_JyGvYJFQ2A73eszGYbkcrGDid1Yl9L-chLM61qRcmeHUch1_rQBDoiWnAOZ5-Q">
+<!-- Card Action Badges Overlay -->
+<div class="absolute top-2 right-2 flex justify-end items-center pointer-events-auto">
+<button aria-label="Favorite item" class="w-6 h-6 rounded-full bg-surface/90 backdrop-blur-xs text-ink-secondary hover:text-primary flex items-center justify-center hover:bg-surface active:scale-90 transition-transform shadow-xs" type="button">
+<span class="material-symbols-outlined text-[15px]">bookmark_border</span>
+</button>
+</div>
+</div>
+<!-- Metadata & Title -->
+<div class="space-y-1">
+<div class="flex items-center justify-between text-ink-tertiary">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-rosewood">Bags</span>
+<span class="font-label-sm text-label-sm text-ink-secondary">Worn 22x</span>
+</div>
+<h3 class="font-headline-md text-[14px] leading-snug text-ink-primary font-medium line-clamp-2">
+                Bottega Veneta Cassette Bag
+              </h3>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between mt-1 border-t border-border-hairline/60">
+<span class="font-body-sm text-[11px] text-ink-tertiary italic">Nappa Leather</span>
+<button aria-label="Item Options" class="text-ink-tertiary hover:text-ink-primary p-0.5" type="button">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</div>
+</article>
+<!-- Card 5: Pleated Trousers -->
+<article class="group relative bg-surface rounded-xl p-2.5 border border-border-hairline shadow-[0_2px_10px_rgba(80,22,36,0.03)] flex flex-col justify-between">
+<div>
+<!-- Image Frame -->
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-champagne/40 mb-2.5 flex items-center justify-center">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-102" data-alt="Editorial fashion studio flat lay of tailored wide-leg pleated wool trousers in soft warm sand beige color. Pristine pressed pleats with natural textile drape against an off-white linen background. High-key soft daylighting evoking understated bespoke tailoring craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL6JXYxa-WxWR4adVNbunMg9PR2_9AUvGYOPNQRDaGQyp0H8dqSHi8O4n6co0vl4GuX6H8NU6zPAlhaa5gmRFTqD3OYePGBMPE2CLMazJEyQC8jLWtkj7DBj4BnBuAiRNa5WLG5wafYfuzH_Es2HdT3Nj7b9zmGlOZvIJfBiUBvGtdUgc-x5hQu5mKZ3ZaLWfxdCCcxoyacq5OB8XAsbRMzMuqbXEMmxb6t2ikEslskDTxz6mJgBm7xg">
+<!-- Card Action Badges Overlay -->
+<div class="absolute top-2 right-2 flex justify-end items-center pointer-events-auto">
+<button aria-label="Favorite item" class="w-6 h-6 rounded-full bg-surface/90 backdrop-blur-xs text-ink-secondary hover:text-primary flex items-center justify-center hover:bg-surface active:scale-90 transition-transform shadow-xs" type="button">
+<span class="material-symbols-outlined text-[15px]">bookmark_border</span>
+</button>
+</div>
+</div>
+<!-- Metadata & Title -->
+<div class="space-y-1">
+<div class="flex items-center justify-between text-ink-tertiary">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-rosewood">Bottoms</span>
+<span class="font-label-sm text-label-sm text-ink-secondary">Worn 5x</span>
+</div>
+<h3 class="font-headline-md text-[14px] leading-snug text-ink-primary font-medium line-clamp-2">
+                Wide-Leg Pleated Wool Trousers in Sand
+              </h3>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between mt-1 border-t border-border-hairline/60">
+<span class="font-body-sm text-[11px] text-ink-tertiary italic">Virgin Wool</span>
+<button aria-label="Item Options" class="text-ink-tertiary hover:text-ink-primary p-0.5" type="button">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</div>
+</article>
+<!-- Card 6: Burgundy Pointed Slingback Pumps -->
+<article class="group relative bg-surface rounded-xl p-2.5 border border-border-hairline shadow-[0_2px_10px_rgba(80,22,36,0.03)] flex flex-col justify-between">
+<div>
+<!-- Image Frame -->
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-champagne/40 mb-2.5 flex items-center justify-center">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-102" data-alt="Luxury fashion footwear still life of glossy deep burgundy patent leather pointed-toe slingback kitten heel pumps resting on a warm stone plinth. Focused studio lighting revealing high-shine lacquer reflections and sculptural silhouette against a warm parchment background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaBi4AZLrEhtaZ5c1lrnX2BpDQG4NFSWUqWuCQmfi9RsXyIJgxkrLkGcH26XghZOVFPB6HXXbubrQ5kzNeSDmdZAsAoGGladRKr0sUOyDrtUZxpqRJ74CvYNfJIrLFfjie7cNG59h7ts-fRlV00ZXd3yA2UsBYFh1a7BXvUXSMIvdo8tgMrD3tBwJM_bXZPVhjb7p--lUswLsqyEBcLQTZWGwqL_ej2FeBdk7RaRZ7LPIIH1BgiCAkCQ">
+<!-- Card Action Badges Overlay -->
+<div class="absolute top-2 left-2 right-2 flex justify-between items-center pointer-events-auto">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-label-sm bg-sage-soft text-secondary tracking-wider font-semibold backdrop-blur-xs" style="background: rgb(243, 237, 228); color: rgb(74, 21, 33); border: 1px solid rgba(197, 168, 128, 0.45);">
+                  Trending Accent
+                </span>
+<button aria-label="Favorite item" class="w-6 h-6 rounded-full bg-surface/90 backdrop-blur-xs text-primary flex items-center justify-center hover:bg-surface active:scale-90 transition-transform shadow-xs" type="button">
+<span class="material-symbols-outlined text-[15px]" style="background: rgb(243, 237, 228); color: rgb(74, 21, 33); border: 1px solid rgba(197, 168, 128, 0.45);">bookmark</span>
+</button>
+</div>
+</div>
+<!-- Metadata & Title -->
+<div class="space-y-1">
+<div class="flex items-center justify-between text-ink-tertiary">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-rosewood">Shoes</span>
+<span class="font-label-sm text-label-sm text-ink-secondary">Worn 3x</span>
+</div>
+<h3 class="font-headline-md text-[14px] leading-snug text-ink-primary font-medium line-clamp-2">
+                Burgundy Pointed Slingback Pumps
+              </h3>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between mt-1 border-t border-border-hairline/60">
+<span class="font-body-sm text-[11px] text-ink-tertiary italic">Patent Leather</span>
+<button aria-label="Item Options" class="text-ink-tertiary hover:text-ink-primary p-0.5" type="button">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- Floating Action Button: Quick 'Mix an Outfit' -->
+<div class="fixed bottom-20 left-0 right-0 z-40 flex justify-center pointer-events-none max-w-[390px] mx-auto px-4">
+<button class="pointer-events-auto flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-primary-container text-surface hover:bg-oxblood-deep shadow-[0_12px_32px_-4px_rgba(80,22,36,0.35),0_4px_12px_-2px_rgba(29,24,25,0.2)] active:scale-95 transition-all duration-150 border border-primary/20 backdrop-blur-sm" type="button" style="background: linear-gradient(135deg, rgb(74, 21, 33), rgb(59, 18, 27)); color: rgb(255, 255, 255); border: 1px solid rgb(197, 168, 128); box-shadow: rgba(59, 18, 27, 0.4) 0px 12px 32px -4px, rgba(20, 18, 18, 0.3) 0px 4px 12px -2px;">
+<span class="material-symbols-outlined text-[20px]" style="color: rgb(197, 168, 128);">auto_awesome</span>
+<span class="font-label-lg text-label-lg font-semibold tracking-wide text-surface">Mix an Outfit</span>
+</button>
+</div>
+<!-- Docked 5-Destination Bottom Navigation Bar (Shared Component BottomNavBar) -->
+<!-- 'Wardrobe' tab is active strictly matching page intent -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-canvas/95 dark:bg-inverse-surface/95 backdrop-blur-md shadow-[0_-4px_20px_rgba(80,22,36,0.04)] max-w-[390px] mx-auto right-0" style="background-color: rgba(251, 249, 246, 0.95); border-top: 1px solid rgb(232, 227, 220); box-shadow: rgba(59, 18, 27, 0.04) 0px -4px 20px;">
+<!-- Destination 1: Today -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary dark:text-surface-variant gap-1 py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider">Today</span>
+</a>
+<!-- Destination 2: Discover -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary dark:text-surface-variant gap-1 py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider">Discover</span>
+</a>
+<!-- Destination 3: Wardrobe (ACTIVE TAB) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-inverse-primary font-semibold gap-1 py-1 active:scale-95 transition-transform duration-150" href="#" style="color: rgb(59, 18, 27);">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">checkroom</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider">Wardrobe</span>
+</a>
+<!-- Destination 4: Saved -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary dark:text-surface-variant gap-1 py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[22px]">bookmark_border</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider">Saved</span>
+</a>
+<!-- Destination 5: Profile -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary dark:text-surface-variant gap-1 py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+</div>
+
+
+
+
+</body></html>

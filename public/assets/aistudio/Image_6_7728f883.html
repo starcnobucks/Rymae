@@ -1,0 +1,415 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Rymae — Today</title>
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-container": "#682030",
+            "tertiary": "#4d061b",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#7b2b3c",
+            "outline-variant": "#d9c1c3",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#400013",
+            "on-background": "#1b1c1a",
+            "on-surface-variant": "#544244",
+            "surface-variant": "#e5e2df",
+            "rosewood": "#C06C78",
+            "on-secondary-fixed-variant": "#3d4a3e",
+            "on-primary-fixed": "#3f0113",
+            "inverse-on-surface": "#f3f0ed",
+            "secondary-fixed-dim": "#bbcbbb",
+            "primary": "#4b091b",
+            "outline": "#867274",
+            "on-primary-fixed-variant": "#792d3c",
+            "tertiary-fixed": "#ffd9dd",
+            "on-secondary": "#ffffff",
+            "oxblood-deep": "#501624",
+            "surface-bright": "#fcf9f6",
+            "ink-tertiary": "#8A7D80",
+            "primary-fixed-dim": "#ffb2bc",
+            "on-tertiary": "#ffffff",
+            "error-container": "#ffdad6",
+            "inverse-surface": "#31302f",
+            "secondary-container": "#d7e7d6",
+            "sage-soft": "#E5EBE5",
+            "ink-secondary": "#574C4E",
+            "surface-container": "#f0edea",
+            "inverse-primary": "#ffb2bc",
+            "on-tertiary-container": "#ed8596",
+            "surface-muted": "#EADFD9",
+            "on-primary-container": "#e98797",
+            "background": "#fcf9f6",
+            "surface-dim": "#dcdad7",
+            "surface": "#FFFFFF",
+            "on-surface": "#1b1c1a",
+            "primary-fixed": "#ffd9dd",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#ffb2bc",
+            "secondary-fixed": "#d7e7d6",
+            "border-hairline": "rgba(104, 32, 48, 0.12)",
+            "tertiary-container": "#6a1e30",
+            "ink-primary": "#1D1819",
+            "secondary": "#546255",
+            "surface-container-high": "#eae8e5",
+            "canvas": "#FBF8F5",
+            "surface-container-low": "#f6f3f0",
+            "on-secondary-container": "#5a685b",
+            "surface-container-highest": "#e5e2df",
+            "surface-tint": "#964453",
+            "rose-soft": "#F5E9EC",
+            "on-error": "#ffffff",
+            "surface-champagne": "#F4ECE8",
+            "border-subtle": "#E2D7D1",
+            "on-secondary-fixed": "#121e14",
+            "error": "#ba1a1a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-2xl": "3.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin-desktop": "2.5rem",
+            "margin": "1.25rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "gutter-desktop": "1.5rem",
+            "gutter": "1rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Playfair Display"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Playfair Display"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "display-hero": ["Playfair Display"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Playfair Display"]
+          },
+          "fontSize": {
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "display-hero-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "display-hero": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scroll-hidden::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scroll-hidden {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-ink-primary font-body-md antialiased selection:bg-rose-soft selection:text-primary">
+<!-- Mobile Screen Container: 390px viewport centric layout -->
+<div class="relative w-full max-w-[430px] min-h-screen mx-auto bg-canvas pb-28">
+<!-- TopAppBar (Execution of Shared Component Blueprint) -->
+<header class="sticky top-0 z-40 bg-canvas/95 backdrop-blur-md shadow-sm border-b border-border-hairline">
+<div class="flex justify-between items-center w-full px-5 py-3 max-w-screen-md mx-auto">
+<button aria-label="Menu" class="text-primary hover:text-oxblood-deep active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+<span class="text-[20px] text-primary uppercase font-medium" style="color: rgb(59, 18, 27); font-family: Audrey, Cinzel, Didot, &quot;Bodoni MT&quot;, serif; letter-spacing: 0.22em;">RYMAE</span>
+<button aria-label="AI Styling Assistant" class="text-primary hover:text-oxblood-deep active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-[22px]">auto_fix_high</span>
+</button>
+</div>
+</header>
+<main class="px-5 pt-5 space-y-7">
+<!-- Greeting & Daily Atmosphere Context -->
+<section class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<p class="font-label-sm text-label-sm text-ink-tertiary uppercase tracking-wider">
+            Thursday, 24 Oct
+          </p>
+<!-- Compact Weather Pill -->
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-champagne border border-border-hairline">
+<span class="material-symbols-outlined text-primary text-[15px]">wb_cloudy</span>
+<span class="font-label-sm text-label-sm text-ink-secondary">London 17°C · Crisp morning</span>
+</div>
+</div>
+<h1 class="font-display-hero-mobile text-display-hero-mobile text-primary tracking-tight mt-1">
+          Bonjour, Camille
+        </h1>
+<p class="font-body-sm text-body-sm text-ink-secondary">
+          Curated for crisp autumn air and refined movement.
+        </p>
+</section>
+<!-- Main Hero Section: Today's Look (Bento / Editorial Spread) -->
+<section class="relative bg-surface rounded-xl p-4 shadow-[0_12px_32px_-4px_rgba(80,22,36,0.06),0_4px_12px_-2px_rgba(29,24,25,0.04)] border border-border-hairline">
+<!-- Header Tag & Palette Strip -->
+<div class="flex items-center justify-between pb-3.5 border-b border-border-hairline">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-rose-soft text-primary font-label-sm text-label-sm uppercase tracking-wider">
+              Today's Ensemble
+            </span>
+<span class="font-label-md text-label-md text-ink-tertiary">Look Nº 084</span>
+</div>
+<!-- Wardrobe Palette Gauge -->
+<div class="flex items-center gap-1" title="Color composition">
+<span class="w-3.5 h-3.5 rounded-full bg-[#E8E1D7] ring-1 ring-border-hairline"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-[#3E2B25] ring-1 ring-border-hairline"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-[#501624] ring-1 ring-border-hairline"></span>
+</div>
+</div>
+<!-- Editorial Outfit Composition: Asymmetric Collage -->
+<div class="grid grid-cols-12 gap-2.5 mt-3.5">
+<!-- Large Garment Card (Left: Knit & Trousers Focus) -->
+<div class="col-span-7 relative rounded-lg overflow-hidden bg-surface-champagne aspect-[3/4]">
+<img class="w-full h-full object-cover" data-alt="Editorial lookbook studio photograph of a woman wearing an oversized luxury oatmeal cashmere sweater draped elegantly over tailored chocolate brown wide-leg wool trousers. Styled against a warm alabaster warm studio background with soft natural side lighting, evoking a refined quiet luxury aesthetic and clean silhouette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK4o-pFpak2qbjWBb7WjoH5HTiYDBKhUejdYxKun7_IyQgxA25Pi6x63_8WYnVN1-rPLgFKYErILr2W457Y9LSztdMKyxgiH6CB8XN13mI2hn29Pa3GNh6dkydhmxrMm_CCOXSor1xr0K8dpokg1DbwMPl-dUBGUDOC1cKIKm_OELc4FEwM7XGFXQI3AxbZE7kNRI0tN9J8lf8Ew1kW8MfLZ6Ae_Cx0y6nKeO9FEVo28_5pAGAMkt7lg">
+<div class="absolute bottom-2.5 left-2.5 right-2.5 bg-surface/90 backdrop-blur-sm px-2.5 py-1.5 rounded-md border border-border-hairline">
+<p class="font-label-sm text-label-sm text-ink-primary font-semibold truncate">Oatmeal Cashmere</p>
+<p class="font-label-sm text-[10px] text-ink-tertiary">Oversized knit · Loro Piana</p>
+</div>
+</div>
+<!-- Stacked Right Column: Accessories Details -->
+<div class="col-span-5 flex flex-col gap-2.5">
+<!-- Burgundy Slingbacks -->
+<div class="relative rounded-lg overflow-hidden bg-surface-champagne flex-1 min-h-[120px]">
+<img class="w-full h-full object-cover" data-alt="Crisp close-up studio photograph of glossy deep burgundy patent leather slingback heels with delicate straps, positioned on a cream textured pedestal with subtle soft shadows. Minimalist haute couture womenswear product styling with quiet luxury ambiance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZXj660QattmeE9XJHv-NRJNL5w8h3X0arZipXmwl7-dTWJCYQt103sOKTXFIdUMBf3mKr_8TkFHlgfnUs7hIt7zQldFYF0ecaKETUzUSBQEZ39TMNy4Mz82bqKN2STH0bhGDGrbEe4YeD8CN5P6Ujuhabu1CjwK87iTo2TRa3j_IAgTFAS29gAkZ-8aB4DbZf2Yus4XvQ7eQ8GtZd6tviH6rLyI_hl3MU9g3MX2elcYOK8sAZS_f-2w">
+<span class="absolute top-2 right-2 bg-surface-champagne/90 backdrop-blur-xs px-1.5 py-0.5 rounded text-[10px] font-label-sm text-primary">
+                Slingbacks
+              </span>
+</div>
+<!-- Croc Tote -->
+<div class="relative rounded-lg overflow-hidden bg-surface-champagne flex-1 min-h-[120px]">
+<img class="w-full h-full object-cover" data-alt="Editorial product photograph of a structured croc-embossed leather tote bag in rich dark chocolate espresso finish with polished gold hardware accents. Soft atelier directional lighting illuminating tactile luxury textures on neutral warm background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuYgXTDluDrCDtxVk4uGhbULnQsoV_-lLlOkzLuQyhWpNN6qr9S31MfXxTsMExdZOQrOmMd31R_SbqHZe-o14CTi8TAmqkf1wX6Sim5qo1XG7xuM0XICEu51FETB-InvnWTOMjGfd1iqGxYPN7I0TwgqdJNCQ8zyIXn-8QxvbKpY7pWPQLq-Z3Ull-KbHKMGzmQaEw03zDkNPbS7IEmqnMVCoxGDF1Es52zZiCBnsaK7yI3sYgtjM6vA">
+<span class="absolute bottom-2 left-2 bg-surface/90 backdrop-blur-xs px-1.5 py-0.5 rounded text-[10px] font-label-sm text-ink-secondary">
+                Croc Tote
+              </span>
+</div>
+</div>
+</div>
+<!-- Look Metadata Pills / Composition Footnote -->
+<div class="mt-3.5 pt-3 border-t border-border-hairline">
+<h2 class="font-headline-md text-headline-md text-ink-primary tracking-tight">
+            The Atelier Tailored Drape
+          </h2>
+<!-- "Why This Works" Stylist Rationale Box -->
+<div class="mt-2.5 p-3 rounded-lg bg-surface-champagne border border-border-hairline flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">stylus</span>
+<div>
+<p class="font-label-sm text-label-sm text-primary uppercase tracking-wider mb-0.5">Stylist Rationale</p>
+<p class="font-body-sm text-body-sm text-ink-secondary leading-relaxed">
+                Soft textures balance structured tailoring for your morning studio meetings, transitioning effortlessly to evening cocktails.
+              </p>
+</div>
+</div>
+</div>
+<!-- Action Bar: Wear this, Swap, Heart, Not for me -->
+<div class="mt-4 pt-3.5 border-t border-border-hairline flex items-center justify-between gap-2">
+<!-- Primary Pill: Wear this -->
+<button class="flex-1 h-12 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-1.5 hover:bg-oxblood-deep active:scale-95 transition-all duration-150 shadow-sm" type="button" style="background-color: rgb(59, 18, 27); border: 1px solid rgb(197, 168, 128); color: rgb(255, 255, 255);">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check</span>
+<span class="">Wear this</span>
+</button>
+<!-- Secondary Pill: Swap an item -->
+<button class="h-12 px-4 rounded-full border border-border-subtle bg-transparent text-ink-primary font-label-md text-label-md hover:bg-surface-champagne active:scale-95 transition-all duration-150 flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[18px]">sync_alt</span>
+<span class="">Swap</span>
+</button>
+<!-- Heart Bookmark Button -->
+<button aria-label="Save outfit" class="w-12 h-12 rounded-full border border-border-subtle flex items-center justify-center text-primary hover:bg-rose-soft active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-[20px]">bookmark_border</span>
+</button>
+<!-- Subtle Reject Button -->
+<button aria-label="Not for me" class="w-10 h-12 rounded-full flex items-center justify-center text-ink-tertiary hover:text-primary active:scale-95 transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</section>
+<!-- Occasion Adaptations: "Make it work for my day" -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-ink-primary">
+            Make it work for my day
+          </h3>
+<span class="font-label-sm text-label-sm text-primary hover:underline cursor-pointer">Re-tailor</span>
+</div>
+<!-- Horizontal Scrollable Occasion Chips -->
+<div class="flex items-center gap-2 overflow-x-auto custom-scroll-hidden -mx-5 px-5 py-1">
+<!-- Active Pill -->
+<button class="whitespace-nowrap h-9 px-4 rounded-full bg-primary text-on-primary font-label-md text-label-md transition-colors shadow-sm" type="button" style="background-color: rgb(59, 18, 27); border: 1px solid rgb(197, 168, 128); color: rgb(255, 255, 255);">
+            Office Meeting
+          </button>
+<!-- Inactive Pills -->
+<button class="whitespace-nowrap h-9 px-4 rounded-full bg-surface-champagne text-ink-secondary font-label-md text-label-md border border-border-hairline hover:text-primary transition-colors" type="button">
+            Gallery Opening
+          </button>
+<button class="whitespace-nowrap h-9 px-4 rounded-full bg-surface-champagne text-ink-secondary font-label-md text-label-md border border-border-hairline hover:text-primary transition-colors" type="button">
+            Casual Friday
+          </button>
+<button class="whitespace-nowrap h-9 px-4 rounded-full bg-surface-champagne text-ink-secondary font-label-md text-label-md border border-border-hairline hover:text-primary transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[15px]">umbrella</span>
+            Rainy Day
+          </button>
+<button class="whitespace-nowrap h-9 px-4 rounded-full bg-surface-champagne text-ink-secondary font-label-md text-label-md border border-border-hairline hover:text-primary transition-colors" type="button">Under $100</button>
+</div>
+</section>
+<!-- From Your Wardrobe: Alternative mixes using owned garments -->
+<section class="space-y-3.5">
+<div class="flex items-baseline justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-ink-primary">
+              From your wardrobe
+            </h3>
+<p class="font-body-sm text-body-sm text-ink-tertiary">
+              Recombining 8 pieces you already own
+            </p>
+</div>
+<span class="font-label-sm text-label-sm text-primary hover:underline cursor-pointer">See all</span>
+</div>
+<!-- 2-Column Lookbook Grid -->
+<div class="grid grid-cols-2 gap-3.5">
+<!-- Card 1: Autumn Monochrome -->
+<div class="bg-surface rounded-xl p-3 border border-border-hairline shadow-sm hover:border-primary/30 transition-colors">
+<div class="relative rounded-lg overflow-hidden bg-surface-champagne aspect-[3/4]">
+<img class="w-full h-full object-cover" data-alt="Editorial lookbook photograph showing a monochrome tailored fall outfit featuring a ribbed biscuit-colored turtleneck and high-waisted pleated wool slacks. Set in an architect-designed sunlit gallery space with pale oak flooring and soft ambient lighting, high fashion minimalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxL4Q7UnHCcedfVZHwncBJhlRDG_qJLXnam2_QkDth_oMeeC9fB5q0jI_x1cR2WcLgg3emY3W0my990PRCRhxabDqXp_R7PLaBzMcHN5sGTwcdmSiNPFqJb8a2xZtCo7EabkwQpUUUcHNlxfHGRfCoZTaoa6beNgPBhIvaPS-FTUkBSlx6hVHx2LTxhXOhLH0VEizGDbaSKSSUGrjwj0I-mn7UAxEKxpWdN1RzzUFOOOrZLzEG8zewQQ">
+<span class="absolute top-2 left-2 bg-surface/90 backdrop-blur-xs px-2 py-0.5 rounded text-[10px] font-label-sm text-ink-primary font-medium">
+                100% Owned
+              </span>
+</div>
+<div class="mt-2.5">
+<h4 class="font-headline-sm text-[15px] leading-5 text-ink-primary font-semibold">
+                Autumn Monochrome
+              </h4>
+<p class="font-body-sm text-[12px] text-ink-secondary mt-0.5">
+                Camel coat + Tan knit
+              </p>
+<div class="flex items-center gap-1 mt-2 text-primary">
+<span class="material-symbols-outlined text-[14px]">checkroom</span>
+<span class="font-label-sm text-[11px]">3 items matched</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Silk & Wool Contrast -->
+<div class="bg-surface rounded-xl p-3 border border-border-hairline shadow-sm hover:border-primary/30 transition-colors">
+<div class="relative rounded-lg overflow-hidden bg-surface-champagne aspect-[3/4]">
+<img class="w-full h-full object-cover" data-alt="High-fashion photography of a woman wearing a heavy charcoal double-faced wool overcoat layered over a fluid champagne mulberry silk midi slip dress. Minimalist studio setup with clean architectural shadows and refined tactile material contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPWOwCRa38DOYnKwDQUqR3FM86VdTV6AOwTTvkFqyZB3_HETqvEBabgfyeXgyu6kYmx2GZiIyBuVRtV5T0AOFOaXgGGDgP3y9g85yBlZlpH8-KhD4Hn8o6qGMT5dDakdcYd7q8ktiMarskv9xGYEz2kslK1O89l_bz_BYv3743mWBxLCrFt42THFTyQk84WUk4yVqrrMJ5rBauiwoIjr1VQEtCwLbxvAtSo38Nt65_LF3Ed55AcSaCWg">
+<span class="absolute top-2 left-2 bg-surface/90 backdrop-blur-xs px-2 py-0.5 rounded text-[10px] font-label-sm text-ink-primary font-medium">
+                2 Owned + 1 New
+              </span>
+</div>
+<div class="mt-2.5">
+<h4 class="font-headline-sm text-[15px] leading-5 text-ink-primary font-semibold">
+                Silk &amp; Wool Contrast
+              </h4>
+<p class="font-body-sm text-[12px] text-ink-secondary mt-0.5">
+                Silk slip + Structured blazer
+              </p>
+<div class="flex items-center gap-1 mt-2 text-primary">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+<span class="font-label-sm text-[11px]">Subtle day-to-night</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Trend Intelligence Card -->
+<section class="bg-surface rounded-xl p-4 border border-border-hairline shadow-sm relative overflow-hidden" style="border-color: rgb(232, 227, 220);">
+<div class="flex items-start gap-3.5">
+<div class="w-20 h-24 rounded-lg bg-surface-champagne flex-shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Macro close-up portrait of deep oxblood burgundy leather texture with pristine hand-stitched detailing and subtle gleam under high-fashion museum lighting. Luxury accessories craftsmanship editorial." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtXIUUyUbx-W4gXoQkid07ZyrNvF2eNll1e0nwN2fcfhheLjnpVOk8qPN091-Vy_-5qs7FxXibmOIqFLr3fBJ7i6pZsoYkMt7qarENymuIY5u4Gk_q-ZUX9gcAZKdmBbsnl1DdGtVDPFMtmq4v9-_aG53Y9uqZ8k-Zik1bAu-hhFHnwr3qLYmF9vwuoKaGzJ9c-31paD_orqux_IY_B56SZLKOTX2E0yan7FPrl8MnHJjCnFr6BPoRCA">
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-1.5 text-primary mb-1" style="background-color: rgb(243, 237, 228); color: rgb(59, 18, 27); border-radius: 9999px; padding: 2px 8px; width: fit-content;">
+<span class="material-symbols-outlined text-[14px]">insights</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider font-semibold">A trend that fits your style</span>
+</div>
+<h4 class="font-headline-md text-[17px] leading-snug text-ink-primary">
+              Quiet Luxury Burgundy Leather
+            </h4>
+<p class="font-body-sm text-[12px] text-ink-secondary mt-1">
+              Pairs seamlessly with your existing camel wool coat and vintage denim.
+            </p>
+<div class="flex items-center gap-2 mt-2 pt-2 border-t border-border-hairline text-ink-tertiary">
+<span class="material-symbols-outlined text-[13px]">menu_book</span>
+<cite class="font-label-sm text-[10px] not-italic">
+                Vogue Trend Report, Oct 2026
+              </cite>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Strict adherence to Shared Components JSON & Semantic Shell) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-canvas/95 backdrop-blur-md shadow-[0_-4px_20px_rgba(80,22,36,0.04)]">
+<!-- 1. Today (Active) -->
+<a class="flex flex-col items-center justify-center text-primary font-semibold gap-1 py-1 active:scale-95 transition-transform duration-150" href="#today" style="color: rgb(59, 18, 27);">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider">Today</span>
+</a>
+<!-- 2. Discover (Inactive) -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary hover:text-primary gap-1 py-1 transition-colors duration-200 active:scale-95" href="#discover">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider">Discover</span>
+</a>
+<!-- 3. Wardrobe (Inactive) -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary hover:text-primary gap-1 py-1 transition-colors duration-200 active:scale-95" href="#wardrobe">
+<span class="material-symbols-outlined text-[22px]">checkroom</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider">Wardrobe</span>
+</a>
+<!-- 4. Saved (Inactive) -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary hover:text-primary gap-1 py-1 transition-colors duration-200 active:scale-95" href="#saved">
+<span class="material-symbols-outlined text-[22px]">bookmark_border</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider">Saved</span>
+</a>
+<!-- 5. Profile (Inactive) -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary hover:text-primary gap-1 py-1 transition-colors duration-200 active:scale-95" href="#profile">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+</div>
+
+
+
+
+
+
+
+
+</body></html>

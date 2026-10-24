@@ -1,0 +1,611 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RYMAE — Saved Collections</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Editorial Typography Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS with custom configuration -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed": "#121e14",
+            "surface-dim": "#dcdad7",
+            "on-secondary-container": "#5a685b",
+            "tertiary-fixed-dim": "#ffb2bc",
+            "secondary-fixed-dim": "#bbcbbb",
+            "on-primary": "#ffffff",
+            "sage-soft": "#E5EBE5",
+            "ink-secondary": "#574C4E",
+            "ink-primary": "#1D1819",
+            "oxblood-deep": "#501624",
+            "background": "#fcf9f6",
+            "on-tertiary-fixed-variant": "#7b2b3c",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#ffb2bc",
+            "error": "#ba1a1a",
+            "rosewood": "#C06C78",
+            "on-primary-fixed-variant": "#792d3c",
+            "surface-container-high": "#eae8e5",
+            "inverse-on-surface": "#f3f0ed",
+            "secondary": "#546255",
+            "ink-tertiary": "#8A7D80",
+            "inverse-surface": "#31302f",
+            "surface-champagne": "#F4ECE8",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-container": "#e98797",
+            "on-surface": "#1b1c1a",
+            "on-tertiary-fixed": "#400013",
+            "tertiary": "#4d061b",
+            "surface-container-low": "#f6f3f0",
+            "canvas": "#FBF8F5",
+            "on-surface-variant": "#544244",
+            "border-hairline": "rgba(104, 32, 48, 0.12)",
+            "rose-soft": "#F5E9EC",
+            "surface-container": "#f0edea",
+            "surface-variant": "#e5e2df",
+            "surface-tint": "#964453",
+            "primary-fixed": "#ffd9dd",
+            "secondary-fixed": "#d7e7d6",
+            "on-primary-fixed": "#3f0113",
+            "surface-container-highest": "#e5e2df",
+            "primary": "#4b091b",
+            "on-tertiary-container": "#ed8596",
+            "on-error": "#ffffff",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "tertiary-fixed": "#ffd9dd",
+            "surface-muted": "#EADFD9",
+            "tertiary-container": "#6a1e30",
+            "outline-variant": "#d9c1c3",
+            "on-secondary-fixed-variant": "#3d4a3e",
+            "surface-bright": "#fcf9f6",
+            "secondary-container": "#d7e7d6",
+            "on-background": "#1b1c1a",
+            "on-tertiary": "#ffffff",
+            "outline": "#867274",
+            "border-subtle": "#E2D7D1",
+            "surface": "#FFFFFF",
+            "inverse-primary": "#ffb2bc",
+            "primary-container": "#682030"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-desktop": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin": "1.25rem",
+            "gutter": "1rem",
+            "margin-desktop": "2.5rem",
+            "space-2xl": "3.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Playfair Display"],
+            "headline-md": ["Playfair Display"],
+            "display-hero-mobile": ["Playfair Display"],
+            "display-hero": ["Playfair Display"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "display-hero-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "display-hero": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-canvas text-ink-primary font-body-md antialiased selection:bg-rose-soft selection:text-primary min-h-screen pb-28">
+<!-- Mobile Viewport Container (390px Baseline Centered) -->
+<div class="max-w-[430px] mx-auto min-h-screen bg-canvas relative shadow-[0_0_50px_rgba(80,22,36,0.03)] flex flex-col">
+<!-- 1. Top Masthead & App Bar (Shared TopAppBar Hybrid Anchor) -->
+<header class="sticky top-0 z-40 bg-canvas/95 backdrop-blur-md border-b border-border-hairline px-5 py-3.5 transition-all">
+<div class="flex items-center justify-between mb-3">
+<!-- Leading Action: Brand Monogram / Menu -->
+<button aria-label="Atelier Menu" class="w-9 h-9 rounded-full flex items-center justify-center text-primary hover:bg-surface-champagne transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]">menu</span>
+</button>
+<!-- Brand Wordmark Centered -->
+<div class="text-center">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-[0.25em] font-serif uppercase block text-sm">RYMAE</span>
+<span class="font-label-sm text-[10px] tracking-widest text-ink-tertiary uppercase -mt-0.5 block">Paris · London</span>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-1.5">
+<button aria-label="Search Saved" class="w-9 h-9 rounded-full flex items-center justify-center text-ink-primary hover:text-primary hover:bg-surface-champagne transition-all active:scale-95">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+<button aria-label="Create New Collection" class="w-9 h-9 rounded-full flex items-center justify-center bg-surface-champagne text-primary hover:bg-primary hover:text-surface transition-all active:scale-95">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+<!-- Masthead Editorial Title Section -->
+<div class="pt-1 pb-1">
+<div class="flex items-baseline justify-between">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-ink-primary font-serif italic">Saved</h1>
+<span class="font-label-sm text-label-sm text-ink-tertiary uppercase tracking-wider">38 Archived</span>
+</div>
+<p class="font-body-sm text-body-sm text-ink-secondary mt-0.5">Your bespoke style archive, thoughtfully curated.</p>
+</div>
+</header>
+<!-- Main Content Stream -->
+<main class="flex-1 px-5 pt-4 space-y-7">
+<!-- 2. Category Filter Bar (Horizontally scrollable luxury pills) -->
+<section class="-mx-5 px-5">
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+<!-- Active Pill: Deep Bordeaux Noir -->
+<button class="flex-shrink-0 h-9 px-4 rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center gap-1.5 shadow-sm active:scale-95 transition-transform">
+<span class="">All</span>
+<span class="w-4 h-4 rounded-full bg-oxblood-deep text-[10px] flex items-center justify-center font-medium">38</span>
+</button>
+<!-- Inactive Category Pills -->
+<button class="flex-shrink-0 h-9 px-3.5 rounded-full bg-surface-champagne text-ink-secondary hover:text-ink-primary font-label-md text-label-md flex items-center gap-1.5 border border-transparent hover:border-border-hairline transition-all active:scale-95">
+<span class="">Items</span>
+<span class="text-ink-tertiary text-[11px]">18</span>
+</button>
+<button class="flex-shrink-0 h-9 px-3.5 rounded-full bg-surface-champagne text-ink-secondary hover:text-ink-primary font-label-md text-label-md flex items-center gap-1.5 border border-transparent hover:border-border-hairline transition-all active:scale-95">
+<span class="">Outfits</span>
+<span class="text-ink-tertiary text-[11px]">7</span>
+</button>
+<button class="flex-shrink-0 h-9 px-3.5 rounded-full bg-surface-champagne text-ink-secondary hover:text-ink-primary font-label-md text-label-md flex items-center gap-1.5 border border-transparent hover:border-border-hairline transition-all active:scale-95">
+<span class="">Occasions</span>
+<span class="text-ink-tertiary text-[11px]">3</span>
+</button>
+<button class="flex-shrink-0 h-9 px-3.5 rounded-full bg-surface-champagne text-ink-secondary hover:text-ink-primary font-label-md text-label-md flex items-center gap-1.5 border border-transparent hover:border-border-hairline transition-all active:scale-95">
+<span class="">Shows &amp; Runway</span>
+<span class="text-ink-tertiary text-[11px]">6</span>
+</button>
+<button class="flex-shrink-0 h-9 px-3.5 rounded-full bg-surface-champagne text-ink-secondary hover:text-ink-primary font-label-md text-label-md flex items-center gap-1.5 border border-transparent hover:border-border-hairline transition-all active:scale-95">
+<span class="">Brands</span>
+<span class="text-ink-tertiary text-[11px]">4</span>
+</button>
+</div>
+</section>
+<!-- 3. Smart Activity & Editorial Alerts -->
+<section class="space-y-2.5">
+<!-- Alert 1: Price Drop -->
+<div class="bg-surface rounded-xl p-3.5 border border-border-hairline flex items-start gap-3 shadow-[0_4px_16px_rgba(80,22,36,0.03)] relative overflow-hidden">
+<div class="w-1.5 h-1.5 rounded-full bg-rosewood mt-2 flex-shrink-0 animate-pulse"></div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[10px] tracking-wider uppercase text-rosewood font-semibold">Atelier Price Alert</span>
+<span class="text-[10px] text-ink-tertiary font-label-sm">2h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-ink-primary mt-0.5">
+<strong class="font-medium">Totême Wool Wrap Coat</strong> is now 15% off in your size.
+            </p>
+<a class="inline-flex items-center gap-1 text-primary font-label-sm text-label-sm mt-1.5 hover:text-oxblood-deep transition-colors" href="#">
+<span class="">View Item</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Alert 2: Occasion Approaching -->
+<div class="bg-surface-champagne/70 rounded-xl p-3.5 border border-border-hairline flex items-start gap-3 relative overflow-hidden">
+<div class="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[10px] tracking-wider uppercase text-primary font-semibold">Occasion Approaching</span>
+<span class="text-[10px] text-ink-tertiary font-label-sm">in 3 days</span>
+</div>
+<p class="font-body-sm text-body-sm text-ink-primary mt-0.5">
+<strong class="font-medium">Mayfair Gallery Opening</strong> · 1 piece unstyled from your planned look.
+            </p>
+<div class="flex items-center gap-3 mt-1.5">
+<a class="text-primary font-label-sm text-label-sm hover:underline" href="#">Complete Ensemble</a>
+<span class="text-ink-tertiary text-xs">·</span>
+<span class="font-label-sm text-[11px] text-ink-secondary">Stylist Advice Ready</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Coming Up / Next Occasions (Event-Driven Fashion Planning) -->
+<section class="space-y-3.5">
+<div class="flex items-end justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-ink-primary font-serif">Upcoming Occasions</h2>
+<p class="font-body-sm text-[12px] text-ink-tertiary">Editorial wardrobe planning for scheduled events</p>
+</div>
+<button class="font-label-sm text-label-sm text-primary hover:text-oxblood-deep uppercase tracking-wider">
+            Calendar
+          </button>
+</div>
+<!-- Horizontal Occasions Carousel -->
+<div class="-mx-5 px-5 flex gap-3.5 overflow-x-auto no-scrollbar pb-1">
+<!-- Event Card 1: Venice Biennale -->
+<div class="w-[280px] flex-shrink-0 bg-surface rounded-xl border border-border-hairline overflow-hidden flex flex-col shadow-[0_8px_20px_rgba(80,22,36,0.04)]">
+<div class="relative h-36 w-full bg-surface-muted overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sophisticated woman in an avant-garde champagne silk evening column dress standing on a weathered marble balcony overlooking the Grand Canal in Venice at sunset. Warm golden hour light catches the soft ivory fabrics and deep burgundy accent textures. The mood is poetic, high fashion, and serenely luxurious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCezvNrE5KnLNPECz-OpiHy9seIgGp9nPsbMuV03o9wKL5pKgpEuQZ71b1VK7oPmglHHU9gWtpkNZ-yfvRhxQyphWeoA9sdf-L4GWUgn0U4kVqhZOc0EVOocfpsnhu8MWddSrx_5KmpMMzk2vvU9zRi5BwiIBJb0O4mTI45kSTHntraX3E154Q2Rw_JjDP_NArB460LigjXppAXIuuVoVirbLGj8zNeDVOVx3_bzFM_zT20iDTldohkTA">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-2.5 left-3 right-3 text-surface">
+<span class="font-label-sm text-[10px] uppercase tracking-widest text-surface-champagne block">15 Nov · in 18 days</span>
+<span class="font-headline-sm text-[15px] font-serif leading-tight">Venice Biennale &amp; Friends Wedding</span>
+</div>
+</div>
+<div class="p-3.5 flex flex-col justify-between flex-1 space-y-3">
+<div class="space-y-1.5">
+<div class="flex items-center justify-between text-xs">
+<span class="text-ink-secondary font-label-md">Curation Progress</span>
+<span class="text-primary font-semibold font-label-sm">75% Complete</span>
+</div>
+<!-- Progress bar gauge -->
+<div class="w-full h-1 bg-surface-champagne rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 75%"></div>
+</div>
+<p class="font-body-sm text-[11px] text-ink-tertiary">4 looks saved · Missing clutch &amp; evening wrap</p>
+</div>
+<button class="w-full py-2 px-3 rounded-full bg-surface-champagne text-primary hover:bg-primary hover:text-surface font-label-sm text-label-sm text-center transition-colors">
+                Plan Occasion
+              </button>
+</div>
+</div>
+<!-- Event Card 2: Mayfair Gallery Opening -->
+<div class="w-[280px] flex-shrink-0 bg-surface rounded-xl border border-border-hairline overflow-hidden flex flex-col shadow-[0_8px_20px_rgba(80,22,36,0.04)]">
+<div class="relative h-36 w-full bg-surface-muted overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="An editorial close-up photograph of tailored deep oxblood leather trench coat layered over an alabaster fine-gauge turtleneck, captured in a softly lit contemporary art gallery with minimalist plaster walls. Refined, sleek editorial lighting emphasizing pristine leather sheen and quiet luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJQHuNMR2sIei1XlpwzIPaP3Z2UTDPdo5XJ4TAWVGDP830iH9hUsJHi2s1leXlH8F8uXSG4VP--iW8Xln8j9jEiqkEqgFyeXNgf09CZgMn-deDaPxScPCTM7MQu4ut_tcIUm31OEgawX-CRPvXW3HfPXce8ArKo2EoTWflAQL-8y_rK7pO-qMS94sWU2fzrtNziEY_LY6qe4B4occCXuLkx0_qTaAIe3w1OisGc2E4EQv9zTuQ0OqudQ">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-2.5 left-3 right-3 text-surface">
+<span class="font-label-sm text-[10px] uppercase tracking-widest text-surface-champagne block">This Saturday · 8 PM</span>
+<span class="font-headline-sm text-[15px] font-serif leading-tight">Mayfair Autumn Gallery Opening</span>
+</div>
+</div>
+<div class="p-3.5 flex flex-col justify-between flex-1 space-y-3">
+<div class="space-y-1.5">
+<div class="flex items-center justify-between text-xs">
+<span class="text-ink-secondary font-label-md">Status</span>
+<span class="text-secondary font-semibold font-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Ready to Wear
+                  </span>
+</div>
+<div class="w-full h-1 bg-secondary-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 100%"></div>
+</div>
+<p class="font-body-sm text-[11px] text-ink-tertiary">2 looks curated · Jewelry confirmed</p>
+</div>
+<button class="w-full py-2 px-3 rounded-full bg-primary text-on-primary font-label-sm text-label-sm text-center active:scale-95 transition-transform">
+                Review Fitting
+              </button>
+</div>
+</div>
+<!-- Event Card 3: Alpine Weekend -->
+<div class="w-[280px] flex-shrink-0 bg-surface rounded-xl border border-border-hairline overflow-hidden flex flex-col shadow-[0_8px_20px_rgba(80,22,36,0.04)]">
+<div class="relative h-36 w-full bg-surface-muted overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="An elegant winter lifestyle scene in St. Moritz showing luxurious ecru cashmere cable knits, shearling trims, and soft suede gloves resting on a dark walnut table next to tall mountain lodge windows overlooking snow-covered pine slopes. Soft alpine morning light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmJqJEmDRfP3yOhaQH1il1_txH5BUGtD3Q3xmLYgd4N-RlTDScSa_JtLDLhtzSD9wgaVxBfRcAHUv26Ha2ei-qGV4nU6jb95iwv2TOqve10jFmUWWd_Q1Wd6bPY4Ns1mAt7UHFjuo5ytYJ9TnEb_9n7-oCfhZCjkFAiunGH3Vjpun2Wz6RQoi9NB5g_KrwFHZvGH1NSJO9D6eCbegO1geocSWqxFOnMb57DAetyfLuNSq1RjG8hlaKiw">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-2.5 left-3 right-3 text-surface">
+<span class="font-label-sm text-[10px] uppercase tracking-widest text-surface-champagne block">12 Dec · in 45 days</span>
+<span class="font-headline-sm text-[15px] font-serif leading-tight">St. Moritz Alpine Weekend</span>
+</div>
+</div>
+<div class="p-3.5 flex flex-col justify-between flex-1 space-y-3">
+<div class="space-y-1.5">
+<div class="flex items-center justify-between text-xs">
+<span class="text-ink-secondary font-label-md">Status</span>
+<span class="text-rosewood font-semibold font-label-sm">Outerwear Search</span>
+</div>
+<div class="w-full h-1 bg-surface-champagne rounded-full overflow-hidden">
+<div class="h-full bg-rosewood rounded-full" style="width: 30%"></div>
+</div>
+<p class="font-body-sm text-[11px] text-ink-tertiary">1 look saved · Need cold-weather coats</p>
+</div>
+<button class="w-full py-2 px-3 rounded-full bg-surface-champagne text-primary hover:bg-primary hover:text-surface font-label-sm text-label-sm text-center transition-colors">
+                Explore Outerwear
+              </button>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. My Collections (2-Column Editorial Grid) -->
+<section class="space-y-3.5">
+<div class="flex items-end justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-ink-primary font-serif">My Collections</h2>
+<p class="font-body-sm text-[12px] text-ink-tertiary">Thematic capsule archives</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="font-label-sm text-label-sm text-primary hover:text-oxblood-deep uppercase tracking-wider">
+              View All (6)
+            </button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3.5">
+<!-- Collection 1 -->
+<div class="group bg-surface rounded-xl border border-border-hairline overflow-hidden flex flex-col cursor-pointer transition-shadow hover:shadow-[0_6px_20px_rgba(80,22,36,0.06)]">
+<div class="aspect-[4/5] w-full bg-surface-muted overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A minimalist high-fashion editorial portrait of a woman wearing a relaxed double-faced camel cashmere wrap coat with crisp wide-leg tailored trousers. Photographed against warm ivory textured plaster in diffused morning daylight with timeless simplicity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9jRqXcsouO2EAHvtEC9PstWWJEt8-D0YVULjRbfggdpGpfOmk1ykTTaOIsC23ZweLmC56g10l5qAfz2M-DIVL5juivYt152yYd__UdQHfP2pH0PD6EdZdoWOC_6kQtUtGNK9gqcUSczmw0eMTWdULXX9Zc1JKfpduG7DVt4sicFUm3gFEnOKkrgHuBwGSbP8XqcptdX9Gd4TYr0-8MT0OiEVntrfXoKCtWq8SMu6ivl_ksdCSYp0Mmw">
+<span class="absolute top-2.5 right-2.5 bg-canvas/90 backdrop-blur-sm text-primary px-2 py-0.5 rounded-full text-[10px] font-label-sm tracking-wide">Private</span>
+</div>
+<div class="p-3">
+<h3 class="font-headline-sm text-[14px] font-serif text-ink-primary leading-snug group-hover:text-primary transition-colors">Capsule Wardrobe</h3>
+<p class="font-label-sm text-[11px] text-ink-tertiary mt-0.5">14 pieces · Daily Edit</p>
+</div>
+</div>
+<!-- Collection 2 -->
+<div class="group bg-surface rounded-xl border border-border-hairline overflow-hidden flex flex-col cursor-pointer transition-shadow hover:shadow-[0_6px_20px_rgba(80,22,36,0.06)]">
+<div class="aspect-[4/5] w-full bg-surface-muted overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Dramatic Parisian runway fashion capture featuring an architectural structured cape blazer in deep midnight noir paired with wine-toned leather gloves. Crisp runway spotlights, dark mood, clean editorial silhouettes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqUvvMM_GDTCo-aLD_vBxp8VwDMc9qe1q5NmOkSEO1gXzG3t6gw41kcOmX3oVlnr32HGiCvNwfJCmdf7fwfGSrCYHxwNBBxzkK1A0T08RAYIU7OHHzwmitcf1LCJ5wOF_iqdLPYz8U_4UTN9qcoLaW2pTEI-xykgW6szkX5diifmnjQdGhsI2Fyy-xXr7ghSmoh-FwqCZtNqzik5ckL6ogCkMldfBVscUtkQ-L5GV8POIvzHcbgY5vCw">
+<span class="absolute top-2.5 right-2.5 bg-canvas/90 backdrop-blur-sm text-ink-secondary px-2 py-0.5 rounded-full text-[10px] font-label-sm tracking-wide">AW26</span>
+</div>
+<div class="p-3">
+<h3 class="font-headline-sm text-[14px] font-serif text-ink-primary leading-snug group-hover:text-primary transition-colors">Runway &amp; Couture</h3>
+<p class="font-label-sm text-[11px] text-ink-tertiary mt-0.5">9 looks · PFW Curations</p>
+</div>
+</div>
+<!-- Collection 3 -->
+<div class="group bg-surface rounded-xl border border-border-hairline overflow-hidden flex flex-col cursor-pointer transition-shadow hover:shadow-[0_6px_20px_rgba(80,22,36,0.06)]">
+<div class="aspect-[4/5] w-full bg-surface-muted overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A curated flatlay spread of tonal autumn essentials: a chunky ribbed cream cashmere knitwear sweater, mocha suede handbag, and a bottle of luxury amber fragrance on warm travertine marble." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAoXLBm0uD_fo97eUZS7Q0WJCgnt_G2ERbVzOADEKx9WtTO29fJUX1H3LDURwyAAEK72fQNf4ETbefvimoa9e75zoi1eEWNLYmf-Wg_ZpnbDArkhFU4Q_ZWBrAdXvEE5JN4WwG72kzaXOSVXKfY5LW5bc4JDiLNP8n0APZZ0Bbxn1KChllGor7rAGzibsqgSiLedlLt3ETgWT2_D3XXilpm-MEnscN-usSkCJ1kj2O6-Ehb4_ejJHbNQ">
+</div>
+<div class="p-3">
+<h3 class="font-headline-sm text-[14px] font-serif text-ink-primary leading-snug group-hover:text-primary transition-colors">Autumn Monochrome</h3>
+<p class="font-label-sm text-[11px] text-ink-tertiary mt-0.5">6 items · Totême &amp; Loro</p>
+</div>
+</div>
+<!-- Collection 4 -->
+<div class="group bg-surface rounded-xl border border-border-hairline overflow-hidden flex flex-col cursor-pointer transition-shadow hover:shadow-[0_6px_20px_rgba(80,22,36,0.06)]">
+<div class="aspect-[4/5] w-full bg-surface-muted overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A nocturnal luxury fashion scene showing an open-back liquid silk black slip dress and sculptural high-heeled sandals poised on parquetry flooring beside heavy velvet drapes. Low ambient warm sconce illumination." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN0KnXF4LHP-pMMGAPHcZboPvpE2mnxvBVmPU47V0QE01ilutqX9u-Ca46SnkvLQ2e7RkT1zIEiDzdv1Xf4Z_d-bArho4TaPZS7HCXJP0YoA5Vb1WBYUYH3Rn3hWg_f_C39F7VZJcEFM3_ZZ2mNxE9qfg0CFN5d4Z-Pw3apwH-3AAw97bN5L4XJwQ9CDdTxIt4I3RPHfJ6KGIQ3cWVnLoR2RW--rx506JHAC8EZSSv5QIx99li89rnWw">
+</div>
+<div class="p-3">
+<h3 class="font-headline-sm text-[14px] font-serif text-ink-primary leading-snug group-hover:text-primary transition-colors">Evening &amp; Black Tie</h3>
+<p class="font-label-sm text-[11px] text-ink-tertiary mt-0.5">8 items · Formal Gala</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Recently Saved (Shoppable Product Grid) -->
+<section class="space-y-3.5">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-ink-primary font-serif">Recently Saved</h2>
+<p class="font-body-sm text-[12px] text-ink-tertiary">Individual catalog discoveries</p>
+</div>
+<!-- Filter / Sort Pills -->
+<div class="flex items-center gap-1.5">
+<button class="h-8 px-2.5 rounded-full bg-surface border border-border-hairline text-ink-secondary text-[11px] font-label-md flex items-center gap-1 hover:text-primary">
+<span class="">Recent</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+<button aria-label="Filter products" class="h-8 w-8 rounded-full bg-surface border border-border-hairline text-ink-secondary flex items-center justify-center hover:text-primary">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3.5">
+<!-- Product 1: Toteme Trench -->
+<div class="bg-surface rounded-xl border border-border-hairline p-2.5 flex flex-col justify-between shadow-[0_2px_10px_rgba(80,22,36,0.02)]">
+<div>
+<div class="aspect-[3/4] w-full bg-surface-container-low rounded-lg overflow-hidden relative p-2 flex items-center justify-center">
+<img class="w-full h-full object-contain" data-alt="Studio catalog product photography of an oversized camel wool double-breasted trench coat by Toteme, isolated on a warm alabaster neutral background with natural daylight and subtle soft fabric folds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoNXtnpjbbsrUx13DGJom-E3Q1oEFWwR4zELm9g7kyNIXZSWV4K5rCL-R-6R7TOcnTtNQssV8z08toBKCY1TD7oGz5QLxRNPI-02kouf15uUJOArxVr0GE0MTIumQEWwHnY6dCRpxUurKk9Zpby7rG08cyB3w4_ab4Vn8cayHY9BZDS12SKuXtP9VuS7n8g0wJSLcFqOcbad_MMSZEsVpcHW5u515eN_uBc6bwt29EZXMp_lqRVjfcWA">
+<button aria-label="Bookmark saved" class="absolute top-2 right-2 w-7 h-7 rounded-full bg-canvas/80 backdrop-blur-md flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+<span class="absolute bottom-2 left-2 px-1.5 py-0.5 rounded bg-oxblood-deep/90 text-surface text-[9px] font-label-sm tracking-wide">Price Tracked</span>
+</div>
+<div class="mt-2.5">
+<span class="font-label-sm text-[10px] text-ink-tertiary uppercase tracking-wider block">TOTÊME</span>
+<h4 class="font-body-md text-[13px] text-ink-primary font-medium truncate mt-0.5">Double-Breasted Coat</h4>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-label-lg text-[13px] text-primary font-semibold">₹54,000</span>
+<span class="text-[11px] text-ink-tertiary line-through">₹63,500</span>
+</div>
+</div>
+</div>
+<div class="pt-2 mt-2 border-t border-border-hairline/60 flex items-center justify-between">
+<button class="text-[11px] font-label-sm text-ink-secondary hover:text-primary transition-colors">Move to Collection</button>
+<button aria-label="Options" class="text-ink-tertiary hover:text-ink-primary">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Product 2: Saint Laurent Slingback -->
+<div class="bg-surface rounded-xl border border-border-hairline p-2.5 flex flex-col justify-between shadow-[0_2px_10px_rgba(80,22,36,0.02)]">
+<div>
+<div class="aspect-[3/4] w-full bg-surface-container-low rounded-lg overflow-hidden relative p-2 flex items-center justify-center">
+<img class="w-full h-full object-contain" data-alt="High-fashion footwear studio portrait of a sculpted patent leather slingback pump in deep wine bordeaux noir color, set on clean ivory background with delicate natural reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU0PHk5ifV5Tmx_2fUgVng2rc481G1nr0QhCgkjguxdYLDOqgN74nHJMmnKR9zgYaK404T14pOoOQ-1Y-FWXZg52Sp2PHbuPIPYIjmoiOmENo5YAQQoI2LeA2gzF9nROyeHnhmM8kc_vXTPrGWBI4I-67kfpOXFosFxkbDCJODhhvT4D64CXYNyyRK2gjNO_Q122auoSOeYDSrMPki5Di0kj376JdWigUExzYn-deg83k8iO43QO088A">
+<button aria-label="Bookmark saved" class="absolute top-2 right-2 w-7 h-7 rounded-full bg-canvas/80 backdrop-blur-md flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+<span class="absolute bottom-2 left-2 px-1.5 py-0.5 rounded bg-sage-soft text-secondary text-[9px] font-label-sm tracking-wide">Back in 38</span>
+</div>
+<div class="mt-2.5">
+<span class="font-label-sm text-[10px] text-ink-tertiary uppercase tracking-wider block">SAINT LAURENT</span>
+<h4 class="font-body-md text-[13px] text-ink-primary font-medium truncate mt-0.5">Sculptural Slingback 55</h4>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-label-lg text-[13px] text-ink-primary font-semibold">$790</span>
+</div>
+</div>
+</div>
+<div class="pt-2 mt-2 border-t border-border-hairline/60 flex items-center justify-between">
+<button class="text-[11px] font-label-sm text-primary hover:underline">Try-On in Atelier</button>
+<button aria-label="Options" class="text-ink-tertiary hover:text-ink-primary">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Product 3: Bottega Veneta Andiamo -->
+<div class="bg-surface rounded-xl border border-border-hairline p-2.5 flex flex-col justify-between shadow-[0_2px_10px_rgba(80,22,36,0.02)]">
+<div>
+<div class="aspect-[3/4] w-full bg-surface-container-low rounded-lg overflow-hidden relative p-2 flex items-center justify-center">
+<img class="w-full h-full object-contain" data-alt="Luxury handcrafted leather handbag shot from 3/4 angle, featuring the iconic intrecciato weave in muted travertine lambskin with brass knot hardware, on warm alabaster studio backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGn3wuIkvCStF-QAeqtvv3wZ3UcYw3hBGCJ0qJ5Sbq8cyhEMw0KQ9wuIwxOKraetO3VmrvuP7GclU2Ikilby-X2IRKNF9l-7Om2nn8hMBXK4g4Pq39liL_12L7fDXyFaanckoqfmsNOWLb9aC_-fj-BoYENMrggOyTJqzJcS9RDaUrkD0CklIkm2An4O1xAYUFNiSABXYPix5hCJjseW9vSajVS2c0_hqPGkvW0S7FWN8dQALob1t80Q">
+<button aria-label="Bookmark saved" class="absolute top-2 right-2 w-7 h-7 rounded-full bg-canvas/80 backdrop-blur-md flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+<div class="mt-2.5">
+<span class="font-label-sm text-[10px] text-ink-tertiary uppercase tracking-wider block">BOTTEGA VENETA</span>
+<h4 class="font-body-md text-[13px] text-ink-primary font-medium truncate mt-0.5">Small Andiamo Bag</h4>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-label-lg text-[13px] text-ink-primary font-semibold">$2,600</span>
+</div>
+</div>
+</div>
+<div class="pt-2 mt-2 border-t border-border-hairline/60 flex items-center justify-between">
+<button class="text-[11px] font-label-sm text-ink-secondary hover:text-primary transition-colors">Find Alternatives</button>
+<button aria-label="Options" class="text-ink-tertiary hover:text-ink-primary">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Product 4: Khaite Turtleneck -->
+<div class="bg-surface rounded-xl border border-border-hairline p-2.5 flex flex-col justify-between shadow-[0_2px_10px_rgba(80,22,36,0.02)]">
+<div>
+<div class="aspect-[3/4] w-full bg-surface-container-low rounded-lg overflow-hidden relative p-2 flex items-center justify-center">
+<img class="w-full h-full object-contain" data-alt="Studio garment photograph of a heavy ribbed deep espresso brown cashmere turtleneck sweater displayed neatly on a minimal sculpture hanger against an off-white textured wall." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnrM1EbmfloNJRQr8uXIrs99LtmWqONCX9PjsoQYUv6l3OS0sqfnUxvz38yB2n9DbgE798dSysXjm6OnlWwH9awZEAjdGRDfTz0hWEeWU-C_TpqqF91OcBfuQg2F-1-_xSr2Bd2wRz_Rm1XHYEQeDDPprKqwm_APP5M5UtoJH7d3CuYf4pEhm566QSMpa9Wta2aeKTERJs50tpQN_IctRl40OMREPIDUntmrTiretJm2LrGqulKtNkfg">
+<button aria-label="Bookmark saved" class="absolute top-2 right-2 w-7 h-7 rounded-full bg-canvas/80 backdrop-blur-md flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+<div class="mt-2.5">
+<span class="font-label-sm text-[10px] text-ink-tertiary uppercase tracking-wider block">KHAITE</span>
+<h4 class="font-body-md text-[13px] text-ink-primary font-medium truncate mt-0.5">Ribbed Cashmere Knit</h4>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-label-lg text-[13px] text-ink-primary font-semibold">$390</span>
+</div>
+</div>
+</div>
+<div class="pt-2 mt-2 border-t border-border-hairline/60 flex items-center justify-between">
+<button class="text-[11px] font-label-sm text-ink-secondary hover:text-primary transition-colors">Move to Collection</button>
+<button aria-label="Options" class="text-ink-tertiary hover:text-ink-primary">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. Fashion Shows & Inspiration (Editorial Runway & Street Style) -->
+<section class="space-y-3.5 pb-6">
+<div class="flex items-end justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-ink-primary font-serif">Runway &amp; Inspiration</h2>
+<p class="font-body-sm text-[12px] text-ink-tertiary">Saved show looks and aesthetic moodboards</p>
+</div>
+<button class="font-label-sm text-label-sm text-primary hover:text-oxblood-deep uppercase tracking-wider">
+            Explore Trends
+          </button>
+</div>
+<div class="space-y-3">
+<!-- Runway Story 1 -->
+<div class="bg-surface rounded-xl border border-border-hairline overflow-hidden p-3 flex gap-3.5 items-center">
+<div class="w-20 h-24 rounded-lg bg-surface-muted overflow-hidden flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Vertical fashion runway photo of a model walking in an oversized glossy deep oxblood leather coat with wide lapels and slicked hair. Focused spotlight runway illumination against a dark minimalist auditorium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9ybNQ2g7N52BBVgnmX0XHhXoSorxf7Dix-JpWoGumosXloCAzQnhgPdiy22MyjVp5Un2pMeczMLdROiFdSj37Fr5xO7nv4u6X2DCqeq1AKPtQiMOdfhgCd11VTc5rrdtAIGyhcRkpQg9wRs2XRsHWsR026KzUONEShBtCXHmy3NlM4pMAsLyT_5QsZ43nAvbZl5TysrNMpiZvYBfqKYe8TtUN-TWHn7UbgKtkrQ-Ey3LRcGiEMuEIUg">
+</div>
+<div class="flex-1 flex flex-col justify-between h-24 py-0.5">
+<div>
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-rosewood">Saint Laurent · AW26</span>
+<h4 class="font-headline-sm text-[14px] font-serif text-ink-primary mt-0.5 leading-snug">The Oxblood Leather Silhouette</h4>
+<p class="font-body-sm text-[11px] text-ink-tertiary line-clamp-1 mt-0.5">Dramatic structural shoulders paired with fluid knitwear.</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded-full bg-surface-champagne text-primary text-[11px] font-label-sm hover:bg-primary hover:text-surface transition-colors">
+                  Turn into Outfit
+                </button>
+<button class="text-[11px] font-label-sm text-ink-secondary hover:underline">
+                  Recreate Look
+                </button>
+</div>
+</div>
+</div>
+<!-- Runway Story 2 -->
+<div class="bg-surface rounded-xl border border-border-hairline overflow-hidden p-3 flex gap-3.5 items-center">
+<div class="w-20 h-24 rounded-lg bg-surface-muted overflow-hidden flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Understated editorial backstage moment showing an ivory raw silk pleated floor-length tunic layered with organic textured linen scarf, capturing the serene monastic aesthetic of The Row in natural daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0BHRUgXcwog-vbSoi4jb6onYf-WJH3mCXxGbHx_GivBmBaZSwDjgeIrregTmdbdifIIUbYN2UWMbp3Ck5xA0_Ktzi6iS9kvu0DsQflPxUuYvREPp-9_kH2JQ9z1oZDZOFKRPrurzos_d35yUy4PTsSIMnO3LWkrprP1GdYsrO_MpNKmBh3VHS7Rxm-1BNHZ0mbV0w4jkU1W0_E-fYidKCKvDNd0R_9wTVBODoe2ppvUCrZNWvsBePaw">
+</div>
+<div class="flex-1 flex flex-col justify-between h-24 py-0.5">
+<div>
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-secondary">The Row · Winter Lookbook</span>
+<h4 class="font-headline-sm text-[14px] font-serif text-ink-primary mt-0.5 leading-snug">Monastic Draping &amp; Raw Silk</h4>
+<p class="font-body-sm text-[11px] text-ink-tertiary line-clamp-1 mt-0.5">Sculptural minimalism with tactile silk-wool drape.</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded-full bg-surface-champagne text-primary text-[11px] font-label-sm hover:bg-primary hover:text-surface transition-colors">
+                  Find Similar Pieces
+                </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- 8. Persistent Bottom Navigation Bar (EXECUTION of Shared Components JSON) -->
+<!-- Destination Rule: This is the top-level 'Saved' screen, so BottomNavBar is rendered -->
+<!-- Active State Logic: 'Saved' is the 4th item (index 3) and is set active -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-canvas/95 backdrop-blur-md shadow-[0_-4px_20px_rgba(80,22,36,0.04)]">
+<!-- Destination 1: Today -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary gap-1 py-1 hover:text-primary transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Today</span>
+</a>
+<!-- Destination 2: Discover -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary gap-1 py-1 hover:text-primary transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Discover</span>
+</a>
+<!-- Destination 3: Wardrobe -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary gap-1 py-1 hover:text-primary transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[22px]">checkroom</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Wardrobe</span>
+</a>
+<!-- Destination 4: Saved (MANDATED ACTIVE STATE) -->
+<a aria-current="page" class="flex flex-col items-center justify-center text-primary font-semibold gap-1 py-1 hover:text-primary transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">bookmark_border</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Saved</span>
+</a>
+<!-- Destination 5: Profile -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary gap-1 py-1 hover:text-primary transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+</div>
+
+
+</body></html>

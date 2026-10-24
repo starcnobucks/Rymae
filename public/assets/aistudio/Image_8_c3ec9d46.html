@@ -1,0 +1,387 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Adaptive Fashion — AI Stylist Conversation</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.cdnfonts.com/css/audrey" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS with Forms & Container Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-container": "#682030",
+            "tertiary": "#4d061b",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#7b2b3c",
+            "outline-variant": "#d9c1c3",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#400013",
+            "on-background": "#1b1c1a",
+            "on-surface-variant": "#544244",
+            "surface-variant": "#e5e2df",
+            "rosewood": "#C06C78",
+            "on-secondary-fixed-variant": "#3d4a3e",
+            "on-primary-fixed": "#3f0113",
+            "inverse-on-surface": "#f3f0ed",
+            "secondary-fixed-dim": "#bbcbbb",
+            "primary": "#4b091b",
+            "outline": "#867274",
+            "on-primary-fixed-variant": "#792d3c",
+            "tertiary-fixed": "#ffd9dd",
+            "on-secondary": "#ffffff",
+            "oxblood-deep": "#501624",
+            "surface-bright": "#fcf9f6",
+            "ink-tertiary": "#8A7D80",
+            "primary-fixed-dim": "#ffb2bc",
+            "on-tertiary": "#ffffff",
+            "error-container": "#ffdad6",
+            "inverse-surface": "#31302f",
+            "secondary-container": "#d7e7d6",
+            "sage-soft": "#E5EBE5",
+            "ink-secondary": "#574C4E",
+            "surface-container": "#f0edea",
+            "inverse-primary": "#ffb2bc",
+            "on-tertiary-container": "#ed8596",
+            "surface-muted": "#EADFD9",
+            "on-primary-container": "#e98797",
+            "background": "#fcf9f6",
+            "surface-dim": "#dcdad7",
+            "surface": "#FFFFFF",
+            "on-surface": "#1b1c1a",
+            "primary-fixed": "#ffd9dd",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#ffb2bc",
+            "secondary-fixed": "#d7e7d6",
+            "border-hairline": "rgba(104, 32, 48, 0.12)",
+            "tertiary-container": "#6a1e30",
+            "ink-primary": "#1D1819",
+            "secondary": "#546255",
+            "surface-container-high": "#eae8e5",
+            "canvas": "#FBF8F5",
+            "surface-container-low": "#f6f3f0",
+            "on-secondary-container": "#5a685b",
+            "surface-container-highest": "#e5e2df",
+            "surface-tint": "#964453",
+            "rose-soft": "#F5E9EC",
+            "on-error": "#ffffff",
+            "surface-champagne": "#F4ECE8",
+            "border-subtle": "#E2D7D1",
+            "on-secondary-fixed": "#121e14",
+            "error": "#ba1a1a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-2xl": "3.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin-desktop": "2.5rem",
+            "margin": "1.25rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "gutter-desktop": "1.5rem",
+            "gutter": "1rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Playfair Display"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Playfair Display"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "display-hero": ["Playfair Display"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Playfair Display"]
+          },
+          "fontSize": {
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "display-hero-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "display-hero": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#121011] text-ink-primary font-body-md antialiased min-h-screen flex justify-center selection:bg-rose-soft selection:text-oxblood-deep">
+<!-- Mobile Viewport Container: 390px luxury mobile frame -->
+<main class="w-full max-w-[390px] min-h-screen bg-canvas flex flex-col relative overflow-x-hidden shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+<!-- Top Navigation Header: Focused task-flow sub-navigation -->
+<header class="sticky top-0 z-40 bg-canvas/90 backdrop-blur-md px-4 py-3 flex flex-col gap-1.5 shadow-[0_4px_20px_rgba(80,22,36,0.03)]">
+<div class="flex items-center justify-between">
+<button aria-label="Go back" class="w-9 h-9 rounded-full flex items-center justify-center text-primary hover:bg-surface-champagne transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="text-[#3B121B] font-bold uppercase text-[15px]" style="font-family: Audrey, Cinzel, serif; letter-spacing: 0.22em;">RYMAE STYLIST</span>
+<span class="font-label-sm text-[10px] text-ink-tertiary flex items-center gap-1 font-medium"><span class="w-1.5 h-1.5 rounded-full bg-secondary inline-block animate-pulse"></span> <span class="tracking-wider uppercase text-[9.5px]">RYMAE ATELIER CONSULTATION</span></span>
+</div>
+<button aria-label="Stylist options" class="w-9 h-9 rounded-full flex items-center justify-center text-primary hover:bg-surface-champagne transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
+</button>
+</div>
+<!-- Memory Context Pill -->
+<div class="self-center flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-champagne/80 border border-border-hairline shadow-sm max-w-full">
+<span class="material-symbols-outlined text-rosewood text-[13px]" data-icon="auto_awesome">auto_awesome</span>
+<p class="font-label-sm text-[10.5px] text-ink-secondary truncate">
+          Using your style preferences <span class="text-oxblood-deep font-semibold">(Minimal, Warm Neutrals, Relaxed Fit)</span>
+</p>
+</div>
+</header>
+<!-- Chat Stream View Area -->
+<div class="flex-1 px-4 pt-3 pb-36 space-y-5 overflow-y-auto">
+<!-- Timestamp Divider -->
+<div class="flex items-center justify-center my-1">
+<span class="font-label-sm text-[10px] uppercase tracking-widest text-ink-tertiary px-3 py-0.5 rounded-full bg-surface-container-low">
+          Today • London, Mayfair Evening
+        </span>
+</div>
+<!-- 1. User Message Bubble -->
+<div class="flex flex-col items-end pl-10">
+<div class="bg-[#3B121B] text-white rounded-2xl rounded-tr-sm px-4 py-3 shadow-[0_4px_16px_rgba(59,18,27,0.18)] border border-[#4A1521]/40"><p class="font-body-md text-body-md leading-relaxed text-[#FBF9F6]">"I need an elevated look for a gallery opening in Mayfair tonight. Chic but not overly stiff, comfortable shoes, budget around $150 if adding a new piece."</p></div>
+<div class="flex items-center gap-1.5 mt-1 mr-1">
+<span class="font-label-sm text-[10px] text-ink-tertiary">Sent • 18:42</span>
+<span class="material-symbols-outlined text-[13px] text-secondary" data-icon="done_all">done_all</span>
+</div>
+</div>
+<!-- 2. Stylist Response Node -->
+<div class="space-y-3">
+<!-- AI Stylist Meta Header -->
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-[#3B121B] flex items-center justify-center text-[#C5A880] shadow-sm border border-[#C5A880]/30"><span class="material-symbols-outlined text-[14px]" data-icon="auto_fix_high">auto_fix_high</span></div>
+<span class="font-label-md text-label-md font-semibold text-oxblood-deep">Couture Advisory</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-[11px] text-ink-tertiary">Just now</span>
+</div>
+<!-- Stylist Context Pill -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-sage-soft/70 border border-secondary/20">
+<span class="material-symbols-outlined text-secondary text-[14px]" data-icon="thermostat">thermostat</span>
+<p class="font-label-sm text-label-sm text-secondary tracking-normal">
+            Refined with your preferences &amp; local evening weather <span class="font-semibold">(14°C, Crisp Clear)</span>
+</p>
+</div>
+<!-- Master Look Composition Card -->
+<article class="bg-surface rounded-xl border border-border-hairline shadow-[0_12px_32px_-4px_rgba(80,22,36,0.06),0_4px_12px_-2px_rgba(29,24,25,0.04)] overflow-hidden">
+<!-- Outfit Brief Header -->
+<div class="p-4 bg-gradient-to-b from-[#F5F2EC] to-surface border-b border-[#E8E3DC]"><div class="flex items-center justify-between mb-1"><span class="font-label-sm text-[10px] uppercase tracking-widest text-[#725B38] font-bold">Curated Ensemble</span><span class="font-label-sm text-[#3B121B] bg-[#F3EDE4] border border-[#C5A880]/30 px-2 py-0.5 rounded-full font-semibold">Curation #408</span></div><h3 class="font-headline-lg-mobile text-headline-lg-mobile text-[#3B121B] font-normal tracking-tight">The Modern Curator Look</h3><p class="font-body-sm text-body-sm text-[#706963] mt-1 leading-snug">Combining your owned silk bias-cut skirt with a structured oxblood knit and architectural kitten heels.</p></div>
+<!-- Editorial Palette Balance Gauge -->
+<div class="px-4 py-2 border-y border-border-hairline/60 bg-surface-bright flex items-center justify-between">
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-ink-tertiary">Palette Tone Ratio</span>
+<div class="flex items-center gap-1.5">
+<div class="flex h-2.5 w-28 rounded-full overflow-hidden border border-border-hairline"><div class="w-[55%] bg-[#E8DEC8]" title="Warm Champagne Silk (55%)"></div><div class="w-[35%] bg-[#4A1521]" title="Bordeaux Noir (35%)"></div><div class="w-[10%] bg-[#141212]" title="Obsidian Noir (10%)"></div></div>
+<span class="font-label-sm text-[10.5px] text-ink-secondary font-medium">Champagne / Oxblood</span>
+</div>
+</div>
+<!-- Visual Look Canvas Spreads -->
+<div class="p-4 grid grid-cols-12 gap-2.5">
+<!-- Main Hero Image: Outfit Harmony -->
+<div class="col-span-7 relative rounded-lg overflow-hidden border border-border-hairline bg-surface-container-low aspect-[3/4] group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="An editorial haute couture fashion photograph of an elegant model wearing a liquid drape champagne silk bias-cut skirt paired with a deep wine oxblood fine merino knit sweater and delicate sculptural heels. The setting is a minimalist contemporary art gallery with warm natural light filtering through tall architectural windows, capturing textured fabrics with a soft, warm alabaster and burgundy aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzkudO9UjEzSLkDBrR0ARWmRaOtZYhbrqtcb_a-223oyJbsOVz6HtfYw0c685h7HfSdR0RpfGqNX1V_FwxOc6FrNnZF4KN3SAAOb-6BSV1F98NM6gILOWfEKs28dk3x8P_JA8IggpjVhSEWR7dobUL-o3tzKnPtum4JeNZP99dilvpUwqr6wNm6w1sKmkiWnpmckEAhQcAsMKE_0uTOzrR1seTuLhmyFr7F7X-fFSSvs5lYBV9QnMyZQ">
+<div class="absolute bottom-2 left-2 bg-oxblood-deep/90 backdrop-blur-sm text-white px-2 py-0.5 rounded-full font-label-sm text-[9px] tracking-wider uppercase">
+                Full Silhouette
+              </div>
+</div>
+<!-- Side Garment Highlights -->
+<div class="col-span-5 flex flex-col gap-2.5">
+<div class="relative rounded-lg overflow-hidden border border-border-hairline bg-surface-container-low flex-1 aspect-square">
+<img class="w-full h-full object-cover" data-alt="Close up bespoke macro shot of a fine-knit merino mockneck sweater in deep rich oxblood wine color folded delicately on an alabaster linen surface with subtle warm studio lighting highlighting the rich weave texture and luxurious drape." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm-ORr_cLSQs8XpXU7QsgGAZQItC_ctEM_wIXknagA65RjSdCh4jF1ugNPz7NTuJc1u9vJEyuq_KRinmZtXS0jnJkSb7kuFZOrGS037OdmH-4OEn-rriv_8Y2MGdP2s_SEK3437Zy8soKL-6H0J6kcJsaBX_swOChwmi_UDEV3C59OQDtJJC-DqcojNngncx5jQ4ArgZEcci9KxUXqfY4tXr3TRfdIogbwMV7djSDEV8rEFFa321590w">
+<div class="absolute top-1.5 right-1.5 bg-canvas/90 backdrop-blur-sm text-ink-primary font-label-sm text-[9px] px-1.5 py-0.5 rounded">
+                  New Piece
+                </div>
+</div>
+<div class="relative rounded-lg overflow-hidden border border-border-hairline bg-surface-container-low flex-1 aspect-square">
+<img class="w-full h-full object-cover" data-alt="Artistic studio shot of sculptural deep burgundy leather kitten heel shoes resting against warm off-white stone pediment. Minimalist architectural heel detail, soft gallery shadows, clean editorial luxury product photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTcxF-ib12uSvsTGwkt-uhQKIRfvY92DP6OyRPogME_BuwU8GA3K9MHnSra0oqWsh_xYWOAa-w8fVpWiDDvVNnaQtPRKY1Od-2VwAKEaTvyDBtqSD-_7Y3sPhrMKau8E88hE-2pohpwhoOGShyYtnQhdXpu7wXgYA25UpQkVvswxHcZJt1ObtkFoy4v_Hqja_KPDSAEfId1ZezoaM4gHkz0F4w2c-d9gvqfa46A4-haJcZlWtv88YvoA">
+<div class="absolute bottom-1.5 right-1.5 bg-canvas/90 backdrop-blur-sm text-ink-primary font-label-sm text-[9px] px-1.5 py-0.5 rounded">
+                  Comfort Heel
+                </div>
+</div>
+</div>
+</div>
+<!-- Structured Items Breakdown List -->
+<div class="px-4 pb-2 divide-y divide-border-hairline">
+<!-- Item 1: Owned Garment -->
+<div class="py-3 flex items-start justify-between gap-3">
+<div class="flex items-start gap-2.5">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-surface-champagne flex-shrink-0 border border-border-hairline">
+<img class="w-full h-full object-cover" data-alt="Product cutout of a luxury champagne colored mulberry silk slip skirt drape hanging against an untextured cream background, high-end online boutique aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsLSYneiI7BqxU9ode1Igj-mBvr9J4JX2_TsmVa64FEeUdLAl98k7mQIbkDkJbrz8WF-czF7gJXLw0JenjVP59qJylvkwvxcuD6puWCGovwgkvQoaT_yBf4jqmh-iVNHAMV07zoVPzTKfqtKELXKpOErTVQHs75tfCUc4uf8IeTN8YeIKcJNLxISqxNvNyDDkXflVrIXs3uATOjXas1LfvdyqPaystlktnF_RS2e40KB3U12M6-y14vA">
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="inline-flex items-center gap-1 font-label-sm text-[10px] uppercase font-bold text-secondary bg-sage-soft px-1.5 py-0.2 rounded">
+<span class="material-symbols-outlined text-[11px]" data-icon="checkroom">checkroom</span>
+                      From Your Wardrobe
+                    </span>
+</div>
+<h4 class="font-headline-sm text-[13.5px] text-ink-primary mt-0.5">Mulberry Silk Slip Skirt</h4>
+<p class="font-body-sm text-[11.5px] text-ink-tertiary">Champagne • Relaxed Bias Cut</p>
+</div>
+</div>
+<span class="font-label-sm text-oxblood-deep font-semibold mt-1">Owned</span>
+</div>
+<!-- Item 2: Recommended Knitwear -->
+<div class="py-3 flex items-start justify-between gap-3">
+<div class="flex items-start gap-2.5">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-surface-champagne flex-shrink-0 border border-border-hairline">
+<img class="w-full h-full object-cover" data-alt="Studio catalog photograph of a minimalist fine merino mockneck knit top in dark plum oxblood color, flat-lay arrangement on warm parchment background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLwgbr1KgANRNn-_DtjE-EbmmffS6RTfoDt14gqnEOS2ifXvk7EtVpUZ3D9P9EvAhGPhsj7vQunJPwMwlevwyCghdWvawV78vZTzlZnnehb4lXC_GxPxJRdtayym1FC0RuBusTubZRLqjMsdfcxyNvNmxsMvkoMcjDphKwP4HC2uyLpHz0W6n8roFFstDSPDg9OQZv1FWhiDTYtvqnPcVxjHtxowy39Q3vlx21Uk0Hf1guWrAHjEwysQ">
+</div>
+<div>
+<span class="font-label-sm text-[10px] uppercase font-bold text-primary bg-rose-soft px-1.5 py-0.2 rounded">
+                    Recommended Add
+                  </span>
+<h4 class="font-headline-sm text-[13.5px] text-ink-primary mt-0.5">Fine-knit Merino Mockneck</h4>
+<p class="font-body-sm text-[11.5px] text-ink-tertiary">Deep Wine • Mango Atelier</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-bold text-ink-primary">$55</span>
+<button class="block font-label-sm text-[10px] text-primary underline mt-0.5" type="button">View specs</button>
+</div>
+</div>
+<!-- Item 3: Recommended Footwear -->
+<div class="py-3 flex items-start justify-between gap-3">
+<div class="flex items-start gap-2.5">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-surface-champagne flex-shrink-0 border border-border-hairline">
+<img class="w-full h-full object-cover" data-alt="Editorial catalog cut of sculptural kitten heel in burgundy calfskin leather, clean studio shot with refined warm tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL4A3vjc22F7yDDuyt6wZayopGzYOFEtmBH5gsT9eMTOGdoNLW9EurpRv3mM_nobfbgJCFF-l8diKHx52-Bt6f0HE08hdn3hjxwemfRL86znHovt3e6FzsaHm54JoTNg6nICGnME0pg48VvTKaFZOWcVU0Awq934BSEkaZYNRI1HsVY8NUkn-8hOzk2jry84KgEblwItQlY-zhsr-oHrPenXlBupuk4vgQrJZONLrLfbzxxoxTY9tZxw">
+</div>
+<div>
+<span class="font-label-sm text-[10px] uppercase font-bold text-primary bg-rose-soft px-1.5 py-0.2 rounded">
+                    Recommended Add
+                  </span>
+<h4 class="font-headline-sm text-[13.5px] text-ink-primary mt-0.5">Sculptural Leather Kitten Heel</h4>
+<p class="font-body-sm text-[11.5px] text-ink-tertiary">45mm Walkable Arch • Zara Studio</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-bold text-ink-primary">$85</span>
+<button class="block font-label-sm text-[10px] text-primary underline mt-0.5" type="button">View specs</button>
+</div>
+</div>
+</div>
+<!-- Total Budget Calculation Strip -->
+<div class="mx-4 my-2 p-3 bg-surface-champagne rounded-lg flex items-center justify-between border border-border-hairline">
+<div>
+<p class="font-label-sm text-[10px] uppercase tracking-wider text-ink-secondary">Total New Additions</p>
+<div class="flex items-baseline gap-1.5 mt-0.5"><span class="font-headline-md text-[18px] text-primary font-bold">$140</span><span class="font-label-sm text-[11px] text-secondary font-medium">Within $150 budget</span></div>
+</div>
+<div class="w-8 h-8 rounded-full bg-secondary-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<!-- "Why This Works" Rationale Drawer / Box -->
+<div class="p-4 mx-4 mb-4 rounded-lg bg-surface-container-low border border-border-hairline">
+<div class="flex items-center gap-1.5 mb-1.5 text-oxblood-deep">
+<span class="material-symbols-outlined text-[16px]" data-icon="lightbulb">lightbulb</span>
+<span class="font-label-md text-label-md font-bold uppercase tracking-wider">Why this works for you</span>
+</div>
+<p class="font-body-sm text-body-sm text-ink-secondary leading-relaxed">
+              "Preserves your relaxed-fit aesthetic while introducing seasonal oxblood tones that complement your warm undertone palette. The 45mm sculptural kitten heel provides effortless gallery walking endurance without compromising architectural polish."
+            </p>
+</div>
+<!-- Action CTA inside Look Card -->
+<div class="px-4 pb-4">
+<button class="w-full bg-[#3B121B] hover:bg-[#4A1521] active:scale-[0.98] transition-all text-[#FBF9F6] h-12 rounded-full font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-[0_6px_20px_rgba(59,18,27,0.25)] border border-[#C5A880]/40" type="button"><span class="material-symbols-outlined text-[18px] text-[#C5A880]" data-icon="shopping_bag">shopping_bag</span><span class="">Reserve &amp; Acquire Recommended Pieces ($140)</span></button>
+</div>
+</article>
+<!-- Feedback Reaction Bar -->
+<div class="pt-1">
+<p class="font-label-sm text-[10.5px] uppercase tracking-widest text-ink-tertiary mb-2 text-center">Refine this ensemble</p>
+<div class="flex items-center justify-center gap-1.5 flex-wrap">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface hover:bg-surface-champagne border border-border-hairline text-ink-primary font-label-sm text-[11.5px] transition-all active:scale-95 shadow-xs" type="button">
+<span class="material-symbols-outlined text-[15px] text-rosewood" data-icon="thumb_up">thumb_up</span>
+<span class="">Love it</span>
+</button>
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface hover:bg-surface-champagne border border-border-hairline text-ink-secondary font-label-sm text-[11.5px] transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-[15px] text-ink-tertiary" data-icon="swap_horiz">swap_horiz</span>
+<span class="">Swap shoes</span>
+</button>
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface hover:bg-surface-champagne border border-border-hairline text-ink-secondary font-label-sm text-[11.5px] transition-all active:scale-95" type="button">
+<span class="">Too dressy</span>
+</button>
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface hover:bg-surface-champagne border border-border-hairline text-ink-secondary font-label-sm text-[11.5px] transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-[14px] text-ink-tertiary" data-icon="inventory_2">inventory_2</span>
+<span class="">Already own something similar</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Docked Floating Stylist Conversation Input Bar -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] z-50 bg-canvas/95 backdrop-blur-md border-t border-border-hairline/60 shadow-[0_-8px_30px_rgba(80,22,36,0.06)] pb-5 pt-2 px-3">
+<!-- Suggested Prompt Chips Carousel -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 pt-0.5 px-1 scroll-smooth">
+<button class="flex-shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-champagne hover:bg-rose-soft text-ink-secondary hover:text-primary font-label-sm text-[11px] border border-border-hairline transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-[13px] text-primary" data-icon="sparkles">arrow_back_ios_new</span>
+<span class="">Show a flats alternative</span>
+</button>
+<button class="flex-shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-champagne hover:bg-rose-soft text-ink-secondary hover:text-primary font-label-sm text-[11px] border border-border-hairline transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-[13px] text-primary" data-icon="add">add</span>
+<span class="">Add a tailored coat</span>
+</button>
+<button class="flex-shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-champagne hover:bg-rose-soft text-ink-secondary hover:text-primary font-label-sm text-[11px] border border-border-hairline transition-all active:scale-95" type="button">
+<span class="">More casual option</span>
+</button>
+</div>
+<!-- Docked Input Container -->
+<div class="relative flex items-center bg-surface rounded-full border border-border-hairline shadow-sm pl-2 pr-1.5 py-1.5 focus-within:border-primary transition-all">
+<!-- Wardrobe / Camera Upload Action -->
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-ink-secondary hover:text-primary hover:bg-surface-champagne transition-colors active:scale-95 flex-shrink-0" title="Upload wardrobe piece or photo" type="button">
+<span class="material-symbols-outlined text-[19px]" data-icon="photo_camera">photo_camera</span>
+</button>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-ink-secondary hover:text-primary hover:bg-surface-champagne transition-colors active:scale-95 flex-shrink-0 -ml-1" title="Select from saved wardrobe" type="button">
+<span class="material-symbols-outlined text-[19px]" data-icon="checkroom">checkroom</span>
+</button>
+<!-- Message Textarea / Input -->
+<input class="flex-1 bg-transparent border-none text-ink-primary placeholder:text-ink-tertiary focus:ring-0 font-body-sm text-[13px] px-2.5 py-1 outline-none" placeholder="Ask for variations, layering, or accessories..." type="text">
+<!-- Send Couture Button -->
+<button aria-label="Send query" class="w-9 h-9 rounded-full bg-[#3B121B] hover:bg-[#4A1521] text-[#FBF9F6] flex items-center justify-center transition-transform active:scale-90 shadow-sm flex-shrink-0 border border-[#C5A880]/30" type="button"><span class="material-symbols-outlined text-[18px] text-[#C5A880]" data-icon="arrow_upward">arrow_upward</span></button>
+</div>
+<!-- Micro Privacy / Atelier Guarantee -->
+<p class="text-center font-label-sm text-[9.5px] text-ink-tertiary mt-2 tracking-tight"><span class="font-semibold uppercase tracking-wider">RYMAE ATELIER</span> • Curating from 48 saved personal items &amp; London boutique partners</p>
+</div>
+</main>
+<!-- Inline Micro-Interactions Script -->
+<script>
+    // Lightweight interactions for chip toggles and feedback
+    document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        if (this.innerText.includes('Love it') || this.innerText.includes('Swap shoes')) {
+          this.classList.toggle('bg-primary');
+          this.classList.toggle('text-white');
+        }
+      });
+    });
+  </script>
+
+
+
+
+
+
+
+
+</body></html>

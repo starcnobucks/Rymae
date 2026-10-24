@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-canvas-silk: #FAF8F5;
+    --color-surface-alabaster: #F5F2EC;
+    --color-surface-porcelain: #FFFFFF;
+    --color-surface-champagne: #F4ECE8;
+    --color-bordeaux-noir: #3B121B;
+    --color-bordeaux-velvet: #4A1521;
+    --color-oxblood-deep: #501624;
+    --color-champagne-gold: #C5A880;
+    --color-champagne-light: #F3EDE4;
+    --color-ink-obsidian: #141212;
+    --color-ink-taupe: #706963;
+    --color-ink-muted: #9C948D;
+    --color-hairline-stone: #E8E3DC;
+    --color-hairline-bordeaux: rgba(74, 21, 33, 0.12);
+  }
+
+  body {
+    background-color: var(--color-canvas-silk);
+    color: var(--color-ink-obsidian);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+.font-brand {
+  font-family: 'Cinzel', 'Playfair Display', serif;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  display: inline-block;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  vertical-align: middle;
+}
+
+/* Custom scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #E8E3DC;
+  border-radius: 9999px;
+}
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #C5A880;
+}

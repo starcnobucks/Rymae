@@ -1,0 +1,507 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RYMAE — Virtual Try-On AI Atelier</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "ink-taupe": "#706963",
+            "secondary": "#725b38",
+            "tertiary": "#2b060f",
+            "hairline-bordeaux": "rgba(74, 21, 33, 0.12)",
+            "on-surface-variant": "#524345",
+            "tertiary-fixed": "#ffd9dd",
+            "on-secondary-fixed": "#281800",
+            "bordeaux-noir": "#3B121B",
+            "on-error": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#fab4be",
+            "canvas-silk": "#FAF8F5",
+            "primary-fixed": "#ffd9dd",
+            "on-tertiary-fixed-variant": "#6a3841",
+            "error": "#ba1a1a",
+            "on-tertiary-container": "#bc7e88",
+            "surface-bright": "#fbf9f6",
+            "inverse-on-surface": "#f2f0ed",
+            "outline-variant": "#d7c1c3",
+            "hairline-stone": "#E8E3DC",
+            "surface": "#fbf9f6",
+            "on-primary-fixed-variant": "#71333f",
+            "primary": "#2f020d",
+            "primary-container": "#4a1521",
+            "tertiary-container": "#451a23",
+            "on-primary-fixed": "#3a0815",
+            "inverse-primary": "#ffb2bd",
+            "on-surface": "#1b1c1a",
+            "primary-fixed-dim": "#ffb2bd",
+            "surface-porcelain": "#FFFFFF",
+            "surface-container-low": "#f5f3f0",
+            "inverse-surface": "#30312f",
+            "ink-obsidian": "#141212",
+            "on-error-container": "#93000a",
+            "background": "#fbf9f6",
+            "bordeaux-velvet": "#4A1521",
+            "on-secondary-container": "#78603e",
+            "on-tertiary-fixed": "#350d17",
+            "secondary-container": "#fedeb2",
+            "surface-variant": "#e4e2df",
+            "champagne-gold": "#C5A880",
+            "on-secondary": "#ffffff",
+            "surface-container-high": "#eae8e5",
+            "surface-dim": "#dbdad7",
+            "secondary-fixed": "#fedeb2",
+            "ink-muted": "#9C948D",
+            "surface-tint": "#8d4a56",
+            "on-primary": "#ffffff",
+            "surface-container-highest": "#e4e2df",
+            "outline": "#857374",
+            "secondary-fixed-dim": "#e0c298",
+            "surface-container": "#efeeeb",
+            "on-primary-container": "#c57985",
+            "champagne-light": "#F3EDE4",
+            "error-container": "#ffdad6",
+            "surface-alabaster": "#F5F2EC",
+            "on-background": "#1b1c1a",
+            "on-secondary-fixed-variant": "#584323"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin-desktop": "3rem",
+            "gutter": "1rem",
+            "gutter-desktop": "2rem",
+            "space-xl": "2.5rem",
+            "space-2xl": "4rem",
+            "margin": "1.25rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Playfair Display"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Playfair Display"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Playfair Display"],
+            "display-hero": ["Playfair Display"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-lg": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "label-lg": ["13px", { "lineHeight": "18px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "display-hero": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.12em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom luxury touches */
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .frosted-glass {
+      background: rgba(250, 248, 245, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .atelier-shadow {
+      box-shadow: 0 16px 40px -8px rgba(59, 18, 27, 0.08), 0 4px 12px -2px rgba(20, 18, 18, 0.04);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-canvas-silk text-ink-obsidian antialiased selection:bg-bordeaux-velvet selection:text-surface-porcelain min-h-screen pb-32">
+<!-- TOP APP BAR (Shared Components JSON Anchor) -->
+<header class="sticky top-0 z-40 bg-canvas-silk/95 backdrop-blur-md border-b border-hairline-stone">
+<div class="flex justify-between items-center w-full px-5 py-3 max-w-screen-md mx-auto">
+<!-- Leading: Back to Lookbook / Wardrobe -->
+<button aria-label="Go back" class="p-1.5 -ml-1.5 text-primary active:scale-95 transition-transform duration-150 rounded-full hover:bg-surface-alabaster" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back_ios_new</span>
+</button>
+<!-- Centered Brand Masthead -->
+<div class="text-center">
+<span class="font-headline-lg-mobile text-[17px] tracking-[0.24em] uppercase text-primary font-medium block">
+          RYMAE ATELIER
+        </span>
+<span class="font-label-sm text-[9px] tracking-[0.16em] uppercase text-ink-taupe block -mt-0.5">
+          AI Fitting Salon · Chambre 04
+        </span>
+</div>
+<!-- Trailing Action: View Mannequin / Settings -->
+<button aria-label="Atelier options" class="p-1.5 -mr-1.5 text-primary active:scale-95 transition-transform duration-150 rounded-full hover:bg-surface-alabaster flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[24px]">auto_fix_high</span>
+</button>
+</div>
+</header>
+<!-- MAIN EDITORIAL CANVAS -->
+<main class="max-w-screen-md mx-auto px-4 pt-3 pb-8 space-y-6">
+<!-- SUB-HEADER CONTEXT BAR -->
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-champagne-gold animate-pulse"></span>
+<span class="font-label-md text-ink-taupe tracking-wider text-[11px] uppercase font-semibold">Live Simulation Active</span>
+</div>
+<div class="flex items-center gap-1.5 bg-champagne-light/70 px-2.5 py-0.5 rounded-full border border-champagne-gold/30">
+<span class="material-symbols-outlined text-bordeaux-velvet text-[14px]">verified</span>
+<span class="font-label-sm text-bordeaux-velvet text-[10px] tracking-wider uppercase font-semibold">98% Fit Fidelity</span>
+</div>
+</div>
+<!-- HERO: INTERACTIVE TRY-ON VIEWPORT -->
+<section class="relative rounded-xl overflow-hidden bg-surface-porcelain border border-hairline-stone atelier-shadow">
+<!-- Model Image Viewport Container -->
+<div class="relative w-full aspect-[3/4] bg-surface-alabaster flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover object-top transform transition-transform duration-700 ease-out hover:scale-105" data-alt="A striking editorial fashion photograph of an elegant Parisian model with minimal makeup and pulled-back hair wearing a luxurious oxblood burgundy leather trench coat over a ribbed ivory silk-blend knit dress. Soft, high-key ambient museum salon light streams through tall French atelier windows, highlighting the tactile drape and supple grain of the garments. The aesthetic is ultra-quiet luxury, serene and poised, captured on 35mm film with high tonal contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBra3pKr76I1-b64li4ror-47JfO2Lq2AB1w1Ns1fO86_xO0uNuqnqS-nZb2yw2KqDiutesRvivvXCp1T0a_rTvbF-XUyf1B9gY_OjmLfqOhbTfOOihe6wMUWk6TbKIS4V1S4H5_cYsdp_ZdPlvw7WakScCvULogWt1-_nK09bFa9Zr3WT_GSQaDgBEthJjPcxk3FnN2nbFjHj9zJIX7ldpBX7b2XP3q3boDBpT3TBB18Iy6_9mhL3nEw">
+<!-- Ambient Vignette & Scrim -->
+<div class="absolute inset-0 bg-gradient-to-t from-bordeaux-noir/70 via-transparent to-transparent pointer-events-none"></div>
+<!-- Top Badges Floating Over Canvas -->
+<div class="absolute top-3.5 left-3.5 right-3.5 flex justify-between items-start pointer-events-none">
+<div class="flex flex-col gap-1.5 pointer-events-auto">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full frosted-glass border border-hairline-stone text-ink-obsidian font-label-sm text-[10px] uppercase tracking-wider font-semibold shadow-sm">
+<span class="material-symbols-outlined text-[13px] text-bordeaux-velvet">view_in_ar</span>
+              360° Drape Simulation
+            </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-porcelain/90 backdrop-blur-sm border border-hairline-stone/60 text-ink-taupe font-label-sm text-[9px] uppercase tracking-widest">
+              Model: Camille · 172cm · Size S
+            </span>
+</div>
+<!-- Quick Fullscreen / Mannequin Switch -->
+<div class="flex items-center gap-1.5 pointer-events-auto">
+<button aria-label="360 view toggle" class="w-8 h-8 rounded-full frosted-glass border border-hairline-stone flex items-center justify-center text-ink-obsidian hover:text-bordeaux-velvet active:scale-95 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">rotate_90_degrees_ccw</span>
+</button>
+<button aria-label="Full screen" class="w-8 h-8 rounded-full frosted-glass border border-hairline-stone flex items-center justify-center text-ink-obsidian hover:text-bordeaux-velvet active:scale-95 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- Silhouette Interactive Hotspots (Tactile AI markers) -->
+<div class="absolute top-[32%] left-[34%] pointer-events-auto group cursor-pointer">
+<span class="relative flex h-3.5 w-3.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-champagne-gold opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-bordeaux-velvet border-2 border-surface-porcelain"></span>
+</span>
+<!-- Micro-tooltip on hover -->
+<div class="opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-2 py-1 bg-ink-obsidian/90 text-surface-porcelain font-label-sm text-[9px] rounded whitespace-nowrap pointer-events-none">
+            Shoulder drop: Exact to Camille
+          </div>
+</div>
+<div class="absolute top-[52%] left-[48%] pointer-events-auto group cursor-pointer">
+<span class="relative flex h-3.5 w-3.5">
+<span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-champagne-gold border-2 border-surface-porcelain"></span>
+</span>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-2 py-1 bg-ink-obsidian/90 text-surface-porcelain font-label-sm text-[9px] rounded whitespace-nowrap pointer-events-none">
+            Waist ease: +2.5cm Fluid Drape
+          </div>
+</div>
+<!-- Bottom Overlay on Canvas: Silhouette Perspective Filter Bar -->
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between bg-surface-porcelain/90 backdrop-blur-md rounded-lg p-1.5 border border-hairline-stone shadow-md">
+<div class="flex items-center gap-1 w-full overflow-x-auto custom-scrollbar">
+<button class="px-3 py-1.5 rounded-full bg-bordeaux-velvet text-surface-porcelain font-label-sm text-[10px] uppercase tracking-wider font-semibold whitespace-nowrap shadow-sm">
+              Full Silhouette
+            </button>
+<button class="px-3 py-1.5 rounded-full bg-transparent hover:bg-surface-alabaster text-ink-taupe font-label-sm text-[10px] uppercase tracking-wider font-medium whitespace-nowrap transition-colors">
+              Fabric Macro
+            </button>
+<button class="px-3 py-1.5 rounded-full bg-transparent hover:bg-surface-alabaster text-ink-taupe font-label-sm text-[10px] uppercase tracking-wider font-medium whitespace-nowrap transition-colors">
+              Movement Flow
+            </button>
+<button class="px-3 py-1.5 rounded-full bg-transparent hover:bg-surface-alabaster text-ink-taupe font-label-sm text-[10px] uppercase tracking-wider font-medium whitespace-nowrap transition-colors">
+              Before / After
+            </button>
+</div>
+</div>
+</div>
+<!-- Fit Diagnostic Micro-Banner under viewport -->
+<div class="px-4 py-3 bg-canvas-silk border-t border-hairline-stone flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-bordeaux-velvet text-[18px]">straighten</span>
+<p class="font-body-sm text-[12px] text-ink-obsidian">
+<span class="font-semibold text-bordeaux-velvet">Atelier Fit Matrix:</span> Intended relaxed fluidity confirmed across torso.
+          </p>
+</div>
+<button class="font-label-sm text-[11px] text-bordeaux-velvet uppercase tracking-wider font-semibold underline underline-offset-4 flex-shrink-0">
+          Details
+        </button>
+</div>
+</section>
+<!-- SECTION: ENSEMBLE RACK / LAYERS IN THIS TRY-ON -->
+<section class="space-y-3">
+<div class="flex items-baseline justify-between px-1">
+<div>
+<h2 class="font-headline-md text-[18px] text-primary tracking-tight font-medium">Garments in Curated Session</h2>
+<p class="font-body-sm text-[11px] text-ink-taupe">Interactive capsule composition · 3 Layers Selected</p>
+</div>
+<button class="font-label-sm text-bordeaux-velvet uppercase tracking-widest text-[10px] font-semibold hover:opacity-80 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+          Re-stack
+        </button>
+</div>
+<!-- Layer 1: Primary Try-On Item (Focus Garment) -->
+<div class="bg-surface-porcelain p-3.5 rounded-xl border-2 border-bordeaux-velvet/40 atelier-shadow relative overflow-hidden transition-all">
+<div class="absolute top-0 right-0 bg-bordeaux-velvet text-surface-porcelain font-label-sm text-[8px] uppercase tracking-widest px-2.5 py-0.5 rounded-bl">
+          Selected for Trial
+        </div>
+<div class="flex items-center gap-3.5">
+<!-- Thumbnail -->
+<div class="w-16 h-20 rounded bg-surface-alabaster border border-hairline-stone flex-shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Macro studio product shot of a ribbed, natural ecru silk-blend knit column dress folded on a warm limestone block. Soft directional light emphasizes the rich ribbing, warm yarn tones, and refined tailoring. Luxury minimalist lookbook presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi26KQpH631FI81MydZdsbyGu7AxcnwjoIQPVkj3Zut0XSwFLkC_3Lkpk0TjKnkpViu3BzY8khabyfKNEFJPD8jgAEyEFkxA2WGbkZrZ62cC1UiQsDbaE5_u_VY4-jkNG9ZYhcR6NJYYQoEcNQPXJ9-dL7txi8YPpsXn_kYGdDsoqiIp1NKAQPybalp63GeGiV1cOau_H1G0koRBvHRx_OnnJBcJ5yXkG6cgzKKePsgX_YRfhlv8ghXQ">
+</div>
+<!-- Metadata -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-[9px] uppercase tracking-widest text-champagne-gold font-semibold">Massimo Dutti Studio</span>
+<span class="text-hairline-stone">·</span>
+<span class="font-label-sm text-[9px] text-ink-taupe uppercase tracking-wider">Autumn 24</span>
+</div>
+<h3 class="font-headline-sm text-[14px] text-ink-obsidian truncate font-semibold mt-0.5">
+              Silk-Blend Ribbed Knit Column Dress
+            </h3>
+<p class="font-body-sm text-[12px] text-ink-taupe mt-0.5">
+              Natural Alabaster · 70% Mulberry Silk, 30% Fine Wool
+            </p>
+<div class="flex items-center justify-between mt-2">
+<span class="font-headline-sm text-[15px] font-bold text-bordeaux-velvet">$98</span>
+<!-- Size selector pill -->
+<div class="flex items-center bg-surface-alabaster rounded-full p-0.5 border border-hairline-stone">
+<button class="px-2 py-0.5 rounded-full text-[10px] font-label-sm text-ink-taupe">XS</button>
+<button class="px-2.5 py-0.5 rounded-full bg-bordeaux-velvet text-surface-porcelain text-[10px] font-label-sm font-semibold shadow-xs">S</button>
+<button class="px-2 py-0.5 rounded-full text-[10px] font-label-sm text-ink-taupe">M</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Row -->
+<div class="mt-3 pt-2.5 border-t border-hairline-stone flex items-center justify-between">
+<div class="flex items-center gap-1 text-[11px] text-secondary font-medium">
+<span class="material-symbols-outlined text-[15px]">info</span>
+<span class="">Camille's ideal fit verified via Silk Slip record</span>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Swap item" class="p-1 text-ink-taupe hover:text-bordeaux-velvet rounded">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+</button>
+<button aria-label="Hide layer" class="p-1 text-ink-taupe hover:text-bordeaux-velvet rounded">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Layer 2: Wardrobe Companion Piece (Client Owned) -->
+<div class="bg-surface-alabaster/80 p-3 rounded-xl border border-hairline-stone flex items-center justify-between transition-colors hover:bg-surface-alabaster">
+<div class="flex items-center gap-3">
+<div class="w-12 h-14 rounded bg-surface-porcelain border border-hairline-stone flex-shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Editorial still life photograph of an oversized deep oxblood leather trench coat with dark tortoiseshell buttons and wide lapels, laid gracefully against a warm plaster texture background in an atelier." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR2R2yFUbAshSkTN-DHglNLIry5YJ2EzBJ36_eQIH0dO2Q77HQ_QSes_WQ9dYNiyAyZztmYgOFKx8pNJeSc8LUKN8PI8WX-hTNygLpFFszA5EbHOGbtpugZjtugE-cCzcYlfJlSRy4P-kEr37ls6N5IGnVCXwWzll8BPxS5bjTkwB7yr79y18gcOrA2aTAC-pXuPp3WTVtbhCKhy-5kXSbLtMc6T8EGV0hubcH3iQvDB_EZNrn-khk9w">
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-[8px] uppercase tracking-widest text-ink-taupe bg-surface-porcelain px-1.5 py-0.2 rounded border border-hairline-stone">In Your Wardrobe</span>
+</div>
+<h4 class="font-headline-sm text-[13px] text-ink-obsidian font-semibold mt-0.5">
+              Totême Double-Breasted Trench
+            </h4>
+<p class="font-body-sm text-[11px] text-ink-taupe">
+              Oxblood Leather · Size 36 (FR)
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 rounded-full border border-hairline-stone text-ink-obsidian bg-surface-porcelain font-label-sm text-[10px] uppercase tracking-wider hover:border-bordeaux-velvet transition-colors">
+            Swap
+          </button>
+</div>
+</div>
+<!-- Layer 3: Accessory / Footwear Companion (Client Owned) -->
+<div class="bg-surface-alabaster/80 p-3 rounded-xl border border-hairline-stone flex items-center justify-between transition-colors hover:bg-surface-alabaster">
+<div class="flex items-center gap-3">
+<div class="w-12 h-14 rounded bg-surface-porcelain border border-hairline-stone flex-shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="High-fashion footwear shot of pointed-toe burgundy wine leather kitten slingback pumps resting on a piece of sculpted beige travertine stone with warm studio shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkUA3IbDrWgntGa-uuEQtfB_3LGkuvFFaHsJ7irvyzUN24sWdm8SnSFOcINaWbfNDrtJBl0gVOZlHJz4HYKnC2wpNIFZfSWroXWiKxXrltTpzJ5W96ur6_MVXuUwFwuZsOJlw51FnfcDdH6c5OQKiLryvLeZh3DOzl1X2DPrkzj38W3hgOWD63skhV_ThUIFIf4pBxFwPTrjfDXSzlmmtnOlLZPLxcM9wFPWcwTUK4RpAWL4NMJUyQRw">
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-[8px] uppercase tracking-widest text-ink-taupe bg-surface-porcelain px-1.5 py-0.2 rounded border border-hairline-stone">In Your Wardrobe</span>
+</div>
+<h4 class="font-headline-sm text-[13px] text-ink-obsidian font-semibold mt-0.5">
+              Saint Laurent Slingback 55
+            </h4>
+<p class="font-body-sm text-[11px] text-ink-taupe">
+              Patent Wine Noir · EU 38
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 rounded-full border border-hairline-stone text-ink-obsidian bg-surface-porcelain font-label-sm text-[10px] uppercase tracking-wider hover:border-bordeaux-velvet transition-colors">
+            Swap
+          </button>
+</div>
+</div>
+</section>
+<!-- SECTION: ATELIER FIT & TEXTILE PROVENANCE NOTE -->
+<section class="bg-surface-alabaster rounded-xl p-4 border border-hairline-stone space-y-3 relative overflow-hidden">
+<!-- Champagne Keyline -->
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-champagne-gold"></div>
+<div class="flex items-center justify-between pl-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">architecture</span>
+<h3 class="font-headline-sm text-[14px] text-ink-obsidian font-semibold">Couture Fit &amp; Drape Diagnostic</h3>
+</div>
+<span class="font-label-sm text-[9px] text-champagne-gold uppercase tracking-widest font-bold">Atelier AI Note</span>
+</div>
+<div class="grid grid-cols-2 gap-2 pl-1 pt-1">
+<div class="bg-surface-porcelain p-2.5 rounded border border-hairline-stone">
+<span class="font-label-sm text-[9px] uppercase tracking-wider text-ink-taupe block">Bust &amp; Shoulder Ease</span>
+<span class="font-body-md text-[13px] font-semibold text-primary block mt-0.5">Structured &amp; True</span>
+<span class="font-body-sm text-[10px] text-ink-taupe block mt-0.5">Matches Camille’s 37.5cm shoulder span</span>
+</div>
+<div class="bg-surface-porcelain p-2.5 rounded border border-hairline-stone">
+<span class="font-label-sm text-[9px] uppercase tracking-wider text-ink-taupe block">Drape Profile</span>
+<span class="font-body-md text-[13px] font-semibold text-primary block mt-0.5">Vertical Column Form</span>
+<span class="font-body-sm text-[10px] text-ink-taupe block mt-0.5">480g weight prevents clinging</span>
+</div>
+</div>
+<!-- Capsule Palette Strip (Editorial Addition from Design System) -->
+<div class="pt-2 pl-1">
+<div class="flex justify-between items-center text-[10px] font-label-sm text-ink-taupe mb-1">
+<span class="uppercase tracking-widest">Ensemble Color Dispersion</span>
+<span class="">62% Alabaster · 30% Oxblood · 8% Travertine</span>
+</div>
+<div class="h-1.5 w-full rounded-full overflow-hidden flex bg-hairline-stone">
+<div class="h-full bg-[#FAF8F5] border-r border-hairline-stone" style="width: 62%;"></div>
+<div class="h-full bg-bordeaux-velvet" style="width: 30%;"></div>
+<div class="h-full bg-champagne-gold" style="width: 8%;"></div>
+</div>
+</div>
+<!-- AI Personal Stylist Commentary -->
+<p class="font-body-sm text-[12px] text-ink-taupe pl-1 italic border-t border-hairline-stone/60 pt-2.5">
+        “Pairing the tailored density of your Totême trench against this featherlight ribbed knit column maintains the crisp, monastic proportion preferred in your Autumn curation.”
+      </p>
+</section>
+<!-- SECTION: CLIENT PHOTO UPLOAD PROMPT (Try On Yourself) -->
+<section class="bg-surface-porcelain p-4 rounded-xl border border-hairline-stone flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-champagne-light flex items-center justify-center text-bordeaux-velvet">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[13px] text-ink-obsidian font-semibold">Render On Your Own Silhouette</h4>
+<p class="font-body-sm text-[11px] text-ink-taupe">Upload a full-length portrait for 1:1 bespoke simulation</p>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-full border border-hairline-stone text-primary hover:border-bordeaux-velvet font-label-sm text-[10px] uppercase tracking-wider font-semibold">
+        Upload
+      </button>
+</section>
+</main>
+<!-- BOTTOM ACQUISITION DOCK (Fixed Above Tab Navigation) -->
+<div class="fixed bottom-[65px] left-0 w-full z-40 bg-canvas-silk/95 backdrop-blur-lg border-t border-hairline-stone px-4 py-3 shadow-[0_-8px_24px_rgba(59,18,27,0.06)]">
+<div class="max-w-screen-md mx-auto flex items-center gap-3">
+<!-- Secondary: Save Look -->
+<button aria-label="Bookmark look" class="h-12 w-12 rounded-full border border-hairline-stone bg-surface-porcelain flex items-center justify-center text-bordeaux-velvet active:scale-95 transition-all shadow-xs hover:border-bordeaux-velvet flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-[22px]">bookmark_border</span>
+</button>
+<!-- Primary Atelier Action: Buy / Commission item -->
+<button class="flex-1 h-12 rounded-full bg-bordeaux-velvet text-surface-porcelain font-label-lg uppercase tracking-wider flex items-center justify-between px-6 hover:bg-bordeaux-noir active:scale-98 transition-all shadow-md" type="button">
+<span class="font-headline-sm text-[14px] text-champagne-light">Acquire Dress</span>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-[14px] font-bold text-surface-porcelain">$98</span>
+<span class="material-symbols-outlined text-[16px] text-champagne-gold">arrow_forward</span>
+</div>
+</button>
+</div>
+</div>
+<!-- UNIVERSAL BOTTOM NAVIGATION BAR (Shared Components JSON Anchor) -->
+<!-- Strict Hierarchy: JSON labels ["Today", "Discover", "Wardrobe", "Saved", "Profile"] -->
+<!-- Contextual State: We are in the AI Atelier Fitting Room / Wardrobe Synthesis context. Mapping to "Wardrobe" tab. -->
+<nav aria-label="Main Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-canvas/95 backdrop-blur-md border-t border-border-hairline shadow-[0_-4px_20px_rgba(80,22,36,0.04)]">
+<!-- Item 1: Today -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary gap-1 py-1 hover:text-primary transition-colors duration-200 active:scale-95" href="#today">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-[10px]">Today</span>
+</a>
+<!-- Item 2: Discover -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary gap-1 py-1 hover:text-primary transition-colors duration-200 active:scale-95" href="#discover">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-[10px]">Discover</span>
+</a>
+<!-- Item 3: Wardrobe (ACTIVE TAB — Exact Semantic Match for Studio Layering / Try-on) -->
+<a aria-current="page" class="flex flex-col items-center justify-center text-primary font-semibold gap-1 py-1 hover:text-primary transition-colors duration-200 active:scale-95" href="#wardrobe">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">checkroom</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-[10px]">Wardrobe</span>
+</a>
+<!-- Item 4: Saved -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary gap-1 py-1 hover:text-primary transition-colors duration-200 active:scale-95" href="#saved">
+<span class="material-symbols-outlined text-[22px]">bookmark_border</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-[10px]">Saved</span>
+</a>
+<!-- Item 5: Profile -->
+<a class="flex flex-col items-center justify-center text-ink-tertiary gap-1 py-1 hover:text-primary transition-colors duration-200 active:scale-95" href="#profile">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-[10px]">Profile</span>
+</a>
+</nav>
+<!-- Interactive JavaScript for micro-interactions -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Perspective toggle chips
+      const chips = document.querySelectorAll('button:has-text');
+      // Subtle click feedback for interactive layer toggles
+      const sizeBtns = document.querySelectorAll('.bg-surface-alabaster button');
+      sizeBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          sizeBtns.forEach(b => {
+            b.className = 'px-2 py-0.5 rounded-full text-[10px] font-label-sm text-ink-taupe';
+          });
+          btn.className = 'px-2.5 py-0.5 rounded-full bg-bordeaux-velvet text-surface-porcelain text-[10px] font-label-sm font-semibold shadow-xs';
+        });
+      });
+    });
+  </script>
+
+
+</body></html>

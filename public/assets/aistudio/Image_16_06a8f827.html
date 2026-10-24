@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RYMAE — AI Styling Studio &amp; Wardrobe Atelier</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "ink-taupe": "#706963",
+            "secondary": "#725b38",
+            "tertiary": "#2b060f",
+            "hairline-bordeaux": "rgba(74, 21, 33, 0.12)",
+            "on-surface-variant": "#524345",
+            "tertiary-fixed": "#ffd9dd",
+            "on-secondary-fixed": "#281800",
+            "bordeaux-noir": "#3B121B",
+            "on-error": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#fab4be",
+            "canvas-silk": "#FAF8F5",
+            "primary-fixed": "#ffd9dd",
+            "on-tertiary-fixed-variant": "#6a3841",
+            "error": "#ba1a1a",
+            "on-tertiary-container": "#bc7e88",
+            "surface-bright": "#fbf9f6",
+            "inverse-on-surface": "#f2f0ed",
+            "outline-variant": "#d7c1c3",
+            "hairline-stone": "#E8E3DC",
+            "surface": "#fbf9f6",
+            "on-primary-fixed-variant": "#71333f",
+            "primary": "#2f020d",
+            "primary-container": "#4a1521",
+            "tertiary-container": "#451a23",
+            "on-primary-fixed": "#3a0815",
+            "inverse-primary": "#ffb2bd",
+            "on-surface": "#1b1c1a",
+            "primary-fixed-dim": "#ffb2bd",
+            "surface-porcelain": "#FFFFFF",
+            "surface-container-low": "#f5f3f0",
+            "inverse-surface": "#30312f",
+            "ink-obsidian": "#141212",
+            "on-error-container": "#93000a",
+            "background": "#fbf9f6",
+            "bordeaux-velvet": "#4A1521",
+            "on-secondary-container": "#78603e",
+            "on-tertiary-fixed": "#350d17",
+            "secondary-container": "#fedeb2",
+            "surface-variant": "#e4e2df",
+            "champagne-gold": "#C5A880",
+            "on-secondary": "#ffffff",
+            "surface-container-high": "#eae8e5",
+            "surface-dim": "#dbdad7",
+            "secondary-fixed": "#fedeb2",
+            "ink-muted": "#9C948D",
+            "surface-tint": "#8d4a56",
+            "on-primary": "#ffffff",
+            "surface-container-highest": "#e4e2df",
+            "outline": "#857374",
+            "secondary-fixed-dim": "#e0c298",
+            "surface-container": "#efeeeb",
+            "on-primary-container": "#c57985",
+            "champagne-light": "#F3EDE4",
+            "error-container": "#ffdad6",
+            "surface-alabaster": "#F5F2EC",
+            "on-background": "#1b1c1a",
+            "on-secondary-fixed-variant": "#584323",
+            "canvas": "#FAF8F5",
+            "border-hairline": "rgba(74, 21, 33, 0.12)",
+            "ink-tertiary": "#8A7D80"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Playfair Display"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Playfair Display"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Playfair Display"],
+            "display-hero": ["Playfair Display"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .frosted-glass {
+      background: rgba(250, 248, 245, 0.90);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .atelier-shadow {
+      box-shadow: 0 16px 40px -8px rgba(59, 18, 27, 0.08), 0 4px 12px -2px rgba(20, 18, 18, 0.04);
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-canvas-silk text-ink-obsidian antialiased selection:bg-bordeaux-velvet selection:text-surface-porcelain min-h-screen pb-36 font-body-md">
+<!-- TOAST NOTIFICATION -->
+<div class="fixed top-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-300 opacity-0 -translate-y-4" id="toastNotification">
+<div class="bg-bordeaux-velvet text-surface-porcelain px-4 py-2.5 rounded-full shadow-xl flex items-center gap-2 border border-champagne-gold/30">
+<span class="material-symbols-outlined text-[18px] text-champagne-gold">check_circle</span>
+<span class="font-label-sm text-[11px] tracking-wider uppercase font-semibold" id="toastMessage">Look saved to Capsule Wardrobe</span>
+</div>
+</div>
+<!-- TOP APP BAR -->
+<header class="sticky top-0 z-40 bg-canvas-silk/95 backdrop-blur-md border-b border-hairline-stone">
+<div class="flex justify-between items-center w-full px-5 py-3 max-w-screen-md mx-auto">
+<!-- Leading: Back to Wardrobe -->
+<a aria-label="Go back" class="p-1.5 -ml-1.5 text-primary active:scale-95 transition-transform duration-150 rounded-full hover:bg-surface-alabaster" href="#wardrobe">
+<span class="material-symbols-outlined text-[22px]">arrow_back_ios_new</span>
+</a>
+<!-- Centered Brand Masthead -->
+<div class="text-center">
+<span class="font-headline-lg-mobile text-[17px] tracking-[0.24em] uppercase text-primary font-medium block">
+        RYMAE ATELIER
+      </span>
+<span class="font-label-sm text-[9px] tracking-[0.16em] uppercase text-ink-taupe block -mt-0.5">
+        AI Styling Studio · Studio Curation
+      </span>
+</div>
+<!-- Trailing Action: Styling Preferences -->
+<button aria-label="Styling preferences" class="p-1.5 -mr-1.5 text-primary active:scale-95 transition-transform duration-150 rounded-full hover:bg-surface-alabaster flex items-center justify-center" id="headerSettingsBtn" type="button">
+<span class="material-symbols-outlined text-[22px]">tune</span>
+</button>
+</div>
+</header>
+<!-- MAIN EDITORIAL CANVAS -->
+<main class="max-w-screen-md mx-auto px-4 pt-3 pb-8 space-y-6">
+<!-- SUB-HEADER CONTEXT BAR -->
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-champagne-gold animate-pulse"></span>
+<span class="font-label-md text-ink-taupe tracking-wider text-[11px] uppercase font-semibold">Live Studio Synthesis</span>
+</div>
+<div class="flex items-center gap-1.5 bg-champagne-light/70 px-2.5 py-0.5 rounded-full border border-champagne-gold/30">
+<span class="material-symbols-outlined text-bordeaux-velvet text-[14px]">auto_awesome</span>
+<span class="font-label-sm text-bordeaux-velvet text-[10px] tracking-wider uppercase font-semibold">AI STYLING HARMONY: HIGH</span>
+</div>
+</div>
+<!-- HERO: INTERACTIVE MODEL & TEXTILE VIEWPORT -->
+<section class="relative rounded-xl overflow-hidden bg-surface-porcelain border border-hairline-stone atelier-shadow transition-all duration-300" id="viewportSection">
+<div class="relative w-full aspect-[3/4] bg-surface-alabaster flex items-center justify-center overflow-hidden">
+<!-- Dynamic Main Image (Silhouette / Macro / Movement Flow) -->
+<img alt="Camille in Curated Ensemble" class="w-full h-full object-cover object-top transition-all duration-500 ease-out" id="mainDisplayImg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBra3pKr76I1-b64li4ror-47JfO2Lq2AB1w1Ns1fO86_xO0uNuqnqS-nZb2yw2KqDiutesRvivvXCp1T0a_rTvbF-XUyf1B9gY_OjmLfqOhbTfOOihe6wMUWk6TbKIS4V1S4H5_cYsdp_ZdPlvw7WakScCvULogWt1-_nK09bFa9Zr3WT_GSQaDgBEthJjPcxk3FnN2nbFjHj9zJIX7ldpBX7b2XP3q3boDBpT3TBB18Iy6_9mhL3nEw"/>
+<!-- Ambient Vignette & Scrim -->
+<div class="absolute inset-0 bg-gradient-to-t from-bordeaux-noir/70 via-transparent to-transparent pointer-events-none"></div>
+<!-- Top Overlay: Styling Model Info & Fullscreen Toggle -->
+<div class="absolute top-3.5 left-3.5 right-3.5 flex justify-between items-start pointer-events-none">
+<div class="flex flex-col gap-1.5 pointer-events-auto">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full frosted-glass border border-hairline-stone text-ink-obsidian font-label-sm text-[10px] uppercase tracking-wider font-semibold shadow-sm">
+<span class="material-symbols-outlined text-[13px] text-bordeaux-velvet">person_celebrate</span>
+            Client Silhouette · Camille
+          </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-porcelain/90 backdrop-blur-sm border border-hairline-stone/60 text-ink-taupe font-label-sm text-[9px] uppercase tracking-widest">
+            Proportion: 172cm · Fluid Column
+          </span>
+</div>
+<!-- Fullscreen Button -->
+<div class="flex items-center gap-1.5 pointer-events-auto">
+<button aria-label="Toggle Fullscreen" class="w-8 h-8 rounded-full frosted-glass border border-hairline-stone flex items-center justify-center text-ink-obsidian hover:text-bordeaux-velvet active:scale-95 transition-all shadow-sm" id="toggleFullscreenBtn">
+<span class="material-symbols-outlined text-[18px]" id="fullscreenIcon">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- Silhouette Interactive Tactile Markers -->
+<div class="absolute top-[32%] left-[34%] pointer-events-auto group cursor-pointer" id="hotspot1">
+<span class="relative flex h-3.5 w-3.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-champagne-gold opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-bordeaux-velvet border-2 border-surface-porcelain"></span>
+</span>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-2.5 py-1 bg-ink-obsidian/95 text-surface-porcelain font-label-sm text-[9px] rounded whitespace-nowrap pointer-events-none shadow-md">
+          Shoulder drape: Relaxed drop shoulder
+        </div>
+</div>
+<div class="absolute top-[52%] left-[48%] pointer-events-auto group cursor-pointer" id="hotspot2">
+<span class="relative flex h-3.5 w-3.5">
+<span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-champagne-gold border-2 border-surface-porcelain"></span>
+</span>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-2.5 py-1 bg-ink-obsidian/95 text-surface-porcelain font-label-sm text-[9px] rounded whitespace-nowrap pointer-events-none shadow-md">
+          Waistline balance: +2.5cm intentional ease
+        </div>
+</div>
+<!-- Bottom Interactive Perspective Filter Bar -->
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between bg-surface-porcelain/90 backdrop-blur-md rounded-lg p-1.5 border border-hairline-stone shadow-md">
+<div class="flex items-center gap-1 w-full overflow-x-auto custom-scrollbar">
+<button class="view-tab-btn px-3 py-1.5 rounded-full bg-bordeaux-velvet text-surface-porcelain font-label-sm text-[10px] uppercase tracking-wider font-semibold whitespace-nowrap shadow-sm transition-all" id="viewBtnFull" onclick="switchView('full')">
+            Full Silhouette
+          </button>
+<button class="view-tab-btn px-3 py-1.5 rounded-full bg-transparent hover:bg-surface-alabaster text-ink-taupe font-label-sm text-[10px] uppercase tracking-wider font-medium whitespace-nowrap transition-colors" id="viewBtnMacro" onclick="switchView('macro')">
+            Fabric Macro
+          </button>
+<button class="view-tab-btn px-3 py-1.5 rounded-full bg-transparent hover:bg-surface-alabaster text-ink-taupe font-label-sm text-[10px] uppercase tracking-wider font-medium whitespace-nowrap transition-colors" id="viewBtnFlow" onclick="switchView('flow')">
+            Movement Flow
+          </button>
+</div>
+</div>
+</div>
+<!-- Active View Caption & Proportion Bar -->
+<div class="px-4 py-3 bg-canvas-silk border-t border-hairline-stone flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-bordeaux-velvet text-[18px]">straighten</span>
+<p class="font-body-sm text-[12px] text-ink-obsidian" id="viewCaptionText">
+<span class="font-semibold text-bordeaux-velvet">Proportion Matrix:</span> Longline drape creates uninterrupted vertical line.
+        </p>
+</div>
+<button class="font-label-sm text-[11px] text-bordeaux-velvet uppercase tracking-wider font-semibold underline underline-offset-4 flex-shrink-0 hover:text-primary" onclick="toggleDetailsModal()">
+        Details
+      </button>
+</div>
+</section>
+<!-- SECTION: RE-STACK BAR & YOUR CURATED LOOK -->
+<section class="space-y-3.5">
+<div class="flex items-end justify-between px-1">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-[19px] text-primary tracking-tight font-medium">Your Curated Look</h2>
+<span class="hidden text-[9px] font-label-sm uppercase tracking-wider px-2 py-0.5 rounded-full bg-champagne-light text-bordeaux-velvet font-semibold border border-champagne-gold/40" id="restackBadge">
+            Changed 2 pieces
+          </span>
+</div>
+<p class="font-body-sm text-[11px] text-ink-taupe mt-0.5" id="curatedSubtitle">
+          Look 1 of 3: Autumn Minimalist Column
+        </p>
+</div>
+<!-- Action Group: Re-Stack & Undo -->
+<div class="flex items-center gap-1.5">
+<button class="hidden px-2.5 py-1 rounded-full border border-hairline-stone bg-surface-porcelain text-ink-taupe font-label-sm text-[10px] uppercase tracking-wider hover:text-bordeaux-velvet transition-colors flex items-center gap-1" id="undoRestackBtn" onclick="undoRestack()">
+<span class="material-symbols-outlined text-[13px]">undo</span>
+          Undo
+        </button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-porcelain border border-bordeaux-velvet/40 text-bordeaux-velvet font-label-sm uppercase tracking-wider text-[11px] font-semibold hover:bg-surface-alabaster active:scale-95 transition-all shadow-xs flex items-center gap-1.5" onclick="triggerRestack()">
+<span class="material-symbols-outlined text-[15px]">shuffle</span>
+          Re-Stack
+        </button>
+</div>
+</div>
+<!-- DYNAMIC GARMENT LIST CONTAINER -->
+<div class="space-y-3" id="garmentListContainer">
+<!-- Garment rows dynamically populated by JS -->
+</div>
+</section>
+<!-- SECTION: STYLIST'S NOTES (FIT & PROPORTION ADVISORY) -->
+<section class="bg-surface-alabaster rounded-xl p-4 border border-hairline-stone space-y-3.5 relative overflow-hidden">
+<!-- Champagne Keyline -->
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-champagne-gold"></div>
+<div class="flex items-center justify-between pl-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-bordeaux-velvet text-[18px]">design_services</span>
+<h3 class="font-headline-sm text-[15px] text-ink-obsidian font-semibold">Stylist's Fit &amp; Proportion Notes</h3>
+</div>
+<span class="font-label-sm text-[9px] text-champagne-gold uppercase tracking-widest font-bold">Atelier AI</span>
+</div>
+<!-- Editorial Bullet Observations -->
+<ul class="space-y-2 pl-1 text-[12px] font-body-sm text-ink-obsidian" id="stylistObservationList">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-champagne-gold text-[15px] mt-0.5 flex-shrink-0">check</span>
+<span>The longline coat creates an elongated vertical silhouette that frames the body with effortless authority.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-champagne-gold text-[15px] mt-0.5 flex-shrink-0">check</span>
+<span>The ivory knit base harmonizes and balances the deeper oxblood exterior layer.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-champagne-gold text-[15px] mt-0.5 flex-shrink-0">check</span>
+<span>Structured outerwear provides crisp architectural contrast to the soft fluid column.</span>
+</li>
+</ul>
+<!-- Capsule Palette Dispersion -->
+<div class="pt-1 pl-1">
+<div class="flex justify-between items-center text-[10px] font-label-sm text-ink-taupe mb-1">
+<span class="uppercase tracking-widest font-semibold">Tonal Palette Harmony</span>
+<span id="paletteRatioText">62% Alabaster · 30% Oxblood · 8% Travertine</span>
+</div>
+<div class="h-1.5 w-full rounded-full overflow-hidden flex bg-hairline-stone" id="paletteBar">
+<div class="h-full bg-[#FAF8F5] border-r border-hairline-stone" style="width: 62%;"></div>
+<div class="h-full bg-bordeaux-velvet" style="width: 30%;"></div>
+<div class="h-full bg-champagne-gold" style="width: 8%;"></div>
+</div>
+</div>
+<!-- AI Personal Stylist Commentary -->
+<p class="font-body-sm text-[12px] text-ink-taupe pl-1 italic border-t border-hairline-stone/60 pt-2.5" id="stylistQuoteText">
+      “Pairing the tailored density of your Totême trench against this featherlight ribbed knit column maintains the crisp, monastic proportion preferred in your Autumn curation.”
+    </p>
+<!-- Feedback Pills Row & Details Trigger -->
+<div class="pt-2 pl-1 border-t border-hairline-stone/50 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-[9px] uppercase tracking-wider text-ink-taupe">Feedback:</span>
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full border border-hairline-stone text-ink-obsidian bg-surface-porcelain font-label-sm text-[10px] hover:border-bordeaux-velvet transition-colors" id="feedbackLikeBtn" onclick="handleStylistFeedback('like')">
+<span class="material-symbols-outlined text-[13px] text-secondary">thumb_up</span>
+          More like this
+        </button>
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full border border-hairline-stone text-ink-obsidian bg-surface-porcelain font-label-sm text-[10px] hover:border-bordeaux-velvet transition-colors" onclick="handleStylistFeedback('remix')">
+<span class="material-symbols-outlined text-[13px] text-ink-taupe">autorenew</span>
+          Not my style
+        </button>
+</div>
+<button class="font-label-sm text-[10px] text-bordeaux-velvet uppercase tracking-wider font-semibold underline underline-offset-4 hover:text-primary" onclick="toggleDetailsModal()">
+        Full Analysis
+      </button>
+</div>
+</section>
+<!-- SECTION: RENDER ON YOUR SILHOUETTE (PORTRAIT SCAN) -->
+<section class="bg-surface-porcelain p-4 rounded-xl border border-hairline-stone flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-champagne-light flex items-center justify-center text-bordeaux-velvet">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[13px] text-ink-obsidian font-semibold">Render On Your Silhouette</h4>
+<p class="font-body-sm text-[11px] text-ink-taupe">Upload portrait for 1:1 tailored garment drape</p>
+</div>
+</div>
+<button class="px-3.5 py-1.5 rounded-full border border-hairline-stone text-primary hover:border-bordeaux-velvet bg-surface-alabaster font-label-sm text-[10px] uppercase tracking-wider font-semibold transition-colors" onclick="triggerUploadMock()">
+      Scan / Upload
+    </button>
+</section>
+</main>
+<!-- BOTTOM STYLING DOCK (Save to Collection + Refine This Look) -->
+<div class="fixed bottom-[65px] left-0 w-full z-40 bg-canvas-silk/95 backdrop-blur-lg border-t border-hairline-stone px-4 py-3 shadow-[0_-8px_24px_rgba(59,18,27,0.06)]">
+<div class="max-w-screen-md mx-auto flex items-center gap-3">
+<!-- Save to Collection Trigger -->
+<button aria-label="Save to Collection" class="h-12 w-12 rounded-full border border-hairline-stone bg-surface-porcelain flex items-center justify-center text-bordeaux-velvet active:scale-95 transition-all shadow-xs hover:border-bordeaux-velvet hover:bg-surface-alabaster flex-shrink-0" id="openSavePopoverBtn" onclick="toggleSavePopover()" type="button">
+<span class="material-symbols-outlined text-[22px]">bookmark_border</span>
+</button>
+<!-- Primary Atelier Action: Refine This Look -->
+<button class="flex-1 h-12 rounded-full bg-bordeaux-velvet text-surface-porcelain font-label-lg uppercase tracking-wider flex items-center justify-between px-6 hover:bg-bordeaux-noir active:scale-98 transition-all shadow-md group" onclick="openRefinePanel()" type="button">
+<span class="font-headline-sm text-[13px] text-champagne-light tracking-[0.14em]">REFINE THIS LOOK</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-champagne-gold group-hover:rotate-12 transition-transform">auto_fix_high</span>
+</div>
+</button>
+</div>
+</div>
+<!-- UNIVERSAL BOTTOM NAVIGATION BAR -->
+<nav aria-label="Main Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-canvas/95 backdrop-blur-md border-t border-border-hairline shadow-[0_-4px_20px_rgba(80,22,36,0.04)]">
+<a class="flex flex-col items-center justify-center text-ink-tertiary gap-1 py-1 hover:text-primary transition-colors duration-200 active:scale-95" href="#today">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="font-label-sm uppercase tracking-wider text-[10px]">Today</span>
+</a>
+<a class="flex flex-col items-center justify-center text-ink-tertiary gap-1 py-1 hover:text-primary transition-colors duration-200 active:scale-95" href="#discover">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+<span class="font-label-sm uppercase tracking-wider text-[10px]">Discover</span>
+</a>
+<!-- Active Tab: Wardrobe / AI Atelier -->
+<a aria-current="page" class="flex flex-col items-center justify-center text-primary font-semibold gap-1 py-1 hover:text-primary transition-colors duration-200 active:scale-95" href="#wardrobe">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">checkroom</span>
+<span class="font-label-sm uppercase tracking-wider text-[10px]">Wardrobe</span>
+</a>
+<a class="flex flex-col items-center justify-center text-ink-tertiary gap-1 py-1 hover:text-primary transition-colors duration-200 active:scale-95" href="#saved" onclick="toggleSavePopover(); return false;">
+<span class="material-symbols-outlined text-[22px]">bookmark_border</span>
+<span class="font-label-sm uppercase tracking-wider text-[10px]">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center text-ink-tertiary gap-1 py-1 hover:text-primary transition-colors duration-200 active:scale-95" href="#profile">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="font-label-sm uppercase tracking-wider text-[10px]">Profile</span>
+</a>
+</nav>
+<!-- ========================================================================= -->
+<!-- MODAL 1: PINTEREST-STYLE "SAVE TO COLLECTION" POPOVER / BOTTOM SHEET      -->
+<!-- ========================================================================= -->
+<div class="fixed inset-0 z-50 bg-ink-obsidian/40 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none flex items-end justify-center sm:items-center p-0 sm:p-4" id="savePopoverModal">
+<div class="w-full sm:max-w-md bg-surface-porcelain rounded-t-2xl sm:rounded-2xl p-5 border border-hairline-stone shadow-2xl transform transition-transform duration-300 translate-y-full sm:translate-y-0 sm:scale-95 space-y-4 max-h-[85vh] overflow-y-auto custom-scrollbar" id="savePopoverCard">
+<!-- Header -->
+<div class="flex items-center justify-between pb-2 border-b border-hairline-stone">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-bordeaux-velvet text-[20px]">bookmark_add</span>
+<h3 class="font-headline-sm text-[16px] text-ink-obsidian font-semibold">Save to Collection</h3>
+</div>
+<button class="p-1 rounded-full text-ink-taupe hover:text-ink-obsidian" onclick="toggleSavePopover()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Search Input -->
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-ink-taupe text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-2 text-[12px] bg-surface-alabaster border border-hairline-stone rounded-lg font-body-sm focus:outline-none focus:border-bordeaux-velvet" id="collectionSearchInput" oninput="filterCollections(this.value)" placeholder="Search your collections..." type="text"/>
+</div>
+<!-- Suggested Quick Chips -->
+<div>
+<span class="font-label-sm text-[9px] uppercase tracking-wider text-ink-taupe block mb-1.5 font-semibold">Quick Suggestions</span>
+<div class="flex flex-wrap gap-1.5">
+<button class="px-2.5 py-1 rounded-full bg-champagne-light text-bordeaux-velvet border border-champagne-gold/40 text-[10px] font-label-sm font-semibold hover:bg-champagne-gold/20 transition-colors" onclick="saveToTargetCollection('Capsule Wardrobe')">
+          Capsule Wardrobe
+        </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-alabaster text-ink-obsidian border border-hairline-stone text-[10px] font-label-sm hover:border-bordeaux-velvet transition-colors" onclick="saveToTargetCollection('Date Night')">
+          Date Night
+        </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-alabaster text-ink-obsidian border border-hairline-stone text-[10px] font-label-sm hover:border-bordeaux-velvet transition-colors" onclick="saveToTargetCollection('Gallery &amp; Travel')">
+          Gallery &amp; Travel
+        </button>
+</div>
+</div>
+<!-- All Collections List -->
+<div>
+<span class="font-label-sm text-[9px] uppercase tracking-wider text-ink-taupe block mb-2 font-semibold">All Collections</span>
+<div class="space-y-2" id="collectionsList">
+<!-- Collection Row 1 -->
+<div class="collection-item flex items-center justify-between p-2 rounded-lg hover:bg-surface-alabaster cursor-pointer border border-transparent hover:border-hairline-stone transition-all" onclick="toggleCollectionRow(this, 'Capsule Wardrobe')">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-alabaster overflow-hidden border border-hairline-stone flex-shrink-0">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBra3pKr76I1-b64li4ror-47JfO2Lq2AB1w1Ns1fO86_xO0uNuqnqS-nZb2yw2KqDiutesRvivvXCp1T0a_rTvbF-XUyf1B9gY_OjmLfqOhbTfOOihe6wMUWk6TbKIS4V1S4H5_cYsdp_ZdPlvw7WakScCvULogWt1-_nK09bFa9Zr3WT_GSQaDgBEthJjPcxk3FnN2nbFjHj9zJIX7ldpBX7b2XP3q3boDBpT3TBB18Iy6_9mhL3nEw"/>
+</div>
+<div>
+<p class="font-headline-sm text-[13px] text-ink-obsidian font-semibold">Capsule Wardrobe</p>
+<p class="font-body-sm text-[10px] text-ink-taupe">12 Looks · Autumn 2024</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-bordeaux-velvet text-[20px] check-icon">check_circle</span>
+</div>
+<!-- Collection Row 2 -->
+<div class="collection-item flex items-center justify-between p-2 rounded-lg hover:bg-surface-alabaster cursor-pointer border border-transparent hover:border-hairline-stone transition-all" onclick="toggleCollectionRow(this, 'Date Night')">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-alabaster overflow-hidden border border-hairline-stone flex-shrink-0">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi26KQpH631FI81MydZdsbyGu7AxcnwjoIQPVkj3Zut0XSwFLkC_3Lkpk0TjKnkpViu3BzY8khabyfKNEFJPD8jgAEyEFkxA2WGbkZrZ62cC1UiQsDbaE5_u_VY4-jkNG9ZYhcR6NJYYQoEcNQPXJ9-dL7txi8YPpsXn_kYGdDsoqiIp1NKAQPybalp63GeGiV1cOau_H1G0koRBvHRx_OnnJBcJ5yXkG6cgzKKePsgX_YRfhlv8ghXQ"/>
+</div>
+<div>
+<p class="font-headline-sm text-[13px] text-ink-obsidian font-semibold">Date Night</p>
+<p class="font-body-sm text-[10px] text-ink-taupe">6 Looks · Intimate</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-hairline-stone text-[20px] check-icon">radio_button_unchecked</span>
+</div>
+<!-- Collection Row 3 -->
+<div class="collection-item flex items-center justify-between p-2 rounded-lg hover:bg-surface-alabaster cursor-pointer border border-transparent hover:border-hairline-stone transition-all" onclick="toggleCollectionRow(this, 'Gallery &amp; Travel')">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-alabaster overflow-hidden border border-hairline-stone flex-shrink-0">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR2R2yFUbAshSkTN-DHglNLIry5YJ2EzBJ36_eQIH0dO2Q77HQ_QSes_WQ9dYNiyAyZztmYgOFKx8pNJeSc8LUKN8PI8WX-hTNygLpFFszA5EbHOGbtpugZjtugE-cCzcYlfJlSRy4P-kEr37ls6N5IGnVCXwWzll8BPxS5bjTkwB7yr79y18gcOrA2aTAC-pXuPp3WTVtbhCKhy-5kXSbLtMc6T8EGV0hubcH3iQvDB_EZNrn-khk9w"/>
+</div>
+<div>
+<p class="font-headline-sm text-[13px] text-ink-obsidian font-semibold">Gallery &amp; Travel</p>
+<p class="font-body-sm text-[10px] text-ink-taupe">8 Looks · Paris, Milan</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-hairline-stone text-[20px] check-icon">radio_button_unchecked</span>
+</div>
+</div>
+</div>
+<!-- Create New Collection Action -->
+<div class="pt-2 border-t border-hairline-stone">
+<button class="w-full py-2.5 rounded-lg border border-dashed border-bordeaux-velvet/50 text-bordeaux-velvet font-label-sm text-[11px] uppercase tracking-wider font-semibold flex items-center justify-center gap-1.5 hover:bg-champagne-light/40 transition-colors" onclick="createNewCollectionPrompt()">
+<span class="material-symbols-outlined text-[16px]">add</span>
+        Create New Collection
+      </button>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- MODAL 2: INTERACTIVE "REFINE THIS LOOK" BOTTOM SHEET                     -->
+<!-- ========================================================================= -->
+<div class="fixed inset-0 z-50 bg-ink-obsidian/45 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none flex items-end justify-center" id="refinePanelModal">
+<div class="w-full max-w-lg bg-surface-porcelain rounded-t-3xl p-6 border-t border-hairline-stone shadow-2xl transform transition-transform duration-300 translate-y-full max-h-[90vh] overflow-y-auto custom-scrollbar space-y-5" id="refinePanelCard">
+<!-- Top Pull Handle & Header -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-1 bg-hairline-stone rounded-full"></div>
+<div class="flex items-center justify-between w-full pt-1">
+<div>
+<h3 class="font-headline-md text-[18px] text-primary font-medium">Refine Studio Look</h3>
+<p class="font-body-sm text-[11px] text-ink-taupe">Adjust aesthetic vectors &amp; proportion parameters</p>
+</div>
+<button class="p-1 rounded-full text-ink-taupe hover:text-ink-obsidian" onclick="closeRefinePanel()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</div>
+<!-- Group 1: Style Direction -->
+<div>
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-ink-taupe block mb-2 font-semibold">1. Style Direction</span>
+<div class="flex flex-wrap gap-1.5" id="styleDirectionGroup">
+<button class="pill-btn active-pill px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-bordeaux-velvet text-surface-porcelain font-semibold" onclick="selectPill(this, 'styleDir')">Minimalist</button>
+<button class="pill-btn px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-surface-alabaster text-ink-obsidian border border-hairline-stone" onclick="selectPill(this, 'styleDir')">Quiet Luxury</button>
+<button class="pill-btn px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-surface-alabaster text-ink-obsidian border border-hairline-stone" onclick="selectPill(this, 'styleDir')">Romantic</button>
+<button class="pill-btn px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-surface-alabaster text-ink-obsidian border border-hairline-stone" onclick="selectPill(this, 'styleDir')">Architectural</button>
+<button class="pill-btn px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-surface-alabaster text-ink-obsidian border border-hairline-stone" onclick="selectPill(this, 'styleDir')">Casual Chic</button>
+</div>
+</div>
+<!-- Group 2: Occasion -->
+<div>
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-ink-taupe block mb-2 font-semibold">2. Occasion &amp; Context</span>
+<div class="flex flex-wrap gap-1.5" id="occasionGroup">
+<button class="pill-btn active-pill px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-bordeaux-velvet text-surface-porcelain font-semibold" onclick="selectPill(this, 'occasion')">Gallery Opening</button>
+<button class="pill-btn px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-surface-alabaster text-ink-obsidian border border-hairline-stone" onclick="selectPill(this, 'occasion')">Everyday Wear</button>
+<button class="pill-btn px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-surface-alabaster text-ink-obsidian border border-hairline-stone" onclick="selectPill(this, 'occasion')">Evening Gala</button>
+<button class="pill-btn px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-surface-alabaster text-ink-obsidian border border-hairline-stone" onclick="selectPill(this, 'occasion')">Date Night</button>
+<button class="pill-btn px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-surface-alabaster text-ink-obsidian border border-hairline-stone" onclick="selectPill(this, 'occasion')">Travel</button>
+<button class="pill-btn px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-surface-alabaster text-ink-obsidian border border-hairline-stone" onclick="selectPill(this, 'occasion')">Office Meeting</button>
+</div>
+</div>
+<!-- Group 3: Color Palette & Tonal Harmony -->
+<div>
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-ink-taupe block mb-2 font-semibold">3. Tonal Harmony</span>
+<div class="flex flex-wrap gap-1.5" id="colorHarmonyGroup">
+<button class="pill-btn active-pill px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-bordeaux-velvet text-surface-porcelain font-semibold" onclick="selectPill(this, 'colorHarmony')">Bordeaux &amp; Alabaster</button>
+<button class="pill-btn px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-surface-alabaster text-ink-obsidian border border-hairline-stone" onclick="selectPill(this, 'colorHarmony')">Warm Neutrals</button>
+<button class="pill-btn px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-surface-alabaster text-ink-obsidian border border-hairline-stone" onclick="selectPill(this, 'colorHarmony')">Monochromatic Cream</button>
+<button class="pill-btn px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-surface-alabaster text-ink-obsidian border border-hairline-stone" onclick="selectPill(this, 'colorHarmony')">Deep Espresso</button>
+</div>
+</div>
+<!-- Group 4: Silhouette & Layering Preference -->
+<div>
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-ink-taupe block mb-2 font-semibold">4. Silhouette &amp; Layering</span>
+<div class="flex flex-wrap gap-1.5" id="silhouetteGroup">
+<button class="pill-btn active-pill px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-bordeaux-velvet text-surface-porcelain font-semibold" onclick="selectPill(this, 'silh')">Fluid Column</button>
+<button class="pill-btn px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-surface-alabaster text-ink-obsidian border border-hairline-stone" onclick="selectPill(this, 'silh')">Structured Tailoring</button>
+<button class="pill-btn px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-surface-alabaster text-ink-obsidian border border-hairline-stone" onclick="selectPill(this, 'silh')">Relaxed Drape</button>
+</div>
+</div>
+<!-- Group 5: Styling Temperament (Understated vs Bold) -->
+<div class="bg-surface-alabaster p-3 rounded-xl border border-hairline-stone flex items-center justify-between">
+<div>
+<span class="font-headline-sm text-[13px] text-ink-obsidian font-semibold block">Styling Temperament</span>
+<span class="font-body-sm text-[10px] text-ink-taupe" id="temperamentLabel">Understated &amp; Monastic</span>
+</div>
+<div class="flex items-center bg-surface-porcelain p-0.5 rounded-full border border-hairline-stone">
+<button class="px-3 py-1 rounded-full text-[10px] font-label-sm font-semibold bg-bordeaux-velvet text-surface-porcelain shadow-xs" id="temperamentUnderstated" onclick="toggleTemperament('understated')">
+          Understated
+        </button>
+<button class="px-3 py-1 rounded-full text-[10px] font-label-sm text-ink-taupe" id="temperamentBold" onclick="toggleTemperament('bold')">
+          Bold Accent
+        </button>
+</div>
+</div>
+<!-- Actions Row: Apply & Reset -->
+<div class="pt-3 border-t border-hairline-stone flex items-center gap-3">
+<button class="px-4 py-3 rounded-full border border-hairline-stone text-ink-taupe font-label-sm text-[11px] uppercase tracking-wider hover:text-ink-obsidian" onclick="resetRefinePreferences()">
+        Revert
+      </button>
+<button class="flex-1 py-3 rounded-full bg-bordeaux-velvet text-surface-porcelain font-label-sm text-[11px] uppercase tracking-widest font-semibold hover:bg-bordeaux-noir shadow-md flex items-center justify-center gap-2" onclick="applyRefineChanges()">
+<span class="material-symbols-outlined text-[16px]">check</span>
+        Apply Studio Changes
+      </button>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- MODAL 3: "CHANGE PIECE" WARDROBE DRAWER                                 -->
+<!-- ========================================================================= -->
+<div class="fixed inset-0 z-50 bg-ink-obsidian/40 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none flex items-end justify-center" id="changePieceDrawer">
+<div class="w-full max-w-lg bg-surface-porcelain rounded-t-3xl p-5 border-t border-hairline-stone shadow-2xl transform transition-transform duration-300 translate-y-full space-y-4 max-h-[85vh] overflow-y-auto custom-scrollbar" id="changePieceCard">
+<div class="flex items-center justify-between pb-2 border-b border-hairline-stone">
+<div>
+<h3 class="font-headline-sm text-[16px] text-ink-obsidian font-semibold">Change Garment Piece</h3>
+<p class="font-body-sm text-[11px] text-ink-taupe" id="changePieceCategoryLabel">Select an alternative from Camille's wardrobe</p>
+</div>
+<button class="p-1 rounded-full text-ink-taupe hover:text-ink-obsidian" onclick="closeChangePieceDrawer()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Owned Alternatives List -->
+<div class="space-y-2.5" id="changePieceAlternativesList">
+<!-- Injected dynamically -->
+</div>
+<!-- Dismiss button -->
+<div class="pt-2 border-t border-hairline-stone">
+<button class="w-full py-2.5 rounded-full border border-hairline-stone text-ink-taupe font-label-sm text-[11px] uppercase tracking-wider font-semibold" onclick="closeChangePieceDrawer()">
+        Cancel Selection
+      </button>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- MODAL 4: FULL PROPORTION & DRAPE ANALYSIS DETAILS MODAL                  -->
+<!-- ========================================================================= -->
+<div class="fixed inset-0 z-50 bg-ink-obsidian/45 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none flex items-center justify-center p-4" id="detailsAnalysisModal">
+<div class="w-full max-w-md bg-surface-porcelain rounded-2xl p-6 border border-hairline-stone shadow-2xl space-y-4 max-h-[85vh] overflow-y-auto custom-scrollbar">
+<div class="flex items-center justify-between pb-2 border-b border-hairline-stone">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-bordeaux-velvet text-[20px]">architecture</span>
+<h3 class="font-headline-sm text-[16px] text-ink-obsidian font-semibold">Comprehensive Drape Analysis</h3>
+</div>
+<button class="p-1 rounded-full text-ink-taupe hover:text-ink-obsidian" onclick="toggleDetailsModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="space-y-3.5 text-[12px] font-body-sm text-ink-obsidian">
+<div class="bg-surface-alabaster p-3 rounded-lg border border-hairline-stone">
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-bordeaux-velvet font-bold block">1. Drape Balance &amp; Gravity</span>
+<p class="mt-1 text-ink-taupe">The 480g knit drop creates perpendicular vertical tension, completely removing unwanted horizontal clinging across the lower waist.</p>
+</div>
+<div class="bg-surface-alabaster p-3 rounded-lg border border-hairline-stone">
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-bordeaux-velvet font-bold block">2. Proportions &amp; Golden Ratio</span>
+<p class="mt-1 text-ink-taupe">Coat hem rests precisely 7cm above ankle bone, framing the elongated slingback silhouette with a flattering 2:3 vertical rhythm.</p>
+</div>
+<div class="bg-surface-alabaster p-3 rounded-lg border border-hairline-stone">
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-bordeaux-velvet font-bold block">3. Layering Dynamics</span>
+<p class="mt-1 text-ink-taupe">Mulberry silk interior glides frictionless beneath supple leather lining, ensuring natural breathability and dynamic walking motion.</p>
+</div>
+<div class="bg-surface-alabaster p-3 rounded-lg border border-hairline-stone">
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-bordeaux-velvet font-bold block">4. Context Suitability</span>
+<p class="mt-1 text-ink-taupe">Calibrated for Gallery Vernissage and Autumn Evenings (14°C to 19°C), bridging refined daytime modesty and dramatic evening presence.</p>
+</div>
+</div>
+<button class="w-full py-2.5 rounded-full bg-bordeaux-velvet text-surface-porcelain font-label-sm text-[11px] uppercase tracking-wider font-semibold hover:bg-bordeaux-noir" onclick="toggleDetailsModal()">
+      Close Analysis
+    </button>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- JAVASCRIPT STATE ENGINE                                                   -->
+<!-- ========================================================================= -->
+<script>
+  // Curated Preset Looks for RE-STACK Cycle
+  const curatedLooks = [
+    {
+      id: 1,
+      title: "Look 1 of 3: Autumn Minimalist Column",
+      fullImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuBra3pKr76I1-b64li4ror-47JfO2Lq2AB1w1Ns1fO86_xO0uNuqnqS-nZb2yw2KqDiutesRvivvXCp1T0a_rTvbF-XUyf1B9gY_OjmLfqOhbTfOOihe6wMUWk6TbKIS4V1S4H5_cYsdp_ZdPlvw7WakScCvULogWt1-_nK09bFa9Zr3WT_GSQaDgBEthJjPcxk3FnN2nbFjHj9zJIX7ldpBX7b2XP3q3boDBpT3TBB18Iy6_9mhL3nEw",
+      macroImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuAi26KQpH631FI81MydZdsbyGu7AxcnwjoIQPVkj3Zut0XSwFLkC_3Lkpk0TjKnkpViu3BzY8khabyfKNEFJPD8jgAEyEFkxA2WGbkZrZ62cC1UiQsDbaE5_u_VY4-jkNG9ZYhcR6NJYYQoEcNQPXJ9-dL7txi8YPpsXn_kYGdDsoqiIp1NKAQPybalp63GeGiV1cOau_H1G0koRBvHRx_OnnJBcJ5yXkG6cgzKKePsgX_YRfhlv8ghXQ",
+      flowImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuBra3pKr76I1-b64li4ror-47JfO2Lq2AB1w1Ns1fO86_xO0uNuqnqS-nZb2yw2KqDiutesRvivvXCp1T0a_rTvbF-XUyf1B9gY_OjmLfqOhbTfOOihe6wMUWk6TbKIS4V1S4H5_cYsdp_ZdPlvw7WakScCvULogWt1-_nK09bFa9Zr3WT_GSQaDgBEthJjPcxk3FnN2nbFjHj9zJIX7ldpBX7b2XP3q3boDBpT3TBB18Iy6_9mhL3nEw",
+      paletteRatio: "62% Alabaster · 30% Oxblood · 8% Travertine",
+      paletteColors: [
+        { color: '#FAF8F5', width: '62%' },
+        { color: '#4A1521', width: '30%' },
+        { color: '#C5A880', width: '8%' }
+      ],
+      quote: "“Pairing the tailored density of your Totême trench against this featherlight ribbed knit column maintains the crisp, monastic proportion preferred in your Autumn curation.”",
+      observations: [
+        "The longline coat creates an elongated vertical silhouette that frames the body with effortless authority.",
+        "The ivory knit base harmonizes and balances the deeper oxblood exterior layer.",
+        "Structured outerwear provides crisp architectural contrast to the soft fluid column."
+      ],
+      garments: [
+        {
+          id: 'g1',
+          name: "Totême Double-Breasted Trench",
+          category: "Outerwear Layer",
+          status: "IN YOUR WARDROBE",
+          statusClass: "text-ink-taupe bg-surface-porcelain border-hairline-stone",
+          details: "Oxblood Supple Leather · Size 36 (FR) · Floor drape",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCR2R2yFUbAshSkTN-DHglNLIry5YJ2EzBJ36_eQIH0dO2Q77HQ_QSes_WQ9dYNiyAyZztmYgOFKx8pNJeSc8LUKN8PI8WX-hTNygLpFFszA5EbHOGbtpugZjtugE-cCzcYlfJlSRy4P-kEr37ls6N5IGnVCXwWzll8BPxS5bjTkwB7yr79y18gcOrA2aTAC-pXuPp3WTVtbhCKhy-5kXSbLtMc6T8EGV0hubcH3iQvDB_EZNrn-khk9w"
+        },
+        {
+          id: 'g2',
+          name: "Silk-Blend Ribbed Knit Column Dress",
+          category: "Base Silhouette",
+          status: "STYLE INSPIRATION",
+          statusClass: "text-bordeaux-velvet bg-champagne-light border-champagne-gold/40",
+          details: "Natural Alabaster · 70% Mulberry Silk, 30% Fine Wool",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAi26KQpH631FI81MydZdsbyGu7AxcnwjoIQPVkj3Zut0XSwFLkC_3Lkpk0TjKnkpViu3BzY8khabyfKNEFJPD8jgAEyEFkxA2WGbkZrZ62cC1UiQsDbaE5_u_VY4-jkNG9ZYhcR6NJYYQoEcNQPXJ9-dL7txi8YPpsXn_kYGdDsoqiIp1NKAQPybalp63GeGiV1cOau_H1G0koRBvHRx_OnnJBcJ5yXkG6cgzKKePsgX_YRfhlv8ghXQ"
+        },
+        {
+          id: 'g3',
+          name: "Saint Laurent Slingback 55",
+          category: "Footwear Companion",
+          status: "IN YOUR WARDROBE",
+          statusClass: "text-ink-taupe bg-surface-porcelain border-hairline-stone",
+          details: "Patent Wine Noir · EU 38 · 55mm kitten heel",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCkUA3IbDrWgntGa-uuEQtfB_3LGkuvFFaHsJ7irvyzUN24sWdm8SnSFOcINaWbfNDrtJBl0gVOZlHJz4HYKnC2wpNIFZfSWroXWiKxXrltTpzJ5W96ur6_MVXuUwFwuZsOJlw51FnfcDdH6c5OQKiLryvLeZh3DOzl1X2DPrkzj38W3hgOWD63skhV_ThUIFIf4pBxFwPTrjfDXSzlmmtnOlLZPLxcM9wFPWcwTUK4RpAWL4NMJUyQRw"
+        }
+      ]
+    },
+    {
+      id: 2,
+      title: "Look 2 of 3: Fluid Silk Bias & Cashmere Knit",
+      fullImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuBra3pKr76I1-b64li4ror-47JfO2Lq2AB1w1Ns1fO86_xO0uNuqnqS-nZb2yw2KqDiutesRvivvXCp1T0a_rTvbF-XUyf1B9gY_OjmLfqOhbTfOOihe6wMUWk6TbKIS4V1S4H5_cYsdp_ZdPlvw7WakScCvULogWt1-_nK09bFa9Zr3WT_GSQaDgBEthJjPcxk3FnN2nbFjHj9zJIX7ldpBX7b2XP3q3boDBpT3TBB18Iy6_9mhL3nEw",
+      macroImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuAi26KQpH631FI81MydZdsbyGu7AxcnwjoIQPVkj3Zut0XSwFLkC_3Lkpk0TjKnkpViu3BzY8khabyfKNEFJPD8jgAEyEFkxA2WGbkZrZ62cC1UiQsDbaE5_u_VY4-jkNG9ZYhcR6NJYYQoEcNQPXJ9-dL7txi8YPpsXn_kYGdDsoqiIp1NKAQPybalp63GeGiV1cOau_H1G0koRBvHRx_OnnJBcJ5yXkG6cgzKKePsgX_YRfhlv8ghXQ",
+      flowImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuBra3pKr76I1-b64li4ror-47JfO2Lq2AB1w1Ns1fO86_xO0uNuqnqS-nZb2yw2KqDiutesRvivvXCp1T0a_rTvbF-XUyf1B9gY_OjmLfqOhbTfOOihe6wMUWk6TbKIS4V1S4H5_cYsdp_ZdPlvw7WakScCvULogWt1-_nK09bFa9Zr3WT_GSQaDgBEthJjPcxk3FnN2nbFjHj9zJIX7ldpBX7b2XP3q3boDBpT3TBB18Iy6_9mhL3nEw",
+      paletteRatio: "50% Espresso · 35% Champagne Silk · 15% Oxblood",
+      paletteColors: [
+        { color: '#2b1b17', width: '50%' },
+        { color: '#F3EDE4', width: '35%' },
+        { color: '#4A1521', width: '15%' }
+      ],
+      quote: "“The heavy diagonal drape of the champagne silk skirt offsets the weight of the chunky espresso rib, achieving relaxed poise.”",
+      observations: [
+        "Bias cut hemline catches ambient motion, generating fluid kinetic elegance.",
+        "Cashmere density anchors the waistline while leaving the neckline open.",
+        "Monochrome warm hues flatter Camille's olive undertone."
+      ],
+      garments: [
+        {
+          id: 'g1',
+          name: "Totême Double-Breasted Trench",
+          category: "Outerwear Layer",
+          status: "IN YOUR WARDROBE",
+          statusClass: "text-ink-taupe bg-surface-porcelain border-hairline-stone",
+          details: "Oxblood Supple Leather · Size 36 (FR) · Draped open",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCR2R2yFUbAshSkTN-DHglNLIry5YJ2EzBJ36_eQIH0dO2Q77HQ_QSes_WQ9dYNiyAyZztmYgOFKx8pNJeSc8LUKN8PI8WX-hTNygLpFFszA5EbHOGbtpugZjtugE-cCzcYlfJlSRy4P-kEr37ls6N5IGnVCXwWzll8BPxS5bjTkwB7yr79y18gcOrA2aTAC-pXuPp3WTVtbhCKhy-5kXSbLtMc6T8EGV0hubcH3iQvDB_EZNrn-khk9w"
+        },
+        {
+          id: 'g4',
+          name: "Champagne Silk Bias Midi Skirt",
+          category: "Lower Body",
+          status: "STYLE INSPIRATION",
+          statusClass: "text-bordeaux-velvet bg-champagne-light border-champagne-gold/40",
+          details: "100% 22mm Sandwashed Silk · Fluid bias drape",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAi26KQpH631FI81MydZdsbyGu7AxcnwjoIQPVkj3Zut0XSwFLkC_3Lkpk0TjKnkpViu3BzY8khabyfKNEFJPD8jgAEyEFkxA2WGbkZrZ62cC1UiQsDbaE5_u_VY4-jkNG9ZYhcR6NJYYQoEcNQPXJ9-dL7txi8YPpsXn_kYGdDsoqiIp1NKAQPybalp63GeGiV1cOau_H1G0koRBvHRx_OnnJBcJ5yXkG6cgzKKePsgX_YRfhlv8ghXQ"
+        },
+        {
+          id: 'g5',
+          name: "Bottega Veneta Cassette Bag",
+          category: "Accessory Companion",
+          status: "IN YOUR WARDROBE",
+          statusClass: "text-ink-taupe bg-surface-porcelain border-hairline-stone",
+          details: "Intrecciato Padded Leather in Deep Espresso",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCkUA3IbDrWgntGa-uuEQtfB_3LGkuvFFaHsJ7irvyzUN24sWdm8SnSFOcINaWbfNDrtJBl0gVOZlHJz4HYKnC2wpNIFZfSWroXWiKxXrltTpzJ5W96ur6_MVXuUwFwuZsOJlw51FnfcDdH6c5OQKiLryvLeZh3DOzl1X2DPrkzj38W3hgOWD63skhV_ThUIFIf4pBxFwPTrjfDXSzlmmtnOlLZPLxcM9wFPWcwTUK4RpAWL4NMJUyQRw"
+        }
+      ]
+    },
+    {
+      id: 3,
+      title: "Look 3 of 3: Architectural Wool Tailoring & Pleats",
+      fullImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuBra3pKr76I1-b64li4ror-47JfO2Lq2AB1w1Ns1fO86_xO0uNuqnqS-nZb2yw2KqDiutesRvivvXCp1T0a_rTvbF-XUyf1B9gY_OjmLfqOhbTfOOihe6wMUWk6TbKIS4V1S4H5_cYsdp_ZdPlvw7WakScCvULogWt1-_nK09bFa9Zr3WT_GSQaDgBEthJjPcxk3FnN2nbFjHj9zJIX7ldpBX7b2XP3q3boDBpT3TBB18Iy6_9mhL3nEw",
+      macroImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuAi26KQpH631FI81MydZdsbyGu7AxcnwjoIQPVkj3Zut0XSwFLkC_3Lkpk0TjKnkpViu3BzY8khabyfKNEFJPD8jgAEyEFkxA2WGbkZrZ62cC1UiQsDbaE5_u_VY4-jkNG9ZYhcR6NJYYQoEcNQPXJ9-dL7txi8YPpsXn_kYGdDsoqiIp1NKAQPybalp63GeGiV1cOau_H1G0koRBvHRx_OnnJBcJ5yXkG6cgzKKePsgX_YRfhlv8ghXQ",
+      flowImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuBra3pKr76I1-b64li4ror-47JfO2Lq2AB1w1Ns1fO86_xO0uNuqnqS-nZb2yw2KqDiutesRvivvXCp1T0a_rTvbF-XUyf1B9gY_OjmLfqOhbTfOOihe6wMUWk6TbKIS4V1S4H5_cYsdp_ZdPlvw7WakScCvULogWt1-_nK09bFa9Zr3WT_GSQaDgBEthJjPcxk3FnN2nbFjHj9zJIX7ldpBX7b2XP3q3boDBpT3TBB18Iy6_9mhL3nEw",
+      paletteRatio: "55% Sandstone · 35% Camel Hair · 10% Charcoal",
+      paletteColors: [
+        { color: '#E5DFD7', width: '55%' },
+        { color: '#C5A880', width: '35%' },
+        { color: '#3A3837', width: '10%' }
+      ],
+      quote: "“Sharp razor pleats on the wide-leg trousers elongate the lower third, while the slouchy camel wool lapel imparts easy Parisian nonchalance.”",
+      observations: [
+        "Padded drop shoulder gives clean architectural authority.",
+        "Deep front pleats cascade fluidly over pointed flats.",
+        "Double-faced virgin wool maintains structure without stiffness."
+      ],
+      garments: [
+        {
+          id: 'g6',
+          name: "Relaxed Wool Blazer in Camel",
+          category: "Tailored Outerwear",
+          status: "IN YOUR WARDROBE",
+          statusClass: "text-ink-taupe bg-surface-porcelain border-hairline-stone",
+          details: "100% Virgin Wool · Oversized Silhouette · Size 36",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCR2R2yFUbAshSkTN-DHglNLIry5YJ2EzBJ36_eQIH0dO2Q77HQ_QSes_WQ9dYNiyAyZztmYgOFKx8pNJeSc8LUKN8PI8WX-hTNygLpFFszA5EbHOGbtpugZjtugE-cCzcYlfJlSRy4P-kEr37ls6N5IGnVCXwWzll8BPxS5bjTkwB7yr79y18gcOrA2aTAC-pXuPp3WTVtbhCKhy-5kXSbLtMc6T8EGV0hubcH3iQvDB_EZNrn-khk9w"
+        },
+        {
+          id: 'g7',
+          name: "Wide-Leg Pleated Wool Trousers in Sand",
+          category: "Tailored Bottom",
+          status: "STYLE INSPIRATION",
+          statusClass: "text-bordeaux-velvet bg-champagne-light border-champagne-gold/40",
+          details: "High-rise · Extended waistband with French bar closure",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAi26KQpH631FI81MydZdsbyGu7AxcnwjoIQPVkj3Zut0XSwFLkC_3Lkpk0TjKnkpViu3BzY8khabyfKNEFJPD8jgAEyEFkxA2WGbkZrZ62cC1UiQsDbaE5_u_VY4-jkNG9ZYhcR6NJYYQoEcNQPXJ9-dL7txi8YPpsXn_kYGdDsoqiIp1NKAQPybalp63GeGiV1cOau_H1G0koRBvHRx_OnnJBcJ5yXkG6cgzKKePsgX_YRfhlv8ghXQ"
+        },
+        {
+          id: 'g8',
+          name: "Fine-Knit Merino Mockneck",
+          category: "Foundation Layer",
+          status: "IN YOUR WARDROBE",
+          statusClass: "text-ink-taupe bg-surface-porcelain border-hairline-stone",
+          details: "16-Gauge Extra Fine Merino in Ecru · Size S",
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCkUA3IbDrWgntGa-uuEQtfB_3LGkuvFFaHsJ7irvyzUN24sWdm8SnSFOcINaWbfNDrtJBl0gVOZlHJz4HYKnC2wpNIFZfSWroXWiKxXrltTpzJ5W96ur6_MVXuUwFwuZsOJlw51FnfcDdH6c5OQKiLryvLeZh3DOzl1X2DPrkzj38W3hgOWD63skhV_ThUIFIf4pBxFwPTrjfDXSzlmmtnOlLZPLxcM9wFPWcwTUK4RpAWL4NMJUyQRw"
+        }
+      ]
+    }
+  ];
+
+  // Wardrobe alternatives for "CHANGE PIECE"
+  const wardrobeAlternatives = {
+    'Outerwear Layer': [
+      { name: "Totême Double-Breasted Trench", meta: "Oxblood Supple Leather · Size 36", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCR2R2yFUbAshSkTN-DHglNLIry5YJ2EzBJ36_eQIH0dO2Q77HQ_QSes_WQ9dYNiyAyZztmYgOFKx8pNJeSc8LUKN8PI8WX-hTNygLpFFszA5EbHOGbtpugZjtugE-cCzcYlfJlSRy4P-kEr37ls6N5IGnVCXwWzll8BPxS5bjTkwB7yr79y18gcOrA2aTAC-pXuPp3WTVtbhCKhy-5kXSbLtMc6T8EGV0hubcH3iQvDB_EZNrn-khk9w" },
+      { name: "Khaite Cashmere Car Coat", meta: "Double-faced Oatmeal Cashmere · Size S", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAi26KQpH631FI81MydZdsbyGu7AxcnwjoIQPVkj3Zut0XSwFLkC_3Lkpk0TjKnkpViu3BzY8khabyfKNEFJPD8jgAEyEFkxA2WGbkZrZ62cC1UiQsDbaE5_u_VY4-jkNG9ZYhcR6NJYYQoEcNQPXJ9-dL7txi8YPpsXn_kYGdDsoqiIp1NKAQPybalp63GeGiV1cOau_H1G0koRBvHRx_OnnJBcJ5yXkG6cgzKKePsgX_YRfhlv8ghXQ" },
+      { name: "The Row Bindle Blazer", meta: "Tailored Midnight Navy Wool · Size 38", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCR2R2yFUbAshSkTN-DHglNLIry5YJ2EzBJ36_eQIH0dO2Q77HQ_QSes_WQ9dYNiyAyZztmYgOFKx8pNJeSc8LUKN8PI8WX-hTNygLpFFszA5EbHOGbtpugZjtugE-cCzcYlfJlSRy4P-kEr37ls6N5IGnVCXwWzll8BPxS5bjTkwB7yr79y18gcOrA2aTAC-pXuPp3WTVtbhCKhy-5kXSbLtMc6T8EGV0hubcH3iQvDB_EZNrn-khk9w" }
+    ],
+    'Base Silhouette': [
+      { name: "Silk-Blend Ribbed Knit Column Dress", meta: "Natural Alabaster · Silk & Wool", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAi26KQpH631FI81MydZdsbyGu7AxcnwjoIQPVkj3Zut0XSwFLkC_3Lkpk0TjKnkpViu3BzY8khabyfKNEFJPD8jgAEyEFkxA2WGbkZrZ62cC1UiQsDbaE5_u_VY4-jkNG9ZYhcR6NJYYQoEcNQPXJ9-dL7txi8YPpsXn_kYGdDsoqiIp1NKAQPybalp63GeGiV1cOau_H1G0koRBvHRx_OnnJBcJ5yXkG6cgzKKePsgX_YRfhlv8ghXQ" },
+      { name: "Lemaire Poplin Wrap Shirtdress", meta: "Crisp Chalk White · Detachable Belt", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCR2R2yFUbAshSkTN-DHglNLIry5YJ2EzBJ36_eQIH0dO2Q77HQ_QSes_WQ9dYNiyAyZztmYgOFKx8pNJeSc8LUKN8PI8WX-hTNygLpFFszA5EbHOGbtpugZjtugE-cCzcYlfJlSRy4P-kEr37ls6N5IGnVCXwWzll8BPxS5bjTkwB7yr79y18gcOrA2aTAC-pXuPp3WTVtbhCKhy-5kXSbLtMc6T8EGV0hubcH3iQvDB_EZNrn-khk9w" }
+    ],
+    'Footwear Companion': [
+      { name: "Saint Laurent Slingback 55", meta: "Patent Wine Noir · EU 38", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCkUA3IbDrWgntGa-uuEQtfB_3LGkuvFFaHsJ7irvyzUN24sWdm8SnSFOcINaWbfNDrtJBl0gVOZlHJz4HYKnC2wpNIFZfSWroXWiKxXrltTpzJ5W96ur6_MVXuUwFwuZsOJlw51FnfcDdH6c5OQKiLryvLeZh3DOzl1X2DPrkzj38W3hgOWD63skhV_ThUIFIf4pBxFwPTrjfDXSzlmmtnOlLZPLxcM9wFPWcwTUK4RpAWL4NMJUyQRw" },
+      { name: "The Row Ballet Loafer", meta: "Soft Black Nappa · Flat", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAi26KQpH631FI81MydZdsbyGu7AxcnwjoIQPVkj3Zut0XSwFLkC_3Lkpk0TjKnkpViu3BzY8khabyfKNEFJPD8jgAEyEFkxA2WGbkZrZ62cC1UiQsDbaE5_u_VY4-jkNG9ZYhcR6NJYYQoEcNQPXJ9-dL7txi8YPpsXn_kYGdDsoqiIp1NKAQPybalp63GeGiV1cOau_H1G0koRBvHRx_OnnJBcJ5yXkG6cgzKKePsgX_YRfhlv8ghXQ" },
+      { name: "Jil Sander Pointed Bootie", meta: "Burgundy Calfskin · 45mm Block Heel", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCkUA3IbDrWgntGa-uuEQtfB_3LGkuvFFaHsJ7irvyzUN24sWdm8SnSFOcINaWbfNDrtJBl0gVOZlHJz4HYKnC2wpNIFZfSWroXWiKxXrltTpzJ5W96ur6_MVXuUwFwuZsOJlw51FnfcDdH6c5OQKiLryvLeZh3DOzl1X2DPrkzj38W3hgOWD63skhV_ThUIFIf4pBxFwPTrjfDXSzlmmtnOlLZPLxcM9wFPWcwTUK4RpAWL4NMJUyQRw" }
+    ]
+  };
+
+  // State
+  let currentLookIndex = 0;
+  let previousLookIndex = 0;
+  let currentView = 'full'; // 'full' | 'macro' | 'flow'
+  let activeReplacingCategory = 'Outerwear Layer';
+  let activeReplacingGarmentId = null;
+
+  // Render Look function
+  function renderCuratedLook(lookIndex) {
+    const look = curatedLooks[lookIndex];
+    document.getElementById('curatedSubtitle').textContent = look.title;
+    
+    // Update Image depending on active view
+    updateViewportImage();
+
+    // Stylist commentary
+    document.getElementById('stylistQuoteText').textContent = look.quote;
+    
+    // Stylist observations
+    const obsList = document.getElementById('stylistObservationList');
+    obsList.innerHTML = look.observations.map(obs => `
+      <li class="flex items-start gap-2">
+        <span class="material-symbols-outlined text-champagne-gold text-[15px] mt-0.5 flex-shrink-0">check</span>
+        <span>${obs}</span>
+      </li>
+    `).join('');
+
+    // Palette ratio and bar
+    document.getElementById('paletteRatioText').textContent = look.paletteRatio;
+    const bar = document.getElementById('paletteBar');
+    bar.innerHTML = look.paletteColors.map(c => `
+      <div class="h-full" style="background-color: ${c.color}; width: ${c.width};"></div>
+    `).join('');
+
+    // Garment rows
+    const container = document.getElementById('garmentListContainer');
+    container.innerHTML = look.garments.map((garment, idx) => `
+      <div class="bg-surface-porcelain p-3.5 rounded-xl border border-hairline-stone atelier-shadow relative overflow-hidden transition-all hover:border-bordeaux-velvet/40">
+        <div class="flex items-center gap-3.5">
+          <div class="w-16 h-20 rounded bg-surface-alabaster border border-hairline-stone flex-shrink-0 overflow-hidden relative">
+            <img src="${garment.img}" alt="${garment.name}" class="w-full h-full object-cover">
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span class="font-label-sm text-[8px] uppercase tracking-widest px-1.5 py-0.5 rounded border ${garment.statusClass}">
+                ${garment.status}
+              </span>
+              <span class="text-hairline-stone text-[10px]">·</span>
+              <span class="font-label-sm text-[9px] text-ink-taupe uppercase tracking-wider">${garment.category}</span>
+            </div>
+            <h3 class="font-headline-sm text-[14px] text-ink-obsidian truncate font-semibold mt-1">
+              ${garment.name}
+            </h3>
+            <p class="font-body-sm text-[11px] text-ink-taupe mt-0.5">
+              ${garment.details}
+            </p>
+          </div>
+        </div>
+        <div class="mt-3 pt-2.5 border-t border-hairline-stone flex items-center justify-between">
+          <div class="flex items-center gap-1 text-[11px] text-secondary font-medium">
+            <span class="material-symbols-outlined text-[14px]">tune</span>
+            <span>Atelier calibrated drape</span>
+          </div>
+          <button onclick="openChangePieceDrawer('${garment.category}', '${garment.id}')" class="px-2.5 py-1 rounded-full border border-hairline-stone text-ink-obsidian bg-surface-alabaster font-label-sm text-[10px] uppercase tracking-wider font-semibold hover:border-bordeaux-velvet hover:text-bordeaux-velvet transition-colors flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px]">swap_horiz</span>
+            Change Piece
+          </button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // View switcher (Full Silhouette, Fabric Macro, Movement Flow)
+  function switchView(view) {
+    currentView = view;
+    const btns = document.querySelectorAll('.view-tab-btn');
+    btns.forEach(btn => {
+      btn.className = 'view-tab-btn px-3 py-1.5 rounded-full bg-transparent hover:bg-surface-alabaster text-ink-taupe font-label-sm text-[10px] uppercase tracking-wider font-medium whitespace-nowrap transition-colors';
+    });
+
+    const caption = document.getElementById('viewCaptionText');
+    const hotspot1 = document.getElementById('hotspot1');
+    const hotspot2 = document.getElementById('hotspot2');
+
+    if (view === 'full') {
+      document.getElementById('viewBtnFull').className = 'view-tab-btn px-3 py-1.5 rounded-full bg-bordeaux-velvet text-surface-porcelain font-label-sm text-[10px] uppercase tracking-wider font-semibold whitespace-nowrap shadow-sm transition-all';
+      caption.innerHTML = '<span class="font-semibold text-bordeaux-velvet">Proportion Matrix:</span> Longline drape creates uninterrupted vertical line.';
+      hotspot1.style.display = 'block';
+      hotspot2.style.display = 'block';
+    } else if (view === 'macro') {
+      document.getElementById('viewBtnMacro').className = 'view-tab-btn px-3 py-1.5 rounded-full bg-bordeaux-velvet text-surface-porcelain font-label-sm text-[10px] uppercase tracking-wider font-semibold whitespace-nowrap shadow-sm transition-all';
+      caption.innerHTML = '<span class="font-semibold text-bordeaux-velvet">Macro Textile View:</span> 22-Momme Mulberry Silk with 16-gauge ribbing.';
+      hotspot1.style.display = 'none';
+      hotspot2.style.display = 'none';
+    } else if (view === 'flow') {
+      document.getElementById('viewBtnFlow').className = 'view-tab-btn px-3 py-1.5 rounded-full bg-bordeaux-velvet text-surface-porcelain font-label-sm text-[10px] uppercase tracking-wider font-semibold whitespace-nowrap shadow-sm transition-all';
+      caption.innerHTML = '<span class="font-semibold text-bordeaux-velvet">Dynamic Motion Drape:</span> Lateral fluid expansion under forward stride.';
+      hotspot1.style.display = 'none';
+      hotspot2.style.display = 'none';
+    }
+
+    updateViewportImage();
+  }
+
+  function updateViewportImage() {
+    const look = curatedLooks[currentLookIndex];
+    const imgEl = document.getElementById('mainDisplayImg');
+    imgEl.style.opacity = '0.4';
+    setTimeout(() => {
+      if (currentView === 'full') {
+        imgEl.src = look.fullImage;
+      } else if (currentView === 'macro') {
+        imgEl.src = look.macroImage;
+      } else {
+        imgEl.src = look.flowImage;
+      }
+      imgEl.style.opacity = '1';
+    }, 150);
+  }
+
+  // Fullscreen Toggle
+  const viewportSection = document.getElementById('viewportSection');
+  const toggleFullscreenBtn = document.getElementById('toggleFullscreenBtn');
+  const fullscreenIcon = document.getElementById('fullscreenIcon');
+  let isFullscreen = false;
+
+  toggleFullscreenBtn.addEventListener('click', () => {
+    isFullscreen = !isFullscreen;
+    if (isFullscreen) {
+      viewportSection.classList.add('fixed', 'inset-0', 'z-50', 'rounded-none', 'h-screen');
+      fullscreenIcon.textContent = 'fullscreen_exit';
+      document.body.style.overflow = 'hidden';
+    } else {
+      viewportSection.classList.remove('fixed', 'inset-0', 'z-50', 'rounded-none', 'h-screen');
+      fullscreenIcon.textContent = 'fullscreen';
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Re-Stack Trigger
+  function triggerRestack() {
+    previousLookIndex = currentLookIndex;
+    currentLookIndex = (currentLookIndex + 1) % curatedLooks.length;
+    renderCuratedLook(currentLookIndex);
+
+    // Show restack badge and undo button
+    const badge = document.getElementById('restackBadge');
+    badge.classList.remove('hidden');
+    const undoBtn = document.getElementById('undoRestackBtn');
+    undoBtn.classList.remove('hidden');
+
+    showToast("Re-stacked: " + curatedLooks[currentLookIndex].title.split(':')[1]);
+  }
+
+  function undoRestack() {
+    currentLookIndex = previousLookIndex;
+    renderCuratedLook(currentLookIndex);
+    document.getElementById('restackBadge').classList.add('hidden');
+    document.getElementById('undoRestackBtn').classList.add('hidden');
+    showToast("Restored previous look");
+  }
+
+  // Refine Panel Open / Close
+  const refineModal = document.getElementById('refinePanelModal');
+  const refineCard = document.getElementById('refinePanelCard');
+
+  function openRefinePanel() {
+    refineModal.classList.remove('opacity-0', 'pointer-events-none');
+    refineCard.classList.remove('translate-y-full');
+  }
+
+  function closeRefinePanel() {
+    refineCard.classList.add('translate-y-full');
+    refineModal.classList.add('opacity-0', 'pointer-events-none');
+  }
+
+  // Refine Pill Selection
+  function selectPill(btn, groupName) {
+    const parent = btn.parentElement;
+    parent.querySelectorAll('.pill-btn').forEach(b => {
+      b.className = 'pill-btn px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-surface-alabaster text-ink-obsidian border border-hairline-stone';
+    });
+    btn.className = 'pill-btn active-pill px-3 py-1.5 rounded-full text-[11px] font-label-sm bg-bordeaux-velvet text-surface-porcelain font-semibold shadow-xs';
+  }
+
+  function toggleTemperament(type) {
+    const uBtn = document.getElementById('temperamentUnderstated');
+    const bBtn = document.getElementById('temperamentBold');
+    const label = document.getElementById('temperamentLabel');
+    if (type === 'understated') {
+      uBtn.className = 'px-3 py-1 rounded-full text-[10px] font-label-sm font-semibold bg-bordeaux-velvet text-surface-porcelain shadow-xs';
+      bBtn.className = 'px-3 py-1 rounded-full text-[10px] font-label-sm text-ink-taupe';
+      label.textContent = 'Understated & Monastic';
+    } else {
+      bBtn.className = 'px-3 py-1 rounded-full text-[10px] font-label-sm font-semibold bg-bordeaux-velvet text-surface-porcelain shadow-xs';
+      uBtn.className = 'px-3 py-1 rounded-full text-[10px] font-label-sm text-ink-taupe';
+      label.textContent = 'Curated Statement Accent';
+    }
+  }
+
+  function resetRefinePreferences() {
+    showToast("Preferences reverted to baseline");
+    closeRefinePanel();
+  }
+
+  function applyRefineChanges() {
+    closeRefinePanel();
+    showToast("AI Studio: Look re-calibrated with new style vectors");
+    // Dynamically update quote & harmony status
+    document.getElementById('stylistQuoteText').textContent = "“Re-calibrated with enhanced architectural drape and elevated tone-on-tone richness per your Studio refinement.”";
+  }
+
+  // Save to Collection Popover
+  const saveModal = document.getElementById('savePopoverModal');
+  const saveCard = document.getElementById('savePopoverCard');
+
+  function toggleSavePopover() {
+    if (saveModal.classList.contains('pointer-events-none')) {
+      saveModal.classList.remove('opacity-0', 'pointer-events-none');
+      saveCard.classList.remove('translate-y-full');
+    } else {
+      saveCard.classList.add('translate-y-full');
+      saveModal.classList.add('opacity-0', 'pointer-events-none');
+    }
+  }
+
+  function saveToTargetCollection(name) {
+    toggleSavePopover();
+    showToast(`Look saved to ${name}`);
+  }
+
+  function toggleCollectionRow(row, name) {
+    const icon = row.querySelector('.check-icon');
+    const isChecked = icon.textContent === 'check_circle';
+    if (isChecked) {
+      icon.textContent = 'radio_button_unchecked';
+      icon.className = 'material-symbols-outlined text-hairline-stone text-[20px] check-icon';
+      showToast(`Removed from ${name}`);
+    } else {
+      icon.textContent = 'check_circle';
+      icon.className = 'material-symbols-outlined text-bordeaux-velvet text-[20px] check-icon';
+      showToast(`Look saved to ${name}`);
+    }
+  }
+
+  function filterCollections(query) {
+    const items = document.querySelectorAll('.collection-item');
+    items.forEach(item => {
+      const text = item.innerText.toLowerCase();
+      if (text.includes(query.toLowerCase())) {
+        item.style.display = 'flex';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  function createNewCollectionPrompt() {
+    const name = prompt("Name your new curated collection:", "Paris Autumn Capsule");
+    if (name) {
+      toggleSavePopover();
+      showToast(`Created & saved to "${name}"`);
+    }
+  }
+
+  // Change Piece Drawer
+  const changePieceDrawer = document.getElementById('changePieceDrawer');
+  const changePieceCard = document.getElementById('changePieceCard');
+
+  function openChangePieceDrawer(category, garmentId) {
+    activeReplacingCategory = category;
+    activeReplacingGarmentId = garmentId;
+    document.getElementById('changePieceCategoryLabel').textContent = `Replace item in: ${category}`;
+
+    const list = wardrobeAlternatives[category] || wardrobeAlternatives['Outerwear Layer'];
+    const container = document.getElementById('changePieceAlternativesList');
+    container.innerHTML = list.map(item => `
+      <div onclick="applyPieceReplacement('${item.name.replace(/'/g, "\\'")}', '${item.meta.replace(/'/g, "\\'")}', '${item.img}')" class="flex items-center justify-between p-2.5 rounded-xl border border-hairline-stone hover:border-bordeaux-velvet hover:bg-surface-alabaster cursor-pointer transition-all">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-14 rounded bg-surface-porcelain border border-hairline-stone overflow-hidden flex-shrink-0">
+            <img src="${item.img}" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <p class="font-headline-sm text-[13px] text-ink-obsidian font-semibold">${item.name}</p>
+            <p class="font-body-sm text-[11px] text-ink-taupe">${item.meta}</p>
+            <span class="font-label-sm text-[8px] uppercase tracking-wider text-ink-taupe bg-surface-porcelain px-1.5 py-0.5 rounded border border-hairline-stone inline-block mt-1">In Your Wardrobe</span>
+          </div>
+        </div>
+        <span class="material-symbols-outlined text-bordeaux-velvet text-[18px]">add_circle_outline</span>
+      </div>
+    `).join('');
+
+    changePieceDrawer.classList.remove('opacity-0', 'pointer-events-none');
+    changePieceCard.classList.remove('translate-y-full');
+  }
+
+  function closeChangePieceDrawer() {
+    changePieceCard.classList.add('translate-y-full');
+    changePieceDrawer.classList.add('opacity-0', 'pointer-events-none');
+  }
+
+  function applyPieceReplacement(newName, newDetails, newImg) {
+    const look = curatedLooks[currentLookIndex];
+    const target = look.garments.find(g => g.id === activeReplacingGarmentId) || look.garments[0];
+    if (target) {
+      target.name = newName;
+      target.details = newDetails;
+      target.img = newImg;
+      target.status = "IN YOUR WARDROBE";
+      target.statusClass = "text-ink-taupe bg-surface-porcelain border-hairline-stone";
+    }
+    renderCuratedLook(currentLookIndex);
+    closeChangePieceDrawer();
+    showToast(`Piece updated: ${newName}`);
+  }
+
+  // Full Details Analysis Modal
+  const detailsModal = document.getElementById('detailsAnalysisModal');
+  function toggleDetailsModal() {
+    if (detailsModal.classList.contains('pointer-events-none')) {
+      detailsModal.classList.remove('opacity-0', 'pointer-events-none');
+    } else {
+      detailsModal.classList.add('opacity-0', 'pointer-events-none');
+    }
+  }
+
+  // Stylist Feedback Actions
+  function handleStylistFeedback(action) {
+    if (action === 'like') {
+      const btn = document.getElementById('feedbackLikeBtn');
+      btn.classList.add('bg-champagne-light', 'text-bordeaux-velvet', 'border-champagne-gold');
+      showToast("Styling vector noted: Camille prefers this proportion");
+    } else {
+      triggerRestack();
+      showToast("Generating alternative silhouette pairing...");
+    }
+  }
+
+  function triggerUploadMock() {
+    showToast("Opening Camera & Portrait Scanner...");
+  }
+
+  // Global Toast function
+  let toastTimer;
+  function showToast(msg) {
+    const toast = document.getElementById('toastNotification');
+    document.getElementById('toastMessage').textContent = msg;
+    toast.classList.remove('opacity-0', '-translate-y-4');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.add('opacity-0', '-translate-y-4');
+    }, 2800);
+  }
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', () => {
+    renderCuratedLook(0);
+    document.getElementById('headerSettingsBtn').addEventListener('click', openRefinePanel);
+  });
+</script>
+</body></html>

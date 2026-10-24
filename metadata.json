@@ -1,0 +1,6 @@
+{
+  "name": "RYMAE — Haute Couture AI Styling Atelier & Digital Wardrobe",
+  "description": "Bespoke digital style archive, AI wardrobe composition, virtual atelier fitting salon, and personalized haute couture styling consultations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

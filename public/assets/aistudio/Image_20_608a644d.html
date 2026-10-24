@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-canvas-silk" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RYMAE ATELIER — Private Authentication</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Verbatim Tailwind Config -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-container": "#78603e",
+            "tertiary": "#2b060f",
+            "primary-fixed": "#ffd9dd",
+            "canvas-silk": "#FAF8F5",
+            "outline": "#857374",
+            "on-secondary-fixed-variant": "#584323",
+            "inverse-primary": "#ffb2bd",
+            "ink-obsidian": "#141212",
+            "background": "#fbf9f6",
+            "error": "#ba1a1a",
+            "surface-porcelain": "#FFFFFF",
+            "inverse-surface": "#30312f",
+            "bordeaux-noir": "#3B121B",
+            "tertiary-fixed": "#ffd9dd",
+            "on-primary-fixed": "#3a0815",
+            "bordeaux-velvet": "#4A1521",
+            "on-surface": "#1b1c1a",
+            "primary-fixed-dim": "#ffb2bd",
+            "surface-container-high": "#eae8e5",
+            "surface-variant": "#e4e2df",
+            "on-background": "#1b1c1a",
+            "hairline-bordeaux": "rgba(74, 21, 33, 0.12)",
+            "champagne-light": "#F3EDE4",
+            "on-tertiary-container": "#bc7e88",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f5f3f0",
+            "on-primary-fixed-variant": "#71333f",
+            "on-primary": "#ffffff",
+            "surface-container": "#efeeeb",
+            "surface-tint": "#8d4a56",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "surface-dim": "#dbdad7",
+            "primary-container": "#4a1521",
+            "secondary-fixed-dim": "#e0c298",
+            "outline-variant": "#d7c1c3",
+            "on-tertiary-fixed-variant": "#6a3841",
+            "tertiary-container": "#451a23",
+            "surface-alabaster": "#F5F2EC",
+            "tertiary-fixed-dim": "#fab4be",
+            "on-secondary": "#ffffff",
+            "champagne-gold": "#C5A880",
+            "ink-muted": "#9C948D",
+            "surface-container-highest": "#e4e2df",
+            "on-tertiary-fixed": "#350d17",
+            "on-primary-container": "#c57985",
+            "on-surface-variant": "#524345",
+            "inverse-on-surface": "#f2f0ed",
+            "surface-bright": "#fbf9f6",
+            "on-secondary-fixed": "#281800",
+            "secondary-fixed": "#fedeb2",
+            "secondary": "#725b38",
+            "secondary-container": "#fedeb2",
+            "on-error": "#ffffff",
+            "primary": "#2f020d",
+            "surface": "#fbf9f6",
+            "on-error-container": "#93000a",
+            "ink-taupe": "#706963",
+            "hairline-stone": "#E8E3DC"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "gutter-desktop": "2rem",
+            "space-sm": "0.5rem",
+            "gutter": "1rem",
+            "space-2xl": "4rem",
+            "margin": "1.25rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "margin-desktop": "3rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-lg-mobile": [
+              "Playfair Display"
+            ],
+            "headline-md": [
+              "Playfair Display"
+            ],
+            "label-md": [
+              "Plus Jakarta Sans"
+            ],
+            "body-md": [
+              "Plus Jakarta Sans"
+            ],
+            "display-hero": [
+              "Playfair Display"
+            ],
+            "headline-sm": [
+              "Plus Jakarta Sans"
+            ],
+            "body-sm": [
+              "Plus Jakarta Sans"
+            ],
+            "label-lg": [
+              "Plus Jakarta Sans"
+            ],
+            "headline-lg": [
+              "Playfair Display"
+            ],
+            "body-lg": [
+              "Plus Jakarta Sans"
+            ],
+            "label-sm": [
+              "Plus Jakarta Sans"
+            ],
+            "display-hero-mobile": [
+              "Playfair Display"
+            ]
+          },
+          "fontSize": {
+            "headline-lg-mobile": [
+              "26px",
+              {
+                "lineHeight": "34px",
+                "fontWeight": "400"
+              }
+            ],
+            "headline-md": [
+              "24px",
+              {
+                "lineHeight": "32px",
+                "fontWeight": "500"
+              }
+            ],
+            "label-md": [
+              "12px",
+              {
+                "lineHeight": "16px",
+                "letterSpacing": "0.08em",
+                "fontWeight": "500"
+              }
+            ],
+            "body-md": [
+              "14px",
+              {
+                "lineHeight": "22px",
+                "fontWeight": "400"
+              }
+            ],
+            "display-hero": [
+              "44px",
+              {
+                "lineHeight": "52px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "400"
+              }
+            ],
+            "headline-sm": [
+              "18px",
+              {
+                "lineHeight": "26px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "600"
+              }
+            ],
+            "body-sm": [
+              "13px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "400"
+              }
+            ],
+            "label-lg": [
+              "13px",
+              {
+                "lineHeight": "18px",
+                "letterSpacing": "0.06em",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-lg": [
+              "34px",
+              {
+                "lineHeight": "42px",
+                "letterSpacing": "-0.015em",
+                "fontWeight": "400"
+              }
+            ],
+            "body-lg": [
+              "16px",
+              {
+                "lineHeight": "26px",
+                "fontWeight": "400"
+              }
+            ],
+            "label-sm": [
+              "10px",
+              {
+                "lineHeight": "14px",
+                "letterSpacing": "0.12em",
+                "fontWeight": "600"
+              }
+            ],
+            "display-hero-mobile": [
+              "32px",
+              {
+                "lineHeight": "40px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "400"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #E8E3DC;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="h-full bg-canvas-silk text-ink-obsidian antialiased selection:bg-bordeaux-velvet selection:text-white">
+<!-- Interactive Global Notification Toast -->
+<div class="fixed top-6 right-6 z-50 transform translate-y-[-120%] opacity-0 transition-all duration-500 ease-out max-w-sm pointer-events-none" id="toast-banner">
+<div class="bg-bordeaux-noir text-surface-porcelain p-4 rounded-xl shadow-[0_16px_40px_-8px_rgba(59,18,27,0.25)] border border-champagne-gold/30 flex items-start gap-3">
+<span class="material-symbols-outlined text-champagne-gold text-lg mt-0.5">check_circle</span>
+<div class="flex-1 pr-2">
+<p class="font-headline-sm text-sm text-surface-porcelain tracking-tight" id="toast-title">Salon Authenticated</p>
+<p class="font-body-sm text-surface-variant/90 text-xs mt-0.5" id="toast-msg">Welcome to your private bespoke dressing suite.</p>
+</div>
+<button class="text-surface-variant hover:text-white transition-colors pointer-events-auto" onclick="hideToast()">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+</div>
+<div class="min-h-screen w-full flex flex-col lg:flex-row overflow-x-hidden">
+<!-- LEFT COLUMN: Editorial Haute Couture Atelier Imagery (56% Desktop Width) -->
+<div class="relative w-full lg:w-[56%] min-h-[460px] lg:min-h-screen bg-bordeaux-noir overflow-hidden flex flex-col justify-between p-6 sm:p-10 lg:p-14 order-1">
+<!-- Background Monograph Imagery -->
+<div class="absolute inset-0 bg-cover bg-center mix-blend-luminosity opacity-40 scale-105 transition-transform duration-1000 ease-out hover:scale-100" data-alt="An opulent haute couture fashion editorial photograph of an elegant model in tailored deep burgundy leather trench coat and rich alabaster cashmere knit. The setting is a minimalist Parisian private salon with floor-to-ceiling French windows, warm sunlit stone moldings, and soft natural diffused lighting. The aesthetic embodies quiet luxury, refined tailoring, high-fashion stillness, and timeless European sophistication." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDj8GjFKVR0WxjqsqE9nOsmJ-x3oaujucwNkjwoY67GypD5OmkOKG-p5FkdhbnmnZa8OvPV25XqocfOIabim7YWB7kICaxb3kLugMD_Tkja6MmVgpw_p5nTCCrNQ8x0o1O4DY2fiNh3IoAgpMnws0XBcuvAtD62j0CDmqewK3bfjHisyVqs2q46Q2Jq9e7avSagjABhRfP2w_Xla9LdODKaI3KtbOYupj2EUwyYtA1CjGGeXIuCBHvxqg')"></div>
+<!-- Subtle Haute Couture Ambient Gradients -->
+<div class="absolute inset-0 bg-gradient-to-t from-bordeaux-noir via-bordeaux-noir/60 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-bordeaux-noir/40 to-transparent"></div>
+<!-- Top Atelier Header Overlay -->
+<div class="relative z-10 flex items-center justify-between w-full">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full border border-champagne-gold/40 flex items-center justify-center bg-bordeaux-velvet/40 backdrop-blur-md">
+<span class="font-headline-md text-champagne-gold text-xs italic tracking-widest font-light">R</span>
+</div>
+<div>
+<h1 class="font-headline-md text-white tracking-[0.22em] text-sm uppercase">RYMAE ATELIER</h1>
+<p class="font-label-sm text-champagne-gold tracking-widest text-[9px] uppercase">Haute Couture Curation</p>
+</div>
+</div>
+<div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full border border-champagne-gold/20 bg-white/5 backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-champagne-gold animate-pulse"></span>
+<span class="font-label-sm text-champagne-light tracking-wider text-[10px] uppercase">Edition Nº 04 · Private Salon</span>
+</div>
+</div>
+<!-- Center Subtle Monogram Watermark -->
+<div class="relative z-10 my-auto py-12 hidden lg:block max-w-lg">
+<div class="inline-block px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/10 mb-6">
+<span class="font-label-md text-champagne-gold text-xs tracking-[0.14em] uppercase">Private Client Sanctum</span>
+</div>
+<blockquote class="font-headline-lg text-surface-porcelain font-normal leading-tight italic tracking-tight mb-4">
+          “Style is not an acquisition, but the architecture of one’s quiet poise.”
+        </blockquote>
+<p class="font-body-md text-champagne-light/80 max-w-md font-light leading-relaxed">
+          Step into a private digital atelier crafted for intentional silhouette composition, archival wardrobe management, and personalized styling consultations.
+        </p>
+</div>
+<!-- Bottom Editorial Footnotes & Pagination Vignette -->
+<div class="relative z-10 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
+<div>
+<p class="font-label-md text-champagne-gold tracking-[0.18em] uppercase text-xs">YOUR PERSONAL STYLE, REIMAGINED</p>
+<p class="font-body-sm text-white/70 text-xs mt-1 max-w-sm">
+            A bespoke digital salon for wardrobe curation, silhouette analysis, and mindful dressing.
+          </p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-surface-porcelain text-xs">Atelier Concorde, Paris</span>
+<span class="font-label-sm text-white/50 text-[10px]">48.8661° N, 2.3210° E</span>
+</div>
+<div class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-champagne-gold">
+<span class="material-symbols-outlined text-sm">auto_fix_high</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Authentication & Salon Portal (44% Desktop Width) -->
+<div class="relative w-full lg:w-[44%] min-h-screen bg-canvas-silk flex flex-col justify-between p-6 sm:p-10 lg:p-14 overflow-y-auto custom-scroll order-2">
+<!-- Top Mobile Brand Stamp & Client Assistance -->
+<div class="w-full flex items-center justify-between pb-8">
+<a class="group flex items-center gap-2" href="#">
+<span class="font-headline-md text-bordeaux-velvet text-lg tracking-[0.18em] uppercase font-medium group-hover:text-primary transition-colors">RYMAE</span>
+<span class="text-hairline-stone">|</span>
+<span class="font-label-sm text-ink-taupe tracking-widest text-[10px] uppercase">Private Salon</span>
+</a>
+<!-- Concierge / Client Help Link -->
+<a class="font-label-md text-bordeaux-velvet hover:text-bordeaux-noir transition-colors flex items-center gap-1.5 text-xs py-1 px-3 rounded-full hover:bg-surface-alabaster" href="#concierge" onclick="openConcierge()">
+<span class="material-symbols-outlined text-sm text-champagne-gold">support_agent</span>
+<span>Concierge</span>
+</a>
+</div>
+<!-- Centered Interactive Auth Form Viewport -->
+<div class="w-full max-w-md mx-auto my-auto py-4">
+<!-- Nav / View Switcher (Sign In vs Register Tabs) -->
+<div class="flex items-center p-1 bg-surface-alabaster rounded-full border border-hairline-stone mb-8 w-fit mx-auto sm:mx-0">
+<button class="px-5 py-1.5 rounded-full font-label-md text-xs transition-all duration-200 bg-bordeaux-velvet text-white shadow-sm font-semibold" id="tab-signin" onclick="switchAuthView('signin')">
+            Sign In
+          </button>
+<button class="px-5 py-1.5 rounded-full font-label-md text-xs transition-all duration-200 text-ink-taupe hover:text-ink-obsidian font-medium" id="tab-register" onclick="switchAuthView('register')">
+            Create Account
+          </button>
+</div>
+<!-- ============================================== -->
+<!-- VIEW A: SIGN IN (Default) -->
+<!-- ============================================== -->
+<div class="transition-all duration-300" id="view-signin">
+<header class="mb-8">
+<span class="font-label-md text-champagne-gold tracking-[0.15em] uppercase text-xs">Client Authentication</span>
+<h2 class="font-headline-lg text-ink-obsidian mt-1">Welcome back.</h2>
+<p class="font-body-md text-ink-taupe mt-1.5 font-light">
+              Step back into your personal styling space.
+            </p>
+</header>
+<form class="space-y-5" id="form-signin" novalidate="" onsubmit="handleAuthSubmit(event, 'signin')">
+<!-- Email Input -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-ink-obsidian text-xs uppercase tracking-wider" for="signin-email">
+                Email address <span class="text-bordeaux-velvet">*</span>
+</label>
+<div class="relative">
+<input class="w-full px-4 py-3 bg-surface-porcelain border border-hairline-stone rounded text-ink-obsidian placeholder:text-ink-muted focus:border-bordeaux-velvet focus:ring-1 focus:ring-bordeaux-velvet outline-none transition duration-150 font-body-md text-sm" id="signin-email" placeholder="you@example.com" required="" type="email"/>
+<div class="hidden absolute right-3 top-3 text-bordeaux-velvet" id="signin-email-feedback">
+<span class="material-symbols-outlined text-sm">error</span>
+</div>
+</div>
+<p class="hidden font-body-sm text-bordeaux-velvet text-xs mt-1" id="signin-email-err">Please enter a valid salon client email.</p>
+</div>
+<!-- Password Input -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="block font-label-md text-ink-obsidian text-xs uppercase tracking-wider" for="signin-password">
+                  Password <span class="text-bordeaux-velvet">*</span>
+</label>
+<button class="font-label-sm text-bordeaux-velvet hover:text-bordeaux-noir transition-colors uppercase tracking-wider text-[11px] underline underline-offset-4 decoration-hairline-stone hover:decoration-bordeaux-velvet" onclick="switchAuthView('forgot')" type="button">
+                  Forgot password?
+                </button>
+</div>
+<div class="relative">
+<input class="w-full pl-4 pr-11 py-3 bg-surface-porcelain border border-hairline-stone rounded text-ink-obsidian placeholder:text-ink-muted focus:border-bordeaux-velvet focus:ring-1 focus:ring-bordeaux-velvet outline-none transition duration-150 font-body-md text-sm" id="signin-password" placeholder="Enter your password" required="" type="password"/>
+<button aria-label="Toggle password view" class="absolute right-3.5 top-3.5 text-ink-muted hover:text-ink-obsidian transition-colors" onclick="togglePasswordVisibility('signin-password', 'signin-eye')" type="button">
+<span class="material-symbols-outlined text-lg" id="signin-eye">visibility</span>
+</button>
+</div>
+<p class="hidden font-body-sm text-bordeaux-velvet text-xs mt-1" id="signin-password-err">Password is required to access your suite.</p>
+</div>
+<!-- Remember Me Control -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-2.5 cursor-pointer select-none">
+<input class="w-4 h-4 rounded text-bordeaux-velvet focus:ring-bordeaux-velvet border-hairline-stone bg-surface-porcelain cursor-pointer" id="signin-remember" type="checkbox"/>
+<span class="font-body-sm text-ink-taupe text-xs">Keep my private salon active</span>
+</label>
+</div>
+<!-- Submit Atelier Button -->
+<button class="w-full min-h-[48px] py-3.5 px-6 rounded-full bg-bordeaux-velvet hover:bg-bordeaux-noir text-surface-porcelain font-label-lg uppercase tracking-wider text-xs flex items-center justify-center gap-2 transition-all duration-200 shadow-[0_16px_40px_-8px_rgba(59,18,27,0.18)] active:scale-[0.99]" id="btn-signin-submit" type="submit">
+<span id="signin-btn-text">SIGN IN</span>
+<span class="hidden material-symbols-outlined animate-spin text-base" id="signin-btn-spinner">progress_activity</span>
+</button>
+</form>
+<!-- Editorial Hairline Divider -->
+<div class="relative my-7 text-center">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-hairline-stone"></div>
+</div>
+<div class="relative flex justify-center">
+<span class="bg-canvas-silk px-4 font-label-sm text-ink-muted tracking-[0.18em] uppercase text-[10px]">
+                OR CONTINUE WITH
+              </span>
+</div>
+</div>
+<!-- Social Single Sign-On (SSO) Options -->
+<div class="grid grid-cols-2 gap-3.5">
+<!-- Google SSO -->
+<button class="flex items-center justify-center gap-2.5 py-3 px-4 rounded-full bg-surface-porcelain border border-hairline-stone hover:border-bordeaux-velvet hover:bg-surface-alabaster transition-all duration-200 text-ink-obsidian font-label-md text-xs group" onclick="triggerMockSSO('Google')" type="button">
+<svg class="w-4 h-4" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path>
+</svg>
+<span class="group-hover:text-primary transition-colors">Google</span>
+</button>
+<!-- Apple SSO -->
+<button class="flex items-center justify-center gap-2.5 py-3 px-4 rounded-full bg-surface-porcelain border border-hairline-stone hover:border-bordeaux-velvet hover:bg-surface-alabaster transition-all duration-200 text-ink-obsidian font-label-md text-xs group" onclick="triggerMockSSO('Apple')" type="button">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.98.6-2.61 1.34-.56.64-1.05 1.71-.92 2.74 1 .08 2.02-.51 2.6-1.23"></path>
+</svg>
+<span class="group-hover:text-primary transition-colors">Apple</span>
+</button>
+</div>
+<!-- Bottom Switcher Prompt & Guest Navigation -->
+<div class="mt-8 pt-6 border-t border-hairline-stone/60 text-center space-y-3">
+<p class="font-body-sm text-ink-taupe text-xs">
+              New to RYMAE ATELIER? 
+              <button class="font-label-md text-bordeaux-velvet hover:text-bordeaux-noir font-semibold underline underline-offset-4 decoration-bordeaux-velvet/40 ml-1" onclick="switchAuthView('register')" type="button">
+                Create an account
+              </button>
+</p>
+<p>
+<button class="font-label-sm text-ink-muted hover:text-bordeaux-velvet uppercase tracking-wider text-[11px] transition-colors" onclick="exploreAsGuest()" type="button">
+                Explore archive without signing in →
+              </button>
+</p>
+</div>
+</div>
+<!-- ============================================== -->
+<!-- VIEW B: REGISTRATION ("Create an account") -->
+<!-- ============================================== -->
+<div class="hidden transition-all duration-300" id="view-register">
+<header class="mb-8">
+<span class="font-label-md text-champagne-gold tracking-[0.15em] uppercase text-xs">Salon Membership</span>
+<h2 class="font-headline-lg text-ink-obsidian mt-1">Create your style space.</h2>
+<p class="font-body-md text-ink-taupe mt-1.5 font-light">
+              Your wardrobe. Your aesthetic. Your personal stylist.
+            </p>
+</header>
+<form class="space-y-4" id="form-register" novalidate="" onsubmit="handleAuthSubmit(event, 'register')">
+<!-- Full Name -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-ink-obsidian text-xs uppercase tracking-wider" for="reg-name">
+                Full name <span class="text-bordeaux-velvet">*</span>
+</label>
+<input class="w-full px-4 py-3 bg-surface-porcelain border border-hairline-stone rounded text-ink-obsidian placeholder:text-ink-muted focus:border-bordeaux-velvet focus:ring-1 focus:ring-bordeaux-velvet outline-none transition duration-150 font-body-md text-sm" id="reg-name" placeholder="Eleanor Vance" required="" type="text"/>
+<p class="hidden font-body-sm text-bordeaux-velvet text-xs mt-1" id="reg-name-err">Please provide your preferred name.</p>
+</div>
+<!-- Email Address -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-ink-obsidian text-xs uppercase tracking-wider" for="reg-email">
+                Email address <span class="text-bordeaux-velvet">*</span>
+</label>
+<input class="w-full px-4 py-3 bg-surface-porcelain border border-hairline-stone rounded text-ink-obsidian placeholder:text-ink-muted focus:border-bordeaux-velvet focus:ring-1 focus:ring-bordeaux-velvet outline-none transition duration-150 font-body-md text-sm" id="reg-email" placeholder="eleanor@atelier-rymae.com" required="" type="email"/>
+<p class="hidden font-body-sm text-bordeaux-velvet text-xs mt-1" id="reg-email-err">Valid email format required.</p>
+</div>
+<!-- Password with Dynamic Strength Indicator -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-ink-obsidian text-xs uppercase tracking-wider" for="reg-password">
+                Create password <span class="text-bordeaux-velvet">*</span>
+</label>
+<div class="relative">
+<input class="w-full pl-4 pr-11 py-3 bg-surface-porcelain border border-hairline-stone rounded text-ink-obsidian placeholder:text-ink-muted focus:border-bordeaux-velvet focus:ring-1 focus:ring-bordeaux-velvet outline-none transition duration-150 font-body-md text-sm" id="reg-password" oninput="checkPasswordStrength(this.value)" placeholder="Minimum 8 characters" required="" type="password"/>
+<button aria-label="Toggle password view" class="absolute right-3.5 top-3.5 text-ink-muted hover:text-ink-obsidian transition-colors" onclick="togglePasswordVisibility('reg-password', 'reg-eye')" type="button">
+<span class="material-symbols-outlined text-lg" id="reg-eye">visibility</span>
+</button>
+</div>
+<!-- Password Strength Bar -->
+<div class="pt-2">
+<div class="grid grid-cols-4 gap-1.5 h-1">
+<div class="bg-hairline-stone rounded-full transition-colors duration-200" id="bar-1"></div>
+<div class="bg-hairline-stone rounded-full transition-colors duration-200" id="bar-2"></div>
+<div class="bg-hairline-stone rounded-full transition-colors duration-200" id="bar-3"></div>
+<div class="bg-hairline-stone rounded-full transition-colors duration-200" id="bar-4"></div>
+</div>
+<div class="flex items-center justify-between mt-1.5">
+<span class="font-label-sm text-ink-muted text-[10px] uppercase" id="strength-label">Awaiting secret code</span>
+<span class="font-label-sm text-ink-muted text-[10px]">Couture Encryption</span>
+</div>
+</div>
+<p class="hidden font-body-sm text-bordeaux-velvet text-xs mt-1" id="reg-password-err">Password must include at least 8 characters.</p>
+</div>
+<!-- Terms & Salon Privacy Policy -->
+<div class="pt-2">
+<label class="flex items-start gap-2.5 cursor-pointer">
+<input class="w-4 h-4 mt-0.5 rounded text-bordeaux-velvet focus:ring-bordeaux-velvet border-hairline-stone bg-surface-porcelain cursor-pointer" id="reg-terms" required="" type="checkbox"/>
+<span class="font-body-sm text-ink-taupe text-xs leading-relaxed">
+                  I accept the <a class="text-bordeaux-velvet underline underline-offset-2" href="#">Atelier Terms of Service</a> and acknowledge the confidential treatment of my silhouette measurements.
+                </span>
+</label>
+<p class="hidden font-body-sm text-bordeaux-velvet text-xs mt-1" id="reg-terms-err">Please agree to the salon terms.</p>
+</div>
+<!-- Create Account Button -->
+<button class="w-full min-h-[48px] mt-4 py-3.5 px-6 rounded-full bg-bordeaux-velvet hover:bg-bordeaux-noir text-surface-porcelain font-label-lg uppercase tracking-wider text-xs flex items-center justify-center gap-2 transition-all duration-200 shadow-[0_16px_40px_-8px_rgba(59,18,27,0.18)] active:scale-[0.99]" id="btn-reg-submit" type="submit">
+<span id="reg-btn-text">CREATE ACCOUNT</span>
+<span class="hidden material-symbols-outlined animate-spin text-base" id="reg-btn-spinner">progress_activity</span>
+</button>
+</form>
+<!-- Back to Sign In Link -->
+<div class="mt-8 pt-6 border-t border-hairline-stone/60 text-center">
+<p class="font-body-sm text-ink-taupe text-xs">
+              Already have an account? 
+              <button class="font-label-md text-bordeaux-velvet hover:text-bordeaux-noir font-semibold underline underline-offset-4 decoration-bordeaux-velvet/40 ml-1" onclick="switchAuthView('signin')" type="button">
+                Sign in
+              </button>
+</p>
+</div>
+</div>
+<!-- ============================================== -->
+<!-- VIEW C: FORGOT PASSWORD ("Let's get you back in.") -->
+<!-- ============================================== -->
+<div class="hidden transition-all duration-300" id="view-forgot">
+<button class="group mb-6 inline-flex items-center gap-1.5 font-label-md text-ink-taupe hover:text-bordeaux-velvet text-xs transition-colors" onclick="switchAuthView('signin')" type="button">
+<span class="material-symbols-outlined text-sm transition-transform group-hover:-translate-x-1">arrow_back</span>
+<span>Return to Sign In</span>
+</button>
+<header class="mb-8">
+<span class="font-label-md text-champagne-gold tracking-[0.15em] uppercase text-xs">Security Concierge</span>
+<h2 class="font-headline-lg text-ink-obsidian mt-1">Let's get you back in.</h2>
+<p class="font-body-md text-ink-taupe mt-1.5 font-light leading-relaxed">
+              Enter the email address registered with your private salon. We will dispatch an encrypted restoration link to unlock your suite.
+            </p>
+</header>
+<!-- Success Alert State Banner (Revealed dynamically) -->
+<div class="hidden mb-6 p-4 rounded-lg bg-surface-alabaster border-l-2 border-bordeaux-velvet" id="forgot-success-banner">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-bordeaux-velvet text-lg mt-0.5">mark_email_read</span>
+<div>
+<h4 class="font-headline-sm text-xs text-ink-obsidian">Dispatch Successful</h4>
+<p class="font-body-sm text-ink-taupe text-xs mt-0.5">Check your inbox. A secure restoration link has been dispatched to your email address.</p>
+</div>
+</div>
+</div>
+<form class="space-y-5" id="form-forgot" novalidate="" onsubmit="handleAuthSubmit(event, 'forgot')">
+<!-- Email Input -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-ink-obsidian text-xs uppercase tracking-wider" for="forgot-email">
+                Registered email address <span class="text-bordeaux-velvet">*</span>
+</label>
+<input class="w-full px-4 py-3 bg-surface-porcelain border border-hairline-stone rounded text-ink-obsidian placeholder:text-ink-muted focus:border-bordeaux-velvet focus:ring-1 focus:ring-bordeaux-velvet outline-none transition duration-150 font-body-md text-sm" id="forgot-email" placeholder="you@example.com" required="" type="email"/>
+<p class="hidden font-body-sm text-bordeaux-velvet text-xs mt-1" id="forgot-email-err">Please enter your verified email address.</p>
+</div>
+<!-- Submit Button -->
+<button class="w-full min-h-[48px] py-3.5 px-6 rounded-full bg-bordeaux-velvet hover:bg-bordeaux-noir text-surface-porcelain font-label-lg uppercase tracking-wider text-xs flex items-center justify-center gap-2 transition-all duration-200 shadow-[0_16px_40px_-8px_rgba(59,18,27,0.18)] active:scale-[0.99]" id="btn-forgot-submit" type="submit">
+<span id="forgot-btn-text">SEND RESET LINK</span>
+<span class="hidden material-symbols-outlined animate-spin text-base" id="forgot-btn-spinner">progress_activity</span>
+</button>
+</form>
+<!-- Archival Note -->
+<div class="mt-8 p-4 bg-surface-alabaster/70 border border-hairline-stone rounded text-center">
+<p class="font-body-sm text-ink-taupe text-xs">
+              Need direct private client assistance? Contact the <a class="text-bordeaux-velvet font-medium hover:underline" href="mailto:concierge@rymae-atelier.com">Head Stylist Liaison</a>.
+            </p>
+</div>
+</div>
+</div>
+<!-- Atelier Global Footer Bar (Editorial Discipline) -->
+<footer class="w-full pt-8 border-t border-hairline-stone/70 flex flex-col sm:flex-row items-center justify-between text-ink-muted gap-3">
+<div class="flex items-center gap-4 text-xs font-label-sm">
+<span>© 2025 RYMAE ATELIER</span>
+<span class="text-hairline-stone">·</span>
+<a class="hover:text-ink-obsidian transition-colors" href="#">Confidentiality</a>
+<span class="text-hairline-stone">·</span>
+<a class="hover:text-ink-obsidian transition-colors" href="#">Legal Archive</a>
+</div>
+<div class="flex items-center gap-2 text-xs font-label-sm text-champagne-gold">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span>End-to-End Bespoke Security</span>
+</div>
+</footer>
+</div>
+</div>
+<!-- Interactive Concierge Modal / Drawer Simulation -->
+<div class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4" id="concierge-drawer">
+<div class="bg-surface-porcelain w-full max-w-md rounded-xl p-6 sm:p-8 shadow-[0_16px_40px_-8px_rgba(59,18,27,0.2)] border border-hairline-stone relative">
+<button class="absolute top-4 right-4 text-ink-muted hover:text-ink-obsidian" onclick="closeConcierge()">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-champagne-light flex items-center justify-center text-champagne-gold mb-4">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<span class="font-label-md text-champagne-gold uppercase tracking-wider text-xs">Private Client Services</span>
+<h3 class="font-headline-md text-ink-obsidian mt-1">Atelier Concierge</h3>
+<p class="font-body-md text-ink-taupe mt-2 font-light">
+        Our digital salon concierge is available for private VIP client invitations, bespoke tailoring appointments, and identity recovery.
+      </p>
+<div class="mt-6 space-y-3 border-t border-hairline-stone pt-4 font-body-sm text-sm">
+<div class="flex justify-between py-1.5 border-b border-hairline-stone/50">
+<span class="text-ink-muted">Private Liaison:</span>
+<span class="text-ink-obsidian font-medium">+33 1 42 68 55 00</span>
+</div>
+<div class="flex justify-between py-1.5 border-b border-hairline-stone/50">
+<span class="text-ink-muted">Digital Folio:</span>
+<span class="text-ink-obsidian font-medium">concierge@rymae.com</span>
+</div>
+<div class="flex justify-between py-1.5">
+<span class="text-ink-muted">Salon Hours:</span>
+<span class="text-ink-obsidian font-medium">10:00 – 19:00 CET (Mon–Sat)</span>
+</div>
+</div>
+<button class="mt-6 w-full py-3 rounded-full bg-bordeaux-velvet text-surface-porcelain font-label-md text-xs uppercase tracking-wider hover:bg-bordeaux-noir transition-colors" onclick="closeConcierge()">
+        Close Concierge
+      </button>
+</div>
+</div>
+<!-- JavaScript for Interactive Auth Logic & Micro-interactions -->
+<script>
+    // Tab & View Switching (Sign In, Register, Forgot Password)
+    function switchAuthView(viewName) {
+      const vSignin = document.getElementById('view-signin');
+      const vRegister = document.getElementById('view-register');
+      const vForgot = document.getElementById('view-forgot');
+
+      const tabSignin = document.getElementById('tab-signin');
+      const tabRegister = document.getElementById('tab-register');
+
+      // Hide all views first
+      vSignin.classList.add('hidden');
+      vRegister.classList.add('hidden');
+      vForgot.classList.add('hidden');
+
+      // Reset tabs styling
+      if (tabSignin && tabRegister) {
+        tabSignin.className = "px-5 py-1.5 rounded-full font-label-md text-xs transition-all duration-200 text-ink-taupe hover:text-ink-obsidian font-medium";
+        tabRegister.className = "px-5 py-1.5 rounded-full font-label-md text-xs transition-all duration-200 text-ink-taupe hover:text-ink-obsidian font-medium";
+      }
+
+      if (viewName === 'signin') {
+        vSignin.classList.remove('hidden');
+        if (tabSignin) {
+          tabSignin.className = "px-5 py-1.5 rounded-full font-label-md text-xs transition-all duration-200 bg-bordeaux-velvet text-white shadow-sm font-semibold";
+        }
+      } else if (viewName === 'register') {
+        vRegister.classList.remove('hidden');
+        if (tabRegister) {
+          tabRegister.className = "px-5 py-1.5 rounded-full font-label-md text-xs transition-all duration-200 bg-bordeaux-velvet text-white shadow-sm font-semibold";
+        }
+      } else if (viewName === 'forgot') {
+        vForgot.classList.remove('hidden');
+      }
+    }
+
+    // Toggle Password Visibility Eye
+    function togglePasswordVisibility(inputId, iconId) {
+      const field = document.getElementById(inputId);
+      const icon = document.getElementById(iconId);
+      if (!field || !icon) return;
+
+      if (field.type === 'password') {
+        field.type = 'text';
+        icon.textContent = 'visibility_off';
+      } else {
+        field.type = 'password';
+        icon.textContent = 'visibility';
+      }
+    }
+
+    // Dynamic Password Strength Meter
+    function checkPasswordStrength(val) {
+      const bars = [
+        document.getElementById('bar-1'),
+        document.getElementById('bar-2'),
+        document.getElementById('bar-3'),
+        document.getElementById('bar-4')
+      ];
+      const label = document.getElementById('strength-label');
+
+      // Reset bars
+      bars.forEach(b => b.className = "bg-hairline-stone rounded-full transition-colors duration-200");
+
+      if (!val) {
+        label.textContent = "Awaiting secret code";
+        label.className = "font-label-sm text-ink-muted text-[10px] uppercase";
+        return;
+      }
+
+      let score = 0;
+      if (val.length >= 6) score++;
+      if (val.length >= 8 && /[A-Z]/.test(val)) score++;
+      if (/[0-9]/.test(val)) score++;
+      if (/[^A-Za-z0-9]/.test(val)) score++;
+
+      if (score === 1) {
+        bars[0].className = "bg-bordeaux-velvet/60 rounded-full transition-colors duration-200";
+        label.textContent = "Delicate";
+        label.className = "font-label-sm text-bordeaux-velvet text-[10px] uppercase font-semibold";
+      } else if (score === 2) {
+        bars[0].className = "bg-secondary rounded-full transition-colors duration-200";
+        bars[1].className = "bg-secondary rounded-full transition-colors duration-200";
+        label.textContent = "Moderate";
+        label.className = "font-label-sm text-secondary text-[10px] uppercase font-semibold";
+      } else if (score === 3) {
+        bars[0].className = "bg-champagne-gold rounded-full transition-colors duration-200";
+        bars[1].className = "bg-champagne-gold rounded-full transition-colors duration-200";
+        bars[2].className = "bg-champagne-gold rounded-full transition-colors duration-200";
+        label.textContent = "Refined";
+        label.className = "font-label-sm text-champagne-gold text-[10px] uppercase font-semibold";
+      } else if (score >= 4) {
+        bars.forEach(b => b.className = "bg-bordeaux-velvet rounded-full transition-colors duration-200");
+        label.textContent = "Haute Couture Security";
+        label.className = "font-label-sm text-bordeaux-velvet text-[10px] uppercase font-semibold";
+      }
+    }
+
+    // Interactive Submit Handlers with Simulated Async Authentication
+    function handleAuthSubmit(e, formType) {
+      e.preventDefault();
+
+      if (formType === 'signin') {
+        const email = document.getElementById('signin-email');
+        const pass = document.getElementById('signin-password');
+        const emailErr = document.getElementById('signin-email-err');
+        const passErr = document.getElementById('signin-password-err');
+        const feedback = document.getElementById('signin-email-feedback');
+
+        let valid = true;
+
+        if (!email.value || !validateEmail(email.value)) {
+          emailErr.classList.remove('hidden');
+          feedback.classList.remove('hidden');
+          email.classList.add('border-bordeaux-velvet');
+          valid = false;
+        } else {
+          emailErr.classList.add('hidden');
+          feedback.classList.add('hidden');
+          email.classList.remove('border-bordeaux-velvet');
+        }
+
+        if (!pass.value) {
+          passErr.classList.remove('hidden');
+          pass.classList.add('border-bordeaux-velvet');
+          valid = false;
+        } else {
+          passErr.classList.add('hidden');
+          pass.classList.remove('border-bordeaux-velvet');
+        }
+
+        if (!valid) return;
+
+        // Animate Spinner State
+        setButtonLoading('signin', true, 'AUTHENTICATING...');
+        setTimeout(() => {
+          setButtonLoading('signin', false, 'SIGN IN');
+          showToast('Welcome, Client', 'Your personal styling suite is prepared.');
+        }, 1200);
+
+      } else if (formType === 'register') {
+        const name = document.getElementById('reg-name');
+        const email = document.getElementById('reg-email');
+        const pass = document.getElementById('reg-password');
+        const terms = document.getElementById('reg-terms');
+
+        const nameErr = document.getElementById('reg-name-err');
+        const emailErr = document.getElementById('reg-email-err');
+        const passErr = document.getElementById('reg-password-err');
+        const termsErr = document.getElementById('reg-terms-err');
+
+        let valid = true;
+
+        if (!name.value.trim()) {
+          nameErr.classList.remove('hidden');
+          valid = false;
+        } else {
+          nameErr.classList.add('hidden');
+        }
+
+        if (!email.value || !validateEmail(email.value)) {
+          emailErr.classList.remove('hidden');
+          valid = false;
+        } else {
+          emailErr.classList.add('hidden');
+        }
+
+        if (!pass.value || pass.value.length < 8) {
+          passErr.classList.remove('hidden');
+          valid = false;
+        } else {
+          passErr.classList.add('hidden');
+        }
+
+        if (!terms.checked) {
+          termsErr.classList.remove('hidden');
+          valid = false;
+        } else {
+          termsErr.classList.add('hidden');
+        }
+
+        if (!valid) return;
+
+        setButtonLoading('reg', true, 'CREATING ATELIER SPACE...');
+        setTimeout(() => {
+          setButtonLoading('reg', false, 'CREATE ACCOUNT');
+          showToast('Membership Established', 'Your profile and silhouette vault have been initialized.');
+          switchAuthView('signin');
+        }, 1400);
+
+      } else if (formType === 'forgot') {
+        const email = document.getElementById('forgot-email');
+        const emailErr = document.getElementById('forgot-email-err');
+        const banner = document.getElementById('forgot-success-banner');
+
+        if (!email.value || !validateEmail(email.value)) {
+          emailErr.classList.remove('hidden');
+          return;
+        } else {
+          emailErr.classList.add('hidden');
+        }
+
+        setButtonLoading('forgot', true, 'DISPATCHING LINK...');
+        setTimeout(() => {
+          setButtonLoading('forgot', false, 'SEND RESET LINK');
+          banner.classList.remove('hidden');
+          showToast('Encrypted Dispatch', 'Check your inbox for your secure restoration link.');
+        }, 1000);
+      }
+    }
+
+    function setButtonLoading(prefix, isLoading, text) {
+      const btnText = document.getElementById(`${prefix}-btn-text`);
+      const spinner = document.getElementById(`${prefix}-btn-spinner`);
+      const btn = document.getElementById(`btn-${prefix}-submit`);
+
+      if (isLoading) {
+        btnText.textContent = text;
+        spinner.classList.remove('hidden');
+        btn.disabled = true;
+        btn.classList.add('opacity-90');
+      } else {
+        btnText.textContent = text;
+        spinner.classList.add('hidden');
+        btn.disabled = false;
+        btn.classList.remove('opacity-90');
+      }
+    }
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    // SSO Simulation
+    function triggerMockSSO(provider) {
+      showToast(`${provider} Verification`, `Directing through secure ${provider} client protocol...`);
+    }
+
+    // Guest Experience
+    function exploreAsGuest() {
+      showToast('Guest Access Active', 'Entering curated lookbook with preview privileges.');
+    }
+
+    // Toast Functions
+    function showToast(title, message) {
+      const toast = document.getElementById('toast-banner');
+      document.getElementById('toast-title').textContent = title;
+      document.getElementById('toast-msg').textContent = message;
+
+      toast.classList.remove('translate-y-[-120%]', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => {
+        hideToast();
+      }, 4200);
+    }
+
+    function hideToast() {
+      const toast = document.getElementById('toast-banner');
+      toast.classList.add('translate-y-[-120%]', 'opacity-0');
+      toast.classList.remove('translate-y-0', 'opacity-100');
+    }
+
+    // Concierge Modal Actions
+    function openConcierge() {
+      const drawer = document.getElementById('concierge-drawer');
+      drawer.classList.remove('hidden');
+      drawer.classList.add('flex');
+    }
+
+    function closeConcierge() {
+      const drawer = document.getElementById('concierge-drawer');
+      drawer.classList.add('hidden');
+      drawer.classList.remove('flex');
+    }
+  </script>
+</body></html>
